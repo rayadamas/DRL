@@ -2,11 +2,11 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import saudaukarBootcampImg from "../sitepics/blockchain-developer-bootcamp-final-project_0.png";
-import hyperlyzDemoImg from "../sitepics/hyperlyz demo.png";
-import clausuraImg from "../sitepics/clausura.png";
-import solanaGameImg from "../sitepics/Solana sdk.png";
-import zorbImg from "../sitepics/zorb.png";
+import saudaukarBootcampImg from "../lib/sitepics/blockchain-developer-bootcamp-final-project_0.png";
+import hyperlyzDemoImg from "../lib/sitepics/hyperlyz demo.png";
+import clausuraImg from "../lib/sitepics/clausura.png";
+import solanaGameImg from "../lib/sitepics/Solana sdk.png";
+import zorbImg from "../lib/sitepics/zorb.png";
 
 export const links = [
   {
