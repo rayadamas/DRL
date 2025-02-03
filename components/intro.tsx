@@ -28,7 +28,7 @@ export default function Intro() {
             transition={{ type: "tween", duration: 0.2 }}
           >
             <Image
-              src="/IMG_2543.jpg"
+              src="/IMG_2543.png"
               alt="Diamond Portrait"
               width={100}
               height={100}
