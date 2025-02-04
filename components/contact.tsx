@@ -46,7 +46,7 @@ export default function Contact() {
           toast.success("Email sent successfully! 😎");
         }}
       >
-        <input
+        {/* <input
           className="h-14 px-4 rounded-lg borderBlack outline-black dark:bg-slate-50 dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
           name="senderEmail"
           type="email"
@@ -62,7 +62,7 @@ export default function Contact() {
           required
           maxLength={5000}
         />
-        <SubmitButton />
+        <SubmitButton /> */}
       </form>
     </motion.section>
   );
