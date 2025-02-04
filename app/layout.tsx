@@ -10,7 +10,7 @@ import ThemeContextProvider from "@/context/theme-content";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Diamond  Ray Louden | Personal Portfolio",
+  title: "Diamond Ray Louden | Personal Portfolio",
   description:
     "Diamond Ray Louden is a professional with 11 years of experience across retail, healthcare, and tech industries.",
 };
