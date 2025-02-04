@@ -76,14 +76,14 @@ export const experiencesData = [
    icon: React.createElement(""),
    date: "2023",
  },
- {
-   title: "Billing Agent",
-   location: "Luna Medical, Chicago, IL",
-   description:
-     "Reduced overdue invoices by 32%, recovering approximately $81K in outstanding payments.Streamlined billing workflows, improving efficiency and customer satisfaction by 11%",
-   icon: React.createElement(""),
-   date: "2019 - 2020",
- },
+//  {
+//    title: "Billing Agent",
+//    location: "Luna Medical, Chicago, IL",
+//    description:
+//      "Reduced overdue invoices by 32%, recovering approximately $81K in outstanding payments.Streamlined billing workflows, improving efficiency and customer satisfaction by 11%",
+//    icon: React.createElement(""),
+//    date: "2019 - 2020",
+//  },
 ] as const;
 
 
