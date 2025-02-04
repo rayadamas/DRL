@@ -88,13 +88,13 @@ export const experiencesData = [
 
 
 export const projectsData = [
- {
-   title: "Sardaukar Bootcamp",
-   description:
-     'A decentralized app where users chant to the Maker, with data stored on Ethereum via a smart contract.',
-   tags: ["Solidity", "Ethereum", "Smart Contracts", "Next.js"],
-   imageUrl: saudaukarBootcampImg,
- },
+//  {
+//    title: "Sardaukar Bootcamp",
+//    description:
+//      'A decentralized app where users chant to the Maker, with data stored on Ethereum via a smart contract.',
+//    tags: ["Solidity", "Ethereum", "Smart Contracts", "Next.js"],
+//    imageUrl: saudaukarBootcampImg,
+//  },
  {
    title: "Hyperlyz Demo",
    description:
@@ -151,11 +151,11 @@ export const skillsData = [
   "Hardhat",
   "Foundry",
   "Thirdweb",
-  "Blockchain/Web3 Analysis",
+  "Blockchain Analysis",
 
   // AI & Data
-  "AI Prompt Engineering",
-  "Reporting/Data Analysis",
+  "Prompt Engineering",
+  "Data Analysis",
   "Business Process Analysis",
 
   // DevOps & Tools
