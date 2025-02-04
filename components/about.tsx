@@ -20,7 +20,7 @@ export default function About() {
       <p className="mb-3">
         {" "}
         With a strong background in <span className="font-medium">business analysis, AI-driven strategy,
-        and blockchain technology,</span>I thrive at the intersection of
+        and blockchain technology,</span> I thrive at the intersection of
         innovation and efficiency. My experience spans industries such as
         {" "}
         <span className="font-medium">
@@ -39,17 +39,16 @@ export default function About() {
           React, Next.js, JavaScript/TypeScript, and Solidity
         </span>.
         I am also familiar with Python and SQL. I am always
-        looking to learn new technologies. I am currently studying for a{" "}
-        <span className="font-medium">CCNA certification</span>. as a software
-        developer.
+        looking to learn new things. I am currently studying for a{" "}
+        <span className="font-medium">CCNA certification</span>
         {" "}
         I am currently looking for a{" "}
-        <span className="font-medium">full-time position</span> as a business analyst.
+        <span className="font-medium">full-time (remote/hybrid) position</span> as a business analyst.
       </p>
       <p>
         <span className="italic">I'm a quintessential generalist</span>, I enjoy analyzing
-        the crypto markets, diving deep into esoteric topics, creating music as I'm a certified Audio Engineer & a DJ, 
-        and watching anime, researching different types of subject matter, and skateboarding. I
+        the crypto markets, diving deep into esoteric topics, creating/listening music as I'm a certified Audio Engineer & a DJ, 
+        watching anime, researching different types of subject matter, and skateboarding. I
         also enjoy <span className="font-medium">learning new things</span>. I
         am currently learning about{" "}
         <span className="font-medium">business sales</span> and{" "}
