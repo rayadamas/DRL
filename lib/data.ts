@@ -40,7 +40,7 @@ export const experiencesData = [
    title: "Experience Account Management Analyst",
    location: "Accenture",
    description:
-     "I analyzed business processes, optimize AI prompt strategies, and support marketing and CRM initiatives for clients across healthcare, CPG, and tech industries.",
+     "I analyzed business processes, optimized AI prompt strategies, and support marketing and CRM initiatives for clients across healthcare, CPG, and tech industries.",
    icon: React.createElement(""),
    date: "2022 - Present",
  },
