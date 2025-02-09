@@ -46,7 +46,7 @@ export const experiencesData = [
  },
  {
    title: "Technical Writer",
-   location: "Amazon Project Neo",
+   location: "Amazon Project Neo(ACN)",
    description:
      "Developed and refined AI prompts to ensure consistent and accurate LLM outputs across varied topics. Drove peer review processes, providing guidance to pod teammates on optimizing prompt strategies.",
    icon: React.createElement(""),
@@ -54,7 +54,7 @@ export const experiencesData = [
  },
  {
    title: "Customer Preference Management Analyst",
-   location: "Walgreens Boots Alliance",
+   location: "Walgreens Boots Alliance(ACN)",
    description:
      "Mapped out digital/physical touchpoints for customer preference data collection. Developed a central playbook for expanding preference management across new channels.",
    icon: React.createElement(""),
@@ -62,7 +62,7 @@ export const experiencesData = [
  },
  {
    title: "CRM Apprentice",
-   location: "Maserati",
+   location: "Maserati(ACN)",
    description:
      "Audited existing CRM systems and recommended enhancements for improved process efficiency. Provided regular status reports and project documentation to ensure stakeholder alignment",
    icon: React.createElement(""),
@@ -70,7 +70,7 @@ export const experiencesData = [
  },
  {
    title: "CPG Marketing & Commerce Advisory",
-   location: "Mondelez",
+   location: "Mondelez(ACN)",
    description:
      "Partnered with cross-functional teams to analyze consumer data and streamline marketing campaigns. Leveraged AI-driven insights to optimize communication strategies",
    icon: React.createElement(""),
