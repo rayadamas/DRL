@@ -4,7 +4,15 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { BsArrowDown, BsArrowRight, BsCCircleFill, BsDiamond, BsDiamondFill, BsGithub, BsLinkedin } from "react-icons/bs";
+import {
+  BsArrowDown,
+  BsArrowRight,
+  BsCCircleFill,
+  BsDiamond,
+  BsDiamondFill,
+  BsGithub,
+  BsLinkedin,
+} from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useActiveSectionContext } from "@/context/active-section-context";
@@ -57,12 +65,46 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Howdy, I'm Diamond Ray Louden. </span><br />
+        <span className="font-bold">Howdy, I'm Diamond Ray Louden. </span>
+        <br />
         <span className="font-bold">I'm a</span>
-        <span className="font-bold"> forward-thinking generalist who operates at the intersection
-         of technology and culture</span> with about
-        <span className="font-bold">{" "}11 years</span> of experience. I enjoy
-        <span className="italic"> continously learning, growing, and helping whatever environment I find myself in</span>.
+        <span className="font-bold">
+          {" "}
+          forward-thinking generalist who operates at the intersection of
+          technology and culture
+        </span>{" "}
+        with about
+        <span className="font-bold"> 11 years</span> of experience. I enjoy
+        <span className="font-bold">
+          {" "}
+          continously learning, growing, and helping whatever environment I find
+          myself in
+        </span>
+        . <br></br>
+        <span>I am also a </span>{" "}
+        <span className="font-bold">
+          <a
+            href="https://www.mixcloud.com/37rays/aaerg-mix/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            DJ
+          </a>
+          ,{" "}
+        </span>
+        <span className="font-bold">
+          Certified Audio Engineer, and amateur{" "}
+          <a
+            href="https://www.youtube.com/@VinoMusicMan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            videographer
+          </a>
+          .
+        </span>
       </motion.h1>
       <motion.div
         className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
