@@ -73,8 +73,8 @@ export default function Intro() {
           multidisciplinary builder who turns ideas into systems that work.
           I thrive in dynamic environments where learning fast, adapting gracefully, and helping teams move with purpose are key.
         </span>{" "}
-        with
-        <span className="font-bold"> 11 years</span> of experience. I enjoy
+        With
+        <span className="font-bold"> 11 years</span> of experience, I enjoy
         <span className="font-bold">
           {" "}
           continously learning, growing, and helping whatever environment I find
