@@ -70,10 +70,10 @@ export default function Intro() {
         <span className="font-bold">I'm a</span>
         <span className="font-bold">
           {" "}
-          forward-thinking generalist who operates at the intersection of
-          technology and culture
+          multidisciplinary builder who turns ideas into systems that work.
+          I thrive in dynamic environments where learning fast, adapting gracefully, and helping teams move with purpose are key.
         </span>{" "}
-        with about
+        with
         <span className="font-bold"> 11 years</span> of experience. I enjoy
         <span className="font-bold">
           {" "}
@@ -81,10 +81,10 @@ export default function Intro() {
           myself in
         </span>
         . <br></br>
-        <span>I am also a </span>{" "}
+        <span>Outside of work, I am also a </span>{" "}
         <span className="font-bold">
           <a
-            href="https://www.mixcloud.com/37rays/aaerg-mix/"
+            href="https://www.mixcloud.com/gemstonebando/"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
@@ -94,7 +94,7 @@ export default function Intro() {
           ,{" "}
         </span>
         <span className="font-bold">
-          Certified Audio Engineer, and amateur{" "}
+          Certified Audio Engineer, and {" "}
           <a
             href="https://www.youtube.com/@VinoMusicMan"
             target="_blank"
@@ -103,7 +103,7 @@ export default function Intro() {
           >
             videographer
           </a>
-          .
+          . These are all expressions of the same instinct: to blend precision, rhythm, and storytelling into everything I create.
         </span>
       </motion.h1>
       <motion.div
@@ -124,7 +124,7 @@ export default function Intro() {
         </Link>
         <a
           className="group bg-slate-50 text-black px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-slate-50/10 dark:text-slate-50"
-          href="/DRL_CV_bdr.pdf"
+          href="/DRLCVSales_10.2025.pdf"
           download
         >
           Download My Resume{" "}
