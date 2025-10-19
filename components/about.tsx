@@ -43,15 +43,14 @@ export default function About() {
         <span className="font-medium">CCNA certification</span>
         {" "}
         I am currently looking for a{" "}
-        <span className="font-medium">full-time (remote/hybrid) position</span> as a business analyst.
+        <span className="font-medium">full-time position</span> in tech sales.
       </p>
       <p>
         <span className="italic">I'm a quintessential generalist</span>, I enjoy analyzing
         the crypto markets, diving deep into esoteric topics, creating/listening music as I'm a certified Audio Engineer & a DJ, 
         watching anime, researching different types of subject matter, and skateboarding. I
         also enjoy <span className="font-medium">learning new things</span>. I
-        am currently learning about{" "}
-        <span className="font-medium">business sales</span> and{" "}
+        am currently learning {" "}
         <span className="font-medium">how to be a better storyteller</span>.
       </p>
     </motion.section>
