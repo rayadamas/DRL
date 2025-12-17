@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Resend } from "resend";
+import { render } from "@react-email/render";
 import { validateString, validateEmail, sanitizeString, getErrorMessage } from "@/lib/utils";
 import ContactFormEmail from "@/email/contact-form-email";
 
@@ -42,15 +43,20 @@ export const sendEmail = async (formData: FormData) => {
 
   let data
   try {
+    // Render the React email component to HTML ourselves to avoid renderToReadableStream issues
+    const emailHtml = await render(
+      React.createElement(ContactFormEmail, {
+        message: sanitizedMessage,
+        senderEmail: senderEmail as string
+      })
+    );
+
     data = await resend.emails.send({
       from: 'Contact Form <onboarding@resend.dev>',
       to: 'diamondlouden@gmail.com',
       subject: 'Message from contact form',
       reply_to: senderEmail as string,
-      react: React.createElement(ContactFormEmail, {
-        message: sanitizedMessage,
-        senderEmail: senderEmail as string
-      })
+      html: emailHtml,
     })
   } catch (error: unknown) {
     return {
