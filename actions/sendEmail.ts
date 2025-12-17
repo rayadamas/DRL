@@ -2,10 +2,16 @@
 
 import React from "react";
 import { Resend } from "resend";
-import { validateString, getErrorMessage } from "@/lib/utils";
+import { validateString, validateEmail, sanitizeString, getErrorMessage } from "@/lib/utils";
 import ContactFormEmail from "@/email/contact-form-email";
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resendApiKey = process.env.RESEND_API_KEY
+
+if (!resendApiKey) {
+  throw new Error("RESEND_API_KEY environment variable is not set")
+}
+
+const resend = new Resend(resendApiKey)
 
 export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get('senderEmail')
@@ -17,11 +23,20 @@ export const sendEmail = async (formData: FormData) => {
     }
   }
 
+  if (!validateEmail(senderEmail as string)) {
+    return {
+      error: "Invalid email format"
+    }
+  }
+
   if (!validateString(message, 5000)) {
     return {
       error: "Invalid message"
     }
   }
+
+  // Sanitize message content to prevent XSS (email address is validated separately)
+  const sanitizedMessage = sanitizeString(message as string)
 
   let data
   try {
@@ -30,9 +45,8 @@ export const sendEmail = async (formData: FormData) => {
       to: 'diamondlouden@gmail.com',
       subject: 'Message from contact form',
       reply_to: senderEmail as string,
-      // text: message as string
       react: React.createElement(ContactFormEmail, {
-        message: message as string,
+        message: sanitizedMessage,
         senderEmail: senderEmail as string
       })
     })

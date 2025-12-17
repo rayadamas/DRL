@@ -30,7 +30,7 @@ export default function About() {
         enhanced customer engagement. My <span className="underline">favorite</span> part about technology is its ability
         to streamline complex challenges into elegant, data-driven solutions.
         {" "}
-        <span className="italic">My core expertice includes, </span>
+        <span className="italic">My core expertise includes, </span>
         business operations analysis, blockchain/web3 analysis, AI prompt
         engineering, and technical writing.
         My core stack is
