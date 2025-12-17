@@ -5,15 +5,17 @@ import { Resend } from "resend";
 import { validateString, validateEmail, sanitizeString, getErrorMessage } from "@/lib/utils";
 import ContactFormEmail from "@/email/contact-form-email";
 
-const resendApiKey = process.env.RESEND_API_KEY
-
-if (!resendApiKey) {
-  throw new Error("RESEND_API_KEY environment variable is not set")
-}
-
-const resend = new Resend(resendApiKey)
-
 export const sendEmail = async (formData: FormData) => {
+  const resendApiKey = process.env.RESEND_API_KEY
+
+  if (!resendApiKey) {
+    return {
+      error: "Email service is not configured. Please contact the administrator."
+    }
+  }
+
+  const resend = new Resend(resendApiKey)
+
   const senderEmail = formData.get('senderEmail')
   const message = formData.get('message')
 
