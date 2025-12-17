@@ -8,16 +8,20 @@ const nextConfig = {
       };
     }
     
+    // Externalize resend and its nested dependencies to prevent bundling issues
+    if (isServer) {
+      config.externals = config.externals || [];
+      if (Array.isArray(config.externals)) {
+        config.externals.push('resend');
+      } else {
+        config.externals = [config.externals, 'resend'];
+      }
+    }
+    
     return config;
   },
-  // Ensure server components can access external packages
-  serverComponentsExternalPackages: [
-    'resend',
-    '@react-email/components',
-    '@react-email/render',
-  ],
   // Transpile packages that might have ES modules
-  transpilePackages: ['@react-email/components', '@react-email/tailwind', '@react-email/render'],
+  transpilePackages: ['@react-email/components', '@react-email/tailwind'],
 };
 
 module.exports = nextConfig;
