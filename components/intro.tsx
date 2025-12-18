@@ -103,7 +103,7 @@ export default function Intro() {
           >
             videographer
           </a>
-          . These are all expressions of the same instinct: to blend precision, rhythm, and storytelling into everything I create.
+          . These are all expressions of the same instinct: to blend efficiency, rhythm, and storytelling into everything I create.
         </span>
       </motion.h1>
       <motion.div
@@ -124,7 +124,7 @@ export default function Intro() {
         </Link>
         <a
           className="group bg-slate-50 text-black px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-slate-50/10 dark:text-slate-50"
-          href="/DRLCVSales_10.2025.pdf"
+          href="/DRLCV_112025.pdf"
           download
         >
           Download My Resume{" "}

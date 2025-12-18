@@ -31,19 +31,17 @@ export default function About() {
         to streamline complex challenges into elegant, data-driven solutions.
         {" "}
         <span className="italic">My core expertise includes, </span>
-        business operations analysis, blockchain/web3 analysis, AI prompt
+        consulting, blockchain/web3 analysis, AI prompt
         engineering, and technical writing.
         My core stack is
         {" "}
         <span className="font-medium">
           React, Next.js, JavaScript/TypeScript, and Solidity
         </span>.
-        I am also familiar with Python and SQL. I am always
-        looking to learn new things. I am currently studying for a{" "}
-        <span className="font-medium">CCNA certification.</span>
+        I am also familiar with Python and Solana. I am always
+        looking to learn new things. I am currently developing an{" "}
+        <span className="font-medium">agentic blockchain.</span>
         {" "}
-        I am currently looking for a{" "}
-        <span className="font-medium">full-time role</span> in tech sales.
       </p>
       <p>
         <span className="italic">I'm a quintessential generalist</span>, I enjoy analyzing
