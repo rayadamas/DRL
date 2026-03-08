@@ -84,7 +84,7 @@ export default function Intro() {
         <span>Outside of work, I am also a </span>{" "}
         <span className="font-bold">
           <a
-            href="https://www.mixcloud.com/gemstonebando/"
+            href="https://www.mixcloud.com/djdiaray/"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
@@ -124,7 +124,7 @@ export default function Intro() {
         </Link>
         <a
           className="group bg-slate-50 text-black px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-slate-50/10 dark:text-slate-50"
-          href="/DRLCV_112025.pdf"
+          href="/LoudenDiamond_resume_32026 copy.pdf"
           download
         >
           Download My Resume{" "}

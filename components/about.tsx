@@ -38,7 +38,7 @@ export default function About() {
         <span className="font-medium">
           React, Next.js, JavaScript/TypeScript, and Solidity
         </span>.
-        I am also familiar with Python and Solana. I am always
+        I am also familiar with Python and SQL. I am always
         looking to learn new things. I am currently developing an{" "}
         <span className="font-medium">agentic blockchain.</span>
         {" "}
