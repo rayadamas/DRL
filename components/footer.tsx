@@ -2,15 +2,15 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="mb-10 px-4 text-center text-gray-500">
-      <small className="mb-2 block text-xs">
-        &copy; 2025 Diamond Ray Louden. (Inspired by Dez.) All rights reserved.
-      </small>
-      <p className="text-xs">
-        <span className="font-semibold">About this website:</span> built w/
-        React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS,
-        Framer Motion, React Email & Resend, hosted on Vercel
-      </p>
+    <footer className="py-10 px-4 border-t border-swiss-border">
+      <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="swiss-label text-swiss-text-secondary">
+          &copy; {new Date().getFullYear()} Diamond Ray Louden
+        </p>
+        <p className="text-xs text-swiss-text-secondary text-center sm:text-right">
+          Built with Next.js, TypeScript, Tailwind & Framer Motion
+        </p>
+      </div>
     </footer>
   );
 }
