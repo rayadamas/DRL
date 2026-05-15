@@ -75,7 +75,7 @@ const colors = {
   bg: new THREE.Color("#121218"),
   color1: new THREE.Color("#82d173"),
   color2: new THREE.Color("#ff66cc"),
-  particles: new THREE.Color("#2dd4bf"),
+  particles: new THREE.Color("#1034a7"),
 };
 
 function createCircleTexture() {
