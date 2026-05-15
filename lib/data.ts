@@ -1,3 +1,7 @@
+import cosmicWeekTrackerImg from "../lib/sitepics/cosmic-week-tracker.png";
+import aiSecurityScannerImg from "../lib/sitepics/ai-security-scanner-python.png";
+import aiWorkflowN8nImg from "../lib/sitepics/ai-workflow-n8n.png";
+import ragChatbotBedrockImg from "../lib/sitepics/rag-chatbot-bedrock.png";
 import hyperlyzDemoImg from "../lib/sitepics/hyperlyz-demo.png";
 import clausuraImg from "../lib/sitepics/clausura.png";
 import solanaGameImg from "../lib/sitepics/Solana Gaming DeFi SDK.png";
@@ -212,17 +216,56 @@ export const experiencesData: readonly ExperienceItem[] = [
 ];
 
 export type ProjectData = {
+  /** Stable key when titles might repeat later */
+  id?: string;
   title: string;
   description: string;
   tags: readonly string[];
   imageUrl: StaticImageData;
-  /** Primary outbound link (typically GitHub repo) */
-  link: string;
+  /** Primary outbound link (GitHub repo or external URL); omit for linkless cards */
+  link?: string;
   /** Optional live site / demo / secondary link */
   liveLink?: string;
+  /** Optional grid span for featured bento tiles (e.g. `sm:col-span-2 lg:col-span-8`) */
+  spanClass?: string;
 };
 
 export const projectsData: readonly ProjectData[] = [
+  {
+    id: "cosmic-week-tracker",
+    title: "Cosmic Week Tracker and Mood Guide",
+    description:
+      "PartyRock app that blends astronomy, numerology, and mood with moon phase data, Personal Day numbers, and transit-style insights.",
+    tags: ["PartyRock", "Python", "numerology", "astronomy"],
+    imageUrl: cosmicWeekTrackerImg,
+    link: "https://partyrock.aws/u/diaraylouden/d7rzs7WNA/Cosmic-Week-Tracker-and-Mood-Guide",
+    spanClass: "sm:col-span-2 lg:col-span-8",
+  },
+  {
+    id: "ai-security-scanner-python",
+    title: "AI Security Scanner for Python",
+    description:
+      "NextWork portfolio walkthrough documenting an AI-assisted security audit flow for Python codebases.",
+    tags: ["Python", "security", "AI"],
+    imageUrl: aiSecurityScannerImg,
+    link: "https://learn.nextwork.org/loving_cyan_zealous_bacuri/docs/ai-security-audit",
+  },
+  {
+    id: "ai-workflow-n8n",
+    title: "Building an AI Workflow",
+    description:
+      "Automations that connect conversational triggers, an AI agent with tools, GPT-4o, and Google Calendar event creation.",
+    tags: ["n8n", "automation", "ChatGPT", "Google Calendar"],
+    imageUrl: aiWorkflowN8nImg,
+  },
+  {
+    id: "rag-chatbot-bedrock",
+    title: "Set Up a RAG Chatbot in Bedrock",
+    description:
+      "Serverless retrieval-augmented chat on AWS Bedrock with cited answers, backed by document storage patterns on S3 and Lambda.",
+    tags: ["AWS", "Bedrock", "RAG", "Lambda", "S3"],
+    imageUrl: ragChatbotBedrockImg,
+  },
   {
     title: "Hyperlyz Demo",
     description:
