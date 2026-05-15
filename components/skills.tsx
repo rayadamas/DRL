@@ -9,13 +9,14 @@ import { motion } from "framer-motion";
 const fadeInAnimationVariants = {
   initial: {
     opacity: 0,
-    y: 100,
+    y: 20,
   },
   animate: (index: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.05 * index,
+      delay: 0.03 * index,
+      duration: 0.4,
     },
   }),
 };
@@ -27,20 +28,18 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
+      className="mb-28 max-w-4xl mx-auto px-4 scroll-mt-28 sm:mb-40"
     >
-      <SectionHeading>My Skills</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
+      <SectionHeading>Skills</SectionHeading>
+      <ul className="flex flex-wrap justify-center gap-3">
         {skillsData.map((skill, index) => (
           <motion.li
-            className="bg-slate-50 borderBlack rounded-xl px-5 py-3 dark:bg-slate-50/10 dark:text-slate-50/80"
+            className="px-4 py-2.5 bg-swiss-card border border-swiss-border rounded-lg text-sm font-medium hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300"
             key={index}
             variants={fadeInAnimationVariants}
             initial="initial"
             whileInView="animate"
-            viewport={{
-              once: true,
-            }}
+            viewport={{ once: true }}
             custom={index}
           >
             {skill}

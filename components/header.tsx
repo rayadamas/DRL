@@ -11,47 +11,52 @@ export default function Header() {
     useActiveSectionContext();
 
   return (
-    <header className="z-[999] relative">
-      <motion.div
-        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[36rem] sm:rounded-full dark:bg-gray-900 dark:border-black/50 dark:bg-opacity-70"
-        initial={{ y: -100, x: "-50%", opacity: 0 }}
-        animate={{ y: 0, x: "-50%", opacity: 1 }}
-      ></motion.div>
-      <nav className="flex fixed top-[0.15rem] left-1/2 h-12 -translate-x-1/2 py-2 sm:top-[1.7rem] sm:h-[initial] sm:py-0">
-        <ul className="flex w-[22rem] flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500 sm:w-[initial] sm:flex-nowrap sm:gap-5">
-          {links.map((link) => (
+    <header className="z-[999] fixed top-0 left-0 right-0 flex justify-center pt-4 sm:pt-6 px-2">
+      <motion.nav
+        className="px-1.5 sm:px-3 py-1.5 sm:py-2 bg-swiss-bg/70 backdrop-blur-md border border-swiss-border/50 rounded-full max-w-full overflow-x-auto"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <ul className="flex items-center gap-0 sm:gap-0.5 text-[0.7rem] sm:text-[0.85rem] font-medium text-swiss-text-secondary">
+          {links.map((link, index) => (
             <motion.li
-              className="h-3/4 flex items-center justify-center relative"
               key={link.hash}
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: index * 0.05, duration: 0.4 }}
             >
               <Link
                 className={clsx(
-                  "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-200",
+                  "relative px-2 sm:px-3 py-1 sm:py-1.5 rounded-full block transition-all duration-200 whitespace-nowrap",
                   {
-                    "text-gray-950 dark:text-gray-200":
-                      activeSection === link.name,
+                    "text-swiss-text": activeSection === link.name,
+                    "hover:text-swiss-text": activeSection !== link.name,
                   }
                 )}
                 href={link.hash}
                 onClick={() => {
-                  setActiveSection(link.name), setTimeOfLastClick(Date.now());
+                  setActiveSection(link.name);
+                  setTimeOfLastClick(Date.now());
                 }}
               >
-                {link.name}
                 {link.name === activeSection && (
                   <motion.span
-                    className="bg-pink-200 rounded-full absolute inset-0 -z-10 dark:bg-[#7fc8f8]"
+                    className="absolute inset-0 bg-swiss-accent/25 rounded-full -z-10"
                     layoutId="activeSection"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  ></motion.span>
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 30,
+                    }}
+                  />
                 )}
+                {link.name}
               </Link>
             </motion.li>
           ))}
         </ul>
-      </nav>
+      </motion.nav>
     </header>
   );
 }

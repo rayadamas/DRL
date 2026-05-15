@@ -6,68 +6,77 @@ import brxImg from "../lib/sitepics/brx.png";
 import mintingMelodiesImg from "../lib/sitepics/minting-melodies.png";
 import web3rsvpImg from "../lib/sitepics/web3rsvp.png";
 import sardaukarImg from "../lib/sitepics/sardaukar.png";
+import type { StaticImageData } from "next/image";
 
 export const links = [
-  {
-    name: "Home",
-    hash: "#home",
-  },
-  {
-    name: "About",
-    hash: "#about",
-  },
-  {
-    name: "Projects",
-    hash: "#projects",
-  },
-  {
-    name: "Skills",
-    hash: "#skills",
-  },
-  {
-    name: "Experience",
-    hash: "#experience",
-  },
-  {
-    name: "Contact",
-    hash: "#contact",
-  },
+  { name: "Home", hash: "#home" },
+  { name: "About", hash: "#about" },
+  { name: "Projects", hash: "#projects" },
+  { name: "Skills", hash: "#skills" },
+  { name: "Experience", hash: "#experience" },
+  { name: "Contact", hash: "#contact" },
 ] as const;
 
-export const experiencesData = [
+export type ExperienceItem = {
+  title: string;
+  company: string;
+  date: string;
+  description: string;
+  type: "work" | "education";
+};
+
+export const experiencesData: readonly ExperienceItem[] = [
   {
     title: "Experience Account Management Analyst",
-    location: "Accenture",
+    company: "Accenture",
+    date: "Present",
     description:
-      "I analyzed business processes, optimized AI prompt strategies, and support marketing and CRM initiatives for clients across healthcare, CPG, and tech industries.",
+      "Analyzed business processes, optimized AI prompt strategies, and supported marketing and CRM initiatives for clients across healthcare, CPG, and tech industries.",
+    type: "work",
   },
   {
     title: "Technical Writer",
-    location: "Amazon Project Neo(ACN)",
+    company: "Amazon Project Neo (ACN)",
+    date: "Recent",
     description:
       "Developed and refined AI prompts to ensure consistent and accurate LLM outputs across varied topics. Drove peer review processes, providing guidance to pod teammates on optimizing prompt strategies.",
+    type: "work",
   },
   {
     title: "Customer Preference Management Analyst",
-    location: "Walgreens Boots Alliance(ACN)",
+    company: "Walgreens Boots Alliance (ACN)",
+    date: "Recent",
     description:
-      "Mapped out digital/physical touchpoints for customer preference data collection. Developed a central playbook for expanding preference management across new channels.",
+      "Mapped digital and physical touchpoints for customer preference data collection. Developed a central playbook for expanding preference management across new channels.",
+    type: "work",
   },
   {
     title: "CRM Apprentice",
-    location: "Maserati(ACN)",
+    company: "Maserati (ACN)",
+    date: "Recent",
     description:
-      "Audited existing CRM systems and recommended enhancements for improved process efficiency. Provided regular status reports and project documentation to ensure stakeholder alignment",
+      "Audited existing CRM systems and recommended enhancements for improved process efficiency. Provided regular status reports and project documentation to ensure stakeholder alignment.",
+    type: "work",
   },
   {
     title: "CPG Marketing & Commerce Advisory",
-    location: "Mondelez(ACN)",
+    company: "Mondelez (ACN)",
+    date: "Recent",
     description:
-      "Partnered with cross-functional teams to analyze consumer data and streamline marketing campaigns. Leveraged AI-driven insights to optimize communication strategies",
+      "Partnered with cross-functional teams to analyze consumer data and streamline marketing campaigns. Leveraged AI-driven insights to optimize communication strategies.",
+    type: "work",
   },
-] as const;
+];
 
-export const projectsData = [
+export type ProjectData = {
+  title: string;
+  description: string;
+  tags: readonly string[];
+  imageUrl: StaticImageData;
+  link?: string;
+};
+
+export const projectsData: readonly ProjectData[] = [
   {
     title: "Hyperlyz Demo",
     description:
@@ -79,13 +88,13 @@ export const projectsData = [
     title: "Clausura",
     description:
       "A modular, open-source music platform designed to help creators share, publish, and remix content.",
-    tags: ["web3", "Typescript", "JavaScript", "Shell", "CSS"],
+    tags: ["web3", "TypeScript", "JavaScript", "Shell", "CSS"],
     imageUrl: clausuraImg,
   },
   {
-    title: "Solana Flutter Defi SDK",
+    title: "Solana Flutter DeFi SDK",
     description:
-      "Wormhole bridge integrated into an NFT Dating mobile App, which is powered by the open-source Canoe-Flutter-DeFi SDK.",
+      "Wormhole bridge integrated into an NFT Dating mobile App, powered by the open-source Canoe-Flutter-DeFi SDK.",
     tags: ["Dart", "Kotlin", "Java", "Python", "CSS"],
     imageUrl: solanaGameImg,
   },
@@ -93,20 +102,20 @@ export const projectsData = [
     title: "Zorbz Data Visualizer",
     description:
       "An MVP data visualization tool using ZORB metadata and Zora's API to abstract blockchain data into visuals.",
-    tags: ["p5.js", "JavaScript", "Typescript", "web3"],
+    tags: ["p5.js", "JavaScript", "TypeScript", "web3"],
     imageUrl: zorbImg,
   },
   {
     title: "BRX / Bricks",
     description:
-      "A web3 platform for fractional real estate investing — own hassle-free shares of properties starting at $2,500 via the Bricks Deal Room.",
+      "A web3 platform for fractional real estate investing — own hassle-free shares of properties starting at $2,500.",
     tags: ["Next.js", "Solidity", "TypeScript", "web3", "DeFi"],
     imageUrl: brxImg,
   },
   {
     title: "KM Collection — Pinball Spring",
     description:
-      "An NFT minting site for the 'Pinball Spring' collection, showcasing on-chain music and visual artwork.",
+      "An NFT minting site for the Pinball Spring collection, showcasing on-chain music and visual artwork.",
     tags: ["Next.js", "Solidity", "JavaScript", "web3", "NFT"],
     imageUrl: mintingMelodiesImg,
   },
@@ -124,10 +133,9 @@ export const projectsData = [
     tags: ["Solidity", "Ethereum", "Smart Contracts", "Next.js"],
     imageUrl: sardaukarImg,
   },
-] as const;
+];
 
 export const skillsData = [
-  // Frontend & Web Development
   "HTML",
   "CSS",
   "JavaScript",
@@ -136,15 +144,11 @@ export const skillsData = [
   "Next.js",
   "Tailwind",
   "Redux",
-
-  // Backend & API Development
   "Node.js",
   "Express",
   "GraphQL",
   "PostgreSQL",
   "Django",
-
-  // Blockchain & Web3
   "Solidity",
   "Ethereum",
   "Truffle",
@@ -152,21 +156,15 @@ export const skillsData = [
   "Foundry",
   "Thirdweb",
   "Blockchain Analysis",
-
-  // AI & Data
   "Prompt Engineering",
   "Data Analysis",
   "Business Process Analysis",
-
-  // DevOps & Tools
   "Git",
   "Docker",
   "AWS",
   "Workfront",
   "Jira",
   "MS Office Tools",
-
-  // Business & Strategy
   "Business Model Strategy",
   "Business Operations Management",
   "Client & Account Management",

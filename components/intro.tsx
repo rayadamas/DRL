@@ -4,9 +4,8 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { BsDiamondFill, BsLinkedin } from "react-icons/bs";
+import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
-import { FaGithubSquare } from "react-icons/fa";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { useSectionInView } from "@/lib/hooks";
 
@@ -18,125 +17,121 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-28"
+      className="mb-28 max-w-4xl mx-auto px-4 sm:mb-40 scroll-mt-28"
     >
-      <div className="flex items-center justify-center">
-        <div className="relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "tween", duration: 0.2 }}
-          >
+      <div className="flex flex-col items-center text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="relative mb-8"
+        >
+          <div className="relative">
             <Image
               src="/IMG_2543.JPG"
-              alt="Diamond Portrait"
-              width={100}
-              height={100}
+              alt="Diamond Ray Louden"
+              width={120}
+              height={120}
               quality={95}
-              priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+              priority
+              className="h-28 w-28 rounded-full object-cover border-4 border-swiss-card shadow-lg"
             />
-          </motion.div>
-          <motion.span
-            className="absolute bottom-0 right-0 text-4xl"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 125,
-              delay: 0.1,
-              duration: 0.7,
+            <span className="absolute bottom-1 right-1 w-6 h-6 bg-green-500 rounded-full border-4 border-swiss-bg" />
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+          className="mb-6"
+        >
+          <h1 className="swiss-heading text-4xl sm:text-5xl md:text-6xl mb-4">
+            Diamond Ray Louden
+          </h1>
+          <RoleLabel />
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="swiss-body text-lg sm:text-xl text-swiss-text-secondary max-w-2xl mb-10 leading-relaxed"
+        >
+          Multidisciplinary builder who turns ideas into systems that work.{" "}
+          <span className="text-swiss-text font-medium">11 years</span> of
+          experience across retail, healthcare, and tech — with strengths in{" "}
+          <span className="text-swiss-text font-medium">React</span>,{" "}
+          <span className="text-swiss-text font-medium">Next.js</span>, and{" "}
+          <span className="text-swiss-text font-medium">Web3</span>.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3"
+        >
+          <Link
+            href="#contact"
+            className="group flex items-center gap-2 px-7 py-3.5 bg-swiss-text text-swiss-bg rounded-full font-medium hover:bg-swiss-accent transition-all duration-300 hover:scale-105"
+            onClick={() => {
+              setActiveSection("Contact");
+              setTimeOfLastClick(Date.now());
             }}
           >
-            💎
-          </motion.span>
-        </div>
+            Contact Me
+            <BsArrowRight className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+
+          <a
+            className="group flex items-center gap-2 px-7 py-3.5 bg-swiss-card border border-swiss-border rounded-full font-medium hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300 hover:scale-105"
+            href="/LoudenDiamond_resume-42026.pdf"
+            download
+          >
+            Resume
+            <HiDownload className="group-hover:translate-y-0.5 transition-transform" />
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="flex items-center gap-3 mt-6"
+        >
+          <a
+            className="w-11 h-11 flex items-center justify-center rounded-full bg-swiss-card border border-swiss-border text-swiss-text-secondary hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300 hover:scale-110"
+            href="https://www.linkedin.com/in/diamond-ray/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <BsLinkedin className="w-5 h-5" />
+          </a>
+          <a
+            className="w-11 h-11 flex items-center justify-center rounded-full bg-swiss-card border border-swiss-border text-swiss-text-secondary hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300 hover:scale-110"
+            href="https://github.com/rayadamas"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <BsGithub className="w-5 h-5" />
+          </a>
+        </motion.div>
       </div>
-      <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <span className="font-bold">Howdy, I'm Diamond Ray Louden. </span>
-        <br />
-        <span className="font-bold">I'm a</span>
-        <span className="font-bold">
-          {" "}
-          multidisciplinary builder who turns ideas into systems that work.
-          I thrive in dynamic environments where learning fast, adapting gracefully, and helping teams move with purpose are key.
-        </span>{" "}
-        With
-        <span className="font-bold"> 11 years</span> of experience, I enjoy
-        <span className="font-bold">
-          {" "}
-          continuously learning, growing, and helping whatever environment I find
-          myself in
-        </span>
-        . <br></br>
-        <span>Outside of work, I am also a </span>{" "}
-        <span className="font-bold">
-          <a
-            href="https://www.mixcloud.com/djdiaray/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            DJ
-          </a>
-          ,{" "}
-        </span>
-        <span className="font-bold">
-          Certified Audio Engineer, and {" "}
-          <a
-            href="https://www.youtube.com/@VinoMusicMan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            videographer
-          </a>
-          . These are all expressions of the same instinct: to blend efficiency, rhythm, and storytelling into everything I create.
-        </span>
-      </motion.h1>
-      <motion.div
-        className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-      >
-        <Link
-          href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
-          onClick={() => {
-            setActiveSection("Contact"), setTimeOfLastClick(Date.now());
-          }}
-        >
-            diamondlouden@gmail.com{" "}
-          <BsDiamondFill className="opacity-70 group-hover:translate-x-1 transition" />
-        </Link>
-        <a
-          className="group bg-slate-50 text-black px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-slate-50/10 dark:text-slate-50"
-          href="/LoudenDiamond_resume-42026.pdf"
-          download
-        >
-          Download My Resume{" "}
-          <HiDownload className="opacity-70 group-hover:translate-y-1 transition" />
-        </a>
-        <a
-          className="bg-[#0077b5] text-slate-50 p-4 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-slate-50 active:scale-105 transition cursor-pointer borderBlack dark:bg-slate-50/90 dark:text-[#0077b5]"
-          href="https://www.linkedin.com/in/diamond-ray/"
-          target="_blank"
-        >
-          <BsLinkedin />
-        </a>
-        <a
-          className="bg-gray-950 text-slate-50 p-4 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-slate-50 active:scale-105 transition cursor-pointer borderBlack dark:bg-slate-50/90 dark:text-black/80"
-          href="https://github.com/rayadamas"
-          target="_blank"
-        >
-          <FaGithubSquare />
-        </a>
-      </motion.div>
     </section>
+  );
+}
+
+function RoleLabel() {
+  return (
+    <div className="flex items-center justify-center gap-3">
+      <span className="h-px w-8 bg-swiss-accent" />
+      <span className="swiss-label text-swiss-accent">
+        Multidisciplinary Builder
+      </span>
+      <span className="h-px w-8 bg-swiss-accent" />
+    </div>
   );
 }
