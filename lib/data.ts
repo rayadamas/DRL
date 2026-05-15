@@ -263,6 +263,7 @@ export const projectsData: readonly ProjectData[] = [
       "Automations that connect conversational triggers, an AI agent with tools, GPT-4o, and Google Calendar event creation.",
     tags: ["n8n", "Automation", "ChatGPT", "Google Calendar"],
     imageUrl: aiWorkflowN8nImg,
+    link: "https://www.linkedin.com/in/diamond-ray/overlay/Project/1598639861/treasury/?profileId=ACoAACisl5MBN-KAGXvghmVe7bc9SFbeu8a7d8c&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_projects_details%3BqKzRXSnJRyu%2FPUM2wv4Z9Q%3D%3D",
     imagePosition: "object-top",
   },
   {
@@ -272,6 +273,7 @@ export const projectsData: readonly ProjectData[] = [
       "Serverless retrieval-augmented chat on AWS Bedrock with cited answers, backed by document storage patterns on S3 and Lambda.",
     tags: ["AWS", "Bedrock", "RAG", "Lambda", "S3"],
     imageUrl: ragChatbotBedrockImg,
+    link: "https://www.linkedin.com/in/diamond-ray/overlay/Project/1598919489/treasury/?profileId=ACoAACisl5MBN-KAGXvghmVe7bc9SFbeu8a7d8c&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_projects_details%3B21Bun5bCSYWT9QBkcutcJA%3D%3D",
     imagePosition: "object-top",
   },
   {

@@ -22,35 +22,48 @@ export default function About() {
 
       <div className="space-y-6 swiss-body text-swiss-text-secondary leading-relaxed text-center">
         <p>
-          With a strong background in{" "}
+          I&rsquo;m at my best when I&rsquo;m{" "}
           <span className="text-swiss-text font-medium">
-            business analysis, AI-driven strategy, and blockchain technology
+            close to the problem
           </span>
-          , I thrive at the intersection of innovation and efficiency across{" "}
+          &nbsp;— in the room where the question is still half-formed, not three
+          slides into the readout.
+        </p>
+
+        <p>
+          Right now that means{" "}
+          <span className="text-swiss-text font-medium">applied AI</span>:
+          shipping agents and automations, retrieval systems on{" "}
+          <span className="text-swiss-text font-medium">AWS Bedrock</span>, n8n
+          workflows that survive contact with reality, and the prompt-engineering
+          rigor I picked up authoring{" "}
           <span className="text-swiss-text font-medium">
-            retail, healthcare, CPG, and tech
+            1,100+ training pairs
+          </span>{" "}
+          for Amazon&rsquo;s Project Neo. I work in{" "}
+          <span className="text-swiss-text font-medium">
+            Python and TypeScript
+          </span>
+          , and I&rsquo;m comfortable in the Solidity / web3 stack when the
+          problem calls for it.
+        </p>
+
+        <p>
+          The breadth on the r&eacute;sum&eacute; isn&rsquo;t padding &mdash;
+          it&rsquo;s pattern-matching across rooms. Retail floors, Accenture
+          engagements (Macy&rsquo;s taxonomy, Walgreens program design,
+          accessibility scans), enterprise NLP training, and BDR outbound. That
+          mix is why I can sit with engineers, operators, and a CISO in the same
+          week{" "}
+          <span className="text-swiss-text font-medium">
+            without translation tax
           </span>
           .
         </p>
 
         <p>
-          My core stack includes{" "}
-          <span className="text-swiss-text font-medium">
-            React, Next.js, JavaScript/TypeScript, and Solidity
-          </span>
-          . I am also familiar with Python and SQL, and I am currently developing
-          an{" "}
-          <span className="text-swiss-text font-medium">agentic blockchain</span>
-          .
-        </p>
-
-        <p>
-          Outside of work I analyze crypto markets, create music as a certified
-          Audio Engineer &amp; DJ, and am learning{" "}
-          <span className="text-swiss-text font-medium">
-            how to be a better storyteller
-          </span>
-          .
+          Also a certified audio engineer &amp; DJ &mdash; that thread stays in
+          the margins on purpose.
         </p>
       </div>
     </motion.section>
