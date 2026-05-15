@@ -8,8 +8,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 
-const CARD_ROTATE_DEG = 33;
-
 export default function Projects() {
   const { ref } = useSectionInView("Projects", 0.2);
   const n = projectsData.length;
@@ -70,20 +68,12 @@ export default function Projects() {
             </button>
           </div>
 
-          <div
-            className="relative mx-auto w-full max-w-[min(100%,420px)]"
-            style={{
-              perspective: "1100px",
-              minHeight: "min(500px,calc(100vh - 11rem))",
-            }}
-          >
+          <div className="relative mx-auto w-full max-w-[min(100%,420px)] min-h-[min(500px,calc(100vh-11rem))]">
             <div className="relative h-[430px] w-full pt-6">
               {stackOrder.map((projectIndex, pilePosition) => {
                 const project = projectsData[projectIndex];
                 const isTop = pilePosition === 0;
                 const depth = pilePosition;
-                const alternatingTilt =
-                  depth % 2 === 0 ? -CARD_ROTATE_DEG : CARD_ROTATE_DEG;
 
                 return (
                   <motion.article
@@ -92,7 +82,7 @@ export default function Projects() {
                     animate={{
                       x: depth * 14,
                       y: depth * -20,
-                      rotate: alternatingTilt,
+                      rotate: 0,
                       scale: 1 - depth * 0.038,
                       zIndex: n - depth,
                       opacity: Math.max(0.55, 1 - depth * 0.1),
@@ -115,7 +105,6 @@ export default function Projects() {
                       height: "348px",
                       transformOrigin: "center center",
                       pointerEvents: isTop ? "auto" : "none",
-                      transformStyle: "preserve-3d",
                     }}
                     className={`rounded-2xl border-2 shadow-2xl overflow-hidden bg-swiss-card border-swiss-border ${
                       isTop ? "ring-1 ring-swiss-accent/25" : ""
@@ -183,14 +172,6 @@ export default function Projects() {
               })}
             </div>
           </div>
-
-          <p className="mt-6 text-center text-xs text-swiss-text-secondary max-w-sm">
-            Each card kicks{" "}
-            <span className="text-swiss-text font-medium">
-              ±{CARD_ROTATE_DEG}°
-            </span>{" "}
-            from vertical—alternating directions down the pile.
-          </p>
         </motion.div>
       </div>
     </section>
