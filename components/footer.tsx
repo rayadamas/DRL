@@ -73,7 +73,7 @@ export default function Footer() {
                   duration: 0.18,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="absolute bottom-full left-1/2 z-50 mb-3 w-[min(92vw,22rem)] origin-bottom -translate-x-1/2"
+                className="absolute bottom-full left-0 z-50 mb-3 w-[min(92vw,22rem)] origin-bottom-left"
               >
                 <div className="relative rounded-xl border border-swiss-border bg-swiss-card p-5 text-left shadow-xl">
                   <button
@@ -139,7 +139,7 @@ export default function Footer() {
 
                   <div
                     aria-hidden
-                    className="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-b border-r border-swiss-border bg-swiss-card"
+                    className="absolute -bottom-1.5 left-8 h-3 w-3 rotate-45 border-b border-r border-swiss-border bg-swiss-card"
                   />
                 </div>
               </motion.div>
