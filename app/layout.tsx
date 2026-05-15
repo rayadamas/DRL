@@ -1,6 +1,7 @@
 import "./globals.css";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { Analytics } from "@vercel/analytics/next";
 import LayoutClient from "@/components/layout-client";
 
 export const metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({
         className={`${GeistSans.variable} ${GeistMono.variable} font-sans text-swiss-text relative pt-28 sm:pt-36`}
       >
         <LayoutClient>{children}</LayoutClient>
+        <Analytics />
       </body>
     </html>
   );
