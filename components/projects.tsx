@@ -6,7 +6,10 @@ import { projectsData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+import { HiArrowUpRight, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+
+const CARD_W_PX = 560;
+const CARD_H_PX = 340;
 
 export default function Projects() {
   const { ref } = useSectionInView("Projects", 0.2);
@@ -44,7 +47,7 @@ export default function Projects() {
           aria-label="Project cards"
           aria-roledescription="carousel"
         >
-          <div className="flex items-center justify-center gap-3 sm:gap-6 mb-10 w-full max-w-xl mx-auto">
+          <div className="flex items-center justify-center gap-3 sm:gap-6 mb-10 w-full max-w-2xl mx-auto">
             <button
               type="button"
               aria-label="Previous project"
@@ -68,8 +71,11 @@ export default function Projects() {
             </button>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[min(100%,420px)] min-h-[min(500px,calc(100vh-11rem))]">
-            <div className="relative h-[430px] w-full pt-6">
+          <div className="relative mx-auto w-full max-w-[min(100%,576px)] min-h-[min(520px,calc(100vh-11rem))]">
+            <div
+              className="relative mx-auto pt-6"
+              style={{ height: CARD_H_PX + 48 }}
+            >
               {stackOrder.map((projectIndex, pilePosition) => {
                 const project = projectsData[projectIndex];
                 const isTop = pilePosition === 0;
@@ -80,13 +86,13 @@ export default function Projects() {
                     key={project.title}
                     initial={false}
                     animate={{
-                      x: depth * 14,
-                      y: depth * -20,
+                      x: depth * 16,
+                      y: depth * -18,
                       rotate: 0,
-                      scale: 1 - depth * 0.038,
+                      scale: 1 - depth * 0.032,
                       zIndex: n - depth,
-                      opacity: Math.max(0.55, 1 - depth * 0.1),
-                      filter: depth > 0 ? "brightness(0.9)" : "brightness(1)",
+                      opacity: Math.max(0.5, 1 - depth * 0.09),
+                      filter: depth > 0 ? "brightness(0.92)" : "brightness(1)",
                     }}
                     transition={{
                       type: "spring",
@@ -101,70 +107,85 @@ export default function Projects() {
                       top: 0,
                       margin: "0 auto",
                       width: "100%",
-                      maxWidth: "400px",
-                      height: "348px",
+                      maxWidth: `${CARD_W_PX}px`,
+                      height: `${CARD_H_PX}px`,
                       transformOrigin: "center center",
                       pointerEvents: isTop ? "auto" : "none",
                     }}
-                    className={`rounded-2xl border-2 shadow-2xl overflow-hidden bg-swiss-card border-swiss-border ${
-                      isTop ? "ring-1 ring-swiss-accent/25" : ""
+                    className={`rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10 ${
+                      isTop ? "ring-2 ring-swiss-accent/40" : "ring-white/5"
                     }`}
                   >
-                    <div className="absolute inset-0 pointer-events-none">
+                    {/* Screenshot + dim overlay (portfolio tile convention) */}
+                    <div className="absolute inset-0 bg-neutral-950">
                       <Image
                         src={project.imageUrl}
-                        alt={isTop ? project.title : ""}
+                        alt={isTop ? `${project.title} screenshot` : ""}
                         fill
-                        className="object-cover object-top opacity-[0.42] dark:opacity-[0.28]"
-                        sizes="(max-width: 768px) 100vw, 400px"
+                        className="object-cover object-top"
+                        sizes="(max-width: 768px) 100vw, 560px"
+                        priority={isTop}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-br from-swiss-card via-swiss-card/92 to-swiss-card/75 dark:via-swiss-card/95 dark:to-swiss-card/85" />
+                      <div
+                        className="absolute inset-0 bg-neutral-950/55"
+                        aria-hidden
+                      />
+                      <div
+                        className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/35"
+                        aria-hidden
+                      />
                     </div>
 
-                    <div className="relative flex h-full flex-col p-6 pb-7 justify-between">
-                      <div>
-                        <h3 className="swiss-heading text-xl sm:text-2xl mb-2 text-swiss-text">
+                    {/* Content */}
+                    <div className="relative z-[1] flex h-full flex-col p-7 sm:p-8 pb-7 justify-between text-white">
+                      {isTop ? (
+                        <div className="flex justify-end gap-2 shrink-0">
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors"
+                            aria-label={`${project.title} — GitHub repository`}
+                          >
+                            <HiArrowUpRight
+                              className="w-[1.15rem] h-[1.15rem]"
+                              aria-hidden
+                            />
+                          </a>
+                          {project.liveLink ? (
+                            <a
+                              href={project.liveLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex h-10 min-w-10 px-3 items-center justify-center rounded-xl bg-white/10 border border-white/20 text-xs font-semibold uppercase tracking-wide text-white hover:bg-swiss-accent hover:border-swiss-accent transition-colors"
+                              aria-label={`${project.title} — live site`}
+                            >
+                              Live
+                            </a>
+                          ) : null}
+                        </div>
+                      ) : (
+                        <div className="shrink-0 h-10" aria-hidden />
+                      )}
+
+                      <div className="flex-1 flex flex-col justify-end min-h-0">
+                        <h3 className="font-bold tracking-tight text-2xl sm:text-3xl md:text-[1.75rem] leading-tight mb-3 drop-shadow-sm [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
                           {project.title}
                         </h3>
-                        <p className="swiss-body text-swiss-text-secondary text-sm leading-relaxed line-clamp-3">
+                        <p className="text-sm sm:text-base text-white/90 leading-relaxed line-clamp-4 mb-6 max-w-[42rem] drop-shadow-sm [text-shadow:0_1px_8px_rgba(0,0,0,0.35)]">
                           {project.description}
                         </p>
 
-                        {isTop ? (
-                          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-                            <a
-                              href={project.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="font-medium text-swiss-accent hover:underline underline-offset-4"
+                        <div className="flex flex-wrap gap-x-2 gap-y-2 items-center pt-4 border-t border-white/15">
+                          {project.tags.map((tag, tagIndex) => (
+                            <span
+                              key={tagIndex}
+                              className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-white/90 px-2.5 py-1 rounded-md border border-white/20 bg-black/25"
                             >
-                              GitHub
-                            </a>
-                            {project.liveLink ? (
-                              <a
-                                href={project.liveLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="font-medium text-swiss-accent hover:underline underline-offset-4"
-                              >
-                                {project.title === "Clausura"
-                                  ? "About (live)"
-                                  : "Live demo"}
-                              </a>
-                            ) : null}
-                          </div>
-                        ) : null}
-                      </div>
-
-                      <div className="flex flex-wrap gap-2 mt-6">
-                        {project.tags.map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="px-2.5 py-1 text-[10px] sm:text-xs font-medium bg-swiss-text/8 rounded-full text-swiss-text-secondary border border-swiss-border/60"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </motion.article>
