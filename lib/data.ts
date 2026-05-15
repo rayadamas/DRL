@@ -92,7 +92,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "RE:WORK TRAINING · Chicago, IL",
     date: "Jan 2025 — Nov 2025",
     description:
-      "Nonprofit BDR work through the Get This Work bootcamp, outbound and inbound for tech sales training, donors, and corporate partners; qualified pipeline, demos, CRM hygiene, and tight alignment with sales and marketing goals.",
+      "Nonprofit BDR work through the 'Get This Work' bootcamp, outbound and inbound for tech sales training, donors, and corporate partners; qualified pipeline, demos, CRM hygiene, and tight alignment with sales and marketing goals.",
     type: "work",
   },
   {
@@ -114,7 +114,7 @@ export const experiencesData: readonly ExperienceItem[] = [
   {
     title: "Commerce Analyst · QA Tester",
     company: "Accenture · Kent (Canada) e-commerce program",
-    date: "Aug 2024 — Sep 2024",
+    date: "Aug 2024 - Sep 2024",
     description:
       "Manual storefront testing (flows, search, checkout, basic security signals) across Magento staging tiers; logged defects, verified fixes, and coordinated with offshore QA peers across CST/CET.",
     type: "work",
@@ -124,7 +124,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Accenture · Macy’s transformation",
     date: "Jul 2024 — Sep 2024",
     description:
-      "Taxonomy and facet work ahead of a major go-live—attribute reconciliation, L3/L4 mapping, Google Console sequencing sheets, and QC on AI-generated tags with bulk overrides when merchandising needed cleaner shopper language.",
+      "Taxonomy and facet work ahead of a major go-live -attribute reconciliation, L3/L4 mapping, Google Console sequencing sheets, and QC on AI-generated tags with bulk overrides when merchandising needed cleaner shopper language.",
     type: "work",
   },
   {
@@ -172,7 +172,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Accenture · Chicago, IL",
     date: "Jan 2022 - Aug 2022",
     description:
-      "Foundational consulting apprenticeship-analyze organizations, stitch business models to tech, interviews and synthesis, and crisp definitions of customer requirements and target outcomes.",
+      "Foundational consulting apprenticeship -analyze organizations, stitch business models to tech, interviews and synthesis, and crisp definitions of customer requirements and target outcomes.",
     type: "work",
   },
   {
@@ -180,7 +180,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "University of California, Berkeley",
     date: "Sep 2021 - Dec 2021",
     description:
-      "Berkeley MOOC coverage of DeFi mechanics-liquidity primitives, protocols, and how decentralized markets diverge from traditional settlement rails.",
+      "Berkeley MOOC coverage of DeFi mechanics -liquidity primitives, protocols, and how decentralized markets diverge from traditional settlement rails.",
     type: "education",
   },
   {
@@ -196,7 +196,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Saks OFF 5TH · Chicago, IL",
     date: "Mar 2016 - Jan 2019",
     description:
-      "Rotating department leadership-inbound/outbound freight discipline, replenishment rhythms, forecasting with the team, and web-fulfillment coordination that materially lifted local ranking and online attach versus a same-parent competitor.",
+      "Rotating department leadership -inbound/outbound freight discipline, replenishment rhythms, forecasting with the team, and web-fulfillment coordination that materially lifted local ranking and online attach versus a same-parent competitor.",
     type: "work",
   },
   {
