@@ -27,42 +27,82 @@ export const experiencesData: readonly ExperienceItem[] = [
   {
     title: "Experience Account Management Analyst",
     company: "Accenture",
-    date: "Present",
+    date: "Feb 2022 — Present",
     description:
-      "Analyzed business processes, optimized AI prompt strategies, and supported marketing and CRM initiatives for clients across healthcare, CPG, and tech industries.",
+      "Runs Accenture programs spanning CRM, marketing tech, and applied AI—from discovery through rollout—for healthcare and CPG clients.",
     type: "work",
   },
   {
     title: "Technical Writer",
-    company: "Amazon Project Neo (ACN)",
-    date: "Recent",
+    company: "Amazon Project Neo (via Accenture)",
+    date: "2024 · Client engagement",
     description:
-      "Developed and refined AI prompts to ensure consistent and accurate LLM outputs across varied topics. Drove peer review processes, providing guidance to pod teammates on optimizing prompt strategies.",
+      "Tightened AI writing playbooks—prompt patterns, QA rubrics, peer review—to keep Neo’s LLM-assisted output consistent across topic areas.",
     type: "work",
   },
   {
     title: "Customer Preference Management Analyst",
-    company: "Walgreens Boots Alliance (ACN)",
-    date: "Recent",
+    company: "Walgreens Boots Alliance (via Accenture)",
+    date: "2024 · Client engagement",
     description:
-      "Mapped digital and physical touchpoints for customer preference data collection. Developed a central playbook for expanding preference management across new channels.",
+      "Charted omnichannel preference capture journeys and authored a playbook so every touchpoint ladders into reusable preference standards.",
     type: "work",
   },
   {
     title: "CRM Apprentice",
-    company: "Maserati (ACN)",
-    date: "Recent",
+    company: "Maserati (via Accenture)",
+    date: "2023 · Client engagement",
     description:
-      "Audited existing CRM systems and recommended enhancements for improved process efficiency. Provided regular status reports and project documentation to ensure stakeholder alignment.",
+      "Reviewed regional CRM footprints, prioritized quick-win fixes for sales workflows, and briefed sponsors with actionable documentation.",
     type: "work",
   },
   {
     title: "CPG Marketing & Commerce Advisory",
-    company: "Mondelez (ACN)",
-    date: "Recent",
+    company: "Mondelez (via Accenture)",
+    date: "2023 · Client engagement",
     description:
-      "Partnered with cross-functional teams to analyze consumer data and streamline marketing campaigns. Leveraged AI-driven insights to optimize communication strategies.",
+      "Turned shopper and performance signals into sharper briefs—aligning creatives, KPIs, and AI-assisted insight reads for smoother campaigns.",
     type: "work",
+  },
+  {
+    title: "AWS AI Practitioner · Artificial Intelligence",
+    company: "Udacity",
+    date: "Mar 2026",
+    description:
+      "Udacity track aligned with AWS AI Practitioner—building fluency in cloud AI services, governance, and how those tools land in accountable delivery workflows.",
+    type: "education",
+  },
+  {
+    title: "Certificate of Completion · Artificial Intelligence",
+    company: "Outskill",
+    date: "Nov 2025 — Dec 2025",
+    description:
+      "Finished an intensive AI completion track focused on concepts, tooling literacy, and applied problem framing—not theory for its own sake.",
+    type: "education",
+  },
+  {
+    title: "Certificate · International Finance",
+    company: "University of Nicosia",
+    date: "Sep 2022 — Dec 2025",
+    description:
+      "Certificate path spanning global markets, institutions, and financial analysis—useful backbone for interpreting cross-border crypto and TradFi overlaps.",
+    type: "education",
+  },
+  {
+    title: "DeFi MOOC · Computer Science",
+    company: "University of California, Berkeley",
+    date: "Sep 2021 — Dec 2021",
+    description:
+      "Short-form Berkeley MOOC on decentralized finance primitives—liquidity models, protocols, and how they differ from centralized rails.",
+    type: "education",
+  },
+  {
+    title: "Advanced Certificate · Dental Assisting / Assistant",
+    company: "City Colleges of Chicago · Wilbur Wright College",
+    date: "2013 — 2015",
+    description:
+      "Clinical and administrative fundamentals in a credential program—early training in precision, protocols, and patient-facing professionalism.",
+    type: "education",
   },
 ];
 
