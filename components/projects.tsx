@@ -1,98 +1,194 @@
 "use client";
 
-import React from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import SectionHeading from "./section-heading";
 import { projectsData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { HiArrowUpRight } from "react-icons/hi2";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+
+const CARD_ROTATE_DEG = 33;
 
 export default function Projects() {
   const { ref } = useSectionInView("Projects", 0.2);
+  const n = projectsData.length;
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const goPrev = useCallback(() => {
+    setActiveIndex((i) => (i - 1 + n) % n);
+  }, [n]);
+
+  const goNext = useCallback(() => {
+    setActiveIndex((i) => (i + 1) % n);
+  }, [n]);
+
+  const stackOrder = useMemo(() => {
+    const order: number[] = [];
+    for (let d = 0; d < n; d++) {
+      order.push((activeIndex + d) % n);
+    }
+    return order;
+  }, [activeIndex, n]);
 
   return (
     <section ref={ref} id="projects" className="scroll-mt-28 mb-28 sm:mb-40">
       <div className="max-w-6xl mx-auto px-4">
         <SectionHeading>Projects</SectionHeading>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[280px]">
-          {projectsData.map((project, index) => (
-            <BentoCard key={project.title} project={project} index={index} />
-          ))}
-        </div>
+        <motion.div
+          className="relative flex flex-col items-center"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+          role="region"
+          aria-label="Project cards"
+          aria-roledescription="carousel"
+        >
+          <div className="flex items-center justify-center gap-3 sm:gap-6 mb-10 w-full max-w-xl mx-auto">
+            <button
+              type="button"
+              aria-label="Previous project"
+              onClick={goPrev}
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-swiss-card border border-swiss-border text-swiss-text shadow-sm hover:border-swiss-accent hover:text-swiss-accent transition-colors"
+            >
+              <HiChevronLeft className="w-6 h-6" aria-hidden />
+            </button>
+
+            <p className="text-center flex-1 min-w-0 text-xs sm:text-sm text-swiss-text-secondary font-sans tracking-normal normal-case">
+              {activeIndex + 1} / {n}{" "}
+              <span className="hidden sm:inline">— top card</span>
+            </p>
+
+            <button
+              type="button"
+              aria-label="Next project"
+              onClick={goNext}
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-swiss-card border border-swiss-border text-swiss-text shadow-sm hover:border-swiss-accent hover:text-swiss-accent transition-colors"
+            >
+              <HiChevronRight className="w-6 h-6" aria-hidden />
+            </button>
+          </div>
+
+          <div
+            className="relative mx-auto w-full max-w-[340px]"
+            style={{ perspective: "1100px", minHeight: "min(520px,calc(100vh - 11rem))" }}
+          >
+            <div className="relative h-[460px] w-full pt-6">
+              {stackOrder.map((projectIndex, pilePosition) => {
+                const project = projectsData[projectIndex];
+                const isTop = pilePosition === 0;
+                const depth = pilePosition;
+
+                return (
+                  <motion.article
+                    key={project.title}
+                    initial={false}
+                    animate={{
+                      x: depth * 14,
+                      y: depth * -20,
+                      rotate: CARD_ROTATE_DEG,
+                      scale: 1 - depth * 0.038,
+                      zIndex: n - depth,
+                      opacity: Math.max(0.55, 1 - depth * 0.1),
+                      filter: depth > 0 ? "brightness(0.9)" : "brightness(1)",
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 34,
+                      mass: 0.85,
+                    }}
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      right: 0,
+                      top: 0,
+                      margin: "0 auto",
+                      width: "100%",
+                      maxWidth: "340px",
+                      height: "420px",
+                      transformOrigin: "center center",
+                      pointerEvents: isTop ? "auto" : "none",
+                      transformStyle: "preserve-3d",
+                    }}
+                    className={`rounded-2xl border-2 shadow-2xl overflow-hidden bg-swiss-card border-swiss-border ${
+                      isTop ? "ring-1 ring-swiss-accent/25" : ""
+                    }`}
+                  >
+                    <div className="absolute inset-0 pointer-events-none">
+                      <Image
+                        src={project.imageUrl}
+                        alt={isTop ? project.title : ""}
+                        fill
+                        className="object-cover object-top opacity-[0.42] dark:opacity-[0.28]"
+                        sizes="(max-width: 768px) 100vw, 340px"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-swiss-card via-swiss-card/92 to-swiss-card/75 dark:via-swiss-card/95 dark:to-swiss-card/85" />
+                    </div>
+
+                    <div className="relative flex h-full flex-col p-6 pb-7 justify-between">
+                      <div>
+                        <h3 className="swiss-heading text-xl sm:text-2xl mb-2 text-swiss-text">
+                          {project.title}
+                        </h3>
+                        <p className="swiss-body text-swiss-text-secondary text-sm leading-relaxed line-clamp-4">
+                          {project.description}
+                        </p>
+
+                        {isTop ? (
+                          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-medium text-swiss-accent hover:underline underline-offset-4"
+                            >
+                              GitHub
+                            </a>
+                            {project.liveLink ? (
+                              <a
+                                href={project.liveLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="font-medium text-swiss-accent hover:underline underline-offset-4"
+                              >
+                                {project.title === "Clausura"
+                                  ? "About (live)"
+                                  : "Live demo"}
+                              </a>
+                            ) : null}
+                          </div>
+                        ) : null}
+                      </div>
+
+                      <div className="flex flex-wrap gap-2 mt-6">
+                        {project.tags.map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className="px-2.5 py-1 text-[10px] sm:text-xs font-medium bg-swiss-text/8 rounded-full text-swiss-text-secondary border border-swiss-border/60"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.article>
+                );
+              })}
+            </div>
+          </div>
+
+          <p className="mt-6 text-center text-xs text-swiss-text-secondary max-w-sm">
+            Arrows peel the pile—every card rests at{" "}
+            <span className="text-swiss-text font-medium">
+              {CARD_ROTATE_DEG}°
+            </span>
+            .
+          </p>
+        </motion.div>
       </div>
     </section>
-  );
-}
-
-type ProjectType = (typeof projectsData)[number];
-
-function BentoCard({ project, index }: { project: ProjectType; index: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      viewport={{ once: true }}
-      className="group relative overflow-hidden rounded-2xl bg-swiss-card border border-swiss-border hover:border-swiss-accent transition-all duration-300"
-    >
-      {/* Background Image or Gradient */}
-      {project.imageUrl ? (
-        <div className="absolute inset-0">
-          <Image
-            src={project.imageUrl}
-            alt={project.title}
-            fill
-            className="object-cover object-top opacity-50 dark:opacity-30 group-hover:opacity-60 dark:group-hover:opacity-40 group-hover:scale-105 transition-all duration-500"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-swiss-card via-swiss-card/60 to-transparent dark:via-swiss-card/80" />
-        </div>
-      ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-swiss-accent/10 via-transparent to-swiss-bg-secondary" />
-      )}
-
-      {/* Content */}
-      <div className="relative h-full p-6 flex flex-col justify-end">
-
-        {/* External Link */}
-        {project.link && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-swiss-text/5 flex items-center justify-center hover:bg-swiss-accent hover:text-white transition-all duration-300 group-hover:scale-110"
-          >
-            <HiArrowUpRight className="w-4 h-4" />
-          </a>
-        )}
-
-        {/* Title */}
-        <h3 className="swiss-heading text-xl md:text-2xl mb-2 group-hover:text-swiss-accent transition-colors">
-          {project.title}
-        </h3>
-
-        {/* Description */}
-        <p className="swiss-body text-swiss-text-secondary text-sm mb-4 line-clamp-2">
-          {project.description}
-        </p>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2">
-          {project.tags.map((tag, tagIndex) => (
-            <span
-              key={tagIndex}
-              className="px-3 py-1 text-xs font-medium bg-swiss-text/5 rounded-full text-swiss-text-secondary"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Hover Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-swiss-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-    </motion.div>
   );
 }

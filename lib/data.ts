@@ -216,7 +216,10 @@ export type ProjectData = {
   description: string;
   tags: readonly string[];
   imageUrl: StaticImageData;
-  link?: string;
+  /** Primary outbound link (typically GitHub repo) */
+  link: string;
+  /** Optional live site / demo / secondary link */
+  liveLink?: string;
 };
 
 export const projectsData: readonly ProjectData[] = [
@@ -226,6 +229,8 @@ export const projectsData: readonly ProjectData[] = [
       "A demo showcasing Music NFTs via the ZORA API, allowing users to mint their own audio files.",
     tags: ["JavaScript", "HTML", "CSS", "web3"],
     imageUrl: hyperlyzDemoImg,
+    link: "https://github.com/rayadamas/hyperlyz_demo",
+    liveLink: "https://hyperlyz.vercel.app",
   },
   {
     title: "Clausura",
@@ -233,6 +238,8 @@ export const projectsData: readonly ProjectData[] = [
       "A modular, open-source music platform designed to help creators share, publish, and remix content.",
     tags: ["web3", "TypeScript", "JavaScript", "Shell", "CSS"],
     imageUrl: clausuraImg,
+    link: "https://github.com/rayadamas/Clausura",
+    liveLink: "https://clausura.vercel.app/about",
   },
   {
     title: "Solana Flutter DeFi SDK",
@@ -240,6 +247,7 @@ export const projectsData: readonly ProjectData[] = [
       "Wormhole bridge integrated into an NFT Dating mobile App, powered by the open-source Canoe-Flutter-DeFi SDK.",
     tags: ["Dart", "Kotlin", "Java", "Python", "CSS"],
     imageUrl: solanaGameImg,
+    link: "https://github.com/rayadamas/Solana-Flutter-DeFi-SDK",
   },
   {
     title: "Zorbz Data Visualizer",
@@ -247,6 +255,7 @@ export const projectsData: readonly ProjectData[] = [
       "An MVP data visualization tool using ZORB metadata and Zora's API to abstract blockchain data into visuals.",
     tags: ["p5.js", "JavaScript", "TypeScript", "web3"],
     imageUrl: zorbImg,
+    link: "https://github.com/rayadamas/zorb-visualizer",
   },
   {
     title: "web3rsvp",
@@ -254,6 +263,7 @@ export const projectsData: readonly ProjectData[] = [
       "A metaverse events platform where users can discover, join, and create virtual events with their web3 frens.",
     tags: ["Next.js", "Solidity", "TypeScript", "The Graph", "web3"],
     imageUrl: web3rsvpImg,
+    link: "https://github.com/rayadamas/web3RSVP-frontend",
   },
   {
     title: "Sardaukar Bootcamp",
@@ -261,6 +271,7 @@ export const projectsData: readonly ProjectData[] = [
       "A decentralized Dune-inspired app where users chant to the Maker, with each chant stored on Ethereum via a smart contract.",
     tags: ["Solidity", "Ethereum", "Smart Contracts", "Next.js"],
     imageUrl: sardaukarImg,
+    link: "https://github.com/rayadamas/blockchain-developer-bootcamp-final-project_0",
   },
 ];
 
