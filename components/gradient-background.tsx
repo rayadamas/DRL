@@ -3,7 +3,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
-import { useTheme } from "@/context/theme-content";
 
 const SPHERE_RADIUS = 2.5;
 
@@ -72,14 +71,7 @@ const fragmentShader = `
   }
 `;
 
-const lightColors = {
-  bg: new THREE.Color("#F5F0E8"),
-  color1: new THREE.Color("#ff70a6"),
-  color2: new THREE.Color("#70d6ff"),
-  particles: new THREE.Color("#14b8a6"),
-};
-
-const darkColors = {
+const colors = {
   bg: new THREE.Color("#121218"),
   color1: new THREE.Color("#ff5d8f"),
   color2: new THREE.Color("#7fc8f8"),
@@ -111,7 +103,6 @@ function ParticleSphere({
   particleCount: number;
 }) {
   const pointsRef = useRef<THREE.Points>(null);
-  const { resolvedTheme } = useTheme();
 
   const positions = useMemo(() => {
     const pos = new Float32Array(particleCount * 3);
@@ -131,11 +122,7 @@ function ParticleSphere({
 
   const circleTexture = useMemo(() => createCircleTexture(), []);
 
-  const particleColor = useMemo(() => {
-    return resolvedTheme === "dark"
-      ? darkColors.particles
-      : lightColors.particles;
-  }, [resolvedTheme]);
+  const particleColor = colors.particles;
 
   const targetRotation = useRef({ x: 0, y: 0 });
 
@@ -174,17 +161,15 @@ function ParticleSphere({
 
 function GradientMesh() {
   const meshRef = useRef<THREE.Mesh>(null);
-  const { resolvedTheme } = useTheme();
 
   const uniforms = useMemo(() => {
-    const colors = resolvedTheme === "dark" ? darkColors : lightColors;
     return {
       uTime: { value: 0 },
       uBgColor: { value: colors.bg.clone() },
       uColor1: { value: colors.color1.clone() },
       uColor2: { value: colors.color2.clone() },
     };
-  }, [resolvedTheme]);
+  }, []);
 
   useFrame((state) => {
     if (meshRef.current) {

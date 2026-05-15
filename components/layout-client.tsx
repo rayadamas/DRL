@@ -3,10 +3,8 @@
 import dynamic from "next/dynamic";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import ThemeSwitch from "@/components/theme-switch";
 import { Toaster } from "react-hot-toast";
 import ActiveSectionContextProvider from "@/context/active-section-context";
-import ThemeContextProvider from "@/context/theme-content";
 
 const GradientBackground = dynamic(
   () => import("@/components/gradient-background"),
@@ -19,14 +17,13 @@ export default function LayoutClient({
   children: React.ReactNode;
 }) {
   return (
-    <ThemeContextProvider>
+    <>
       <GradientBackground />
 
       <ActiveSectionContextProvider>
         <Header />
         {children}
         <Footer />
-        <ThemeSwitch />
         <Toaster
           position="bottom-right"
           toastOptions={{
@@ -38,6 +35,6 @@ export default function LayoutClient({
           }}
         />
       </ActiveSectionContextProvider>
-    </ThemeContextProvider>
+    </>
   );
 }
