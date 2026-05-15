@@ -62,7 +62,7 @@ export default function About() {
         </p>
 
         <p>
-          I am also a certified audio engineer &amp; DJ, that thread stays in
+          I am also a certified audio engineer &amp; [DJ](https://www.mixcloud.com/djdiaray/), that thread stays in
           the margins on purpose.
         </p>
       </div>
