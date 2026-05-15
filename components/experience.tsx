@@ -46,7 +46,7 @@ export default function Experience() {
   return (
     <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
       <div className="max-w-6xl mx-auto px-4">
-        <SectionHeading>Experience &amp; education</SectionHeading>
+        <SectionHeading>Experience & Education</SectionHeading>
 
         <motion.div
           className="relative sm:px-12"
