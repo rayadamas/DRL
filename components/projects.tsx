@@ -56,9 +56,8 @@ export default function Projects() {
               <HiChevronLeft className="w-6 h-6" aria-hidden />
             </button>
 
-            <p className="text-center flex-1 min-w-0 text-xs sm:text-sm text-swiss-text-secondary font-sans tracking-normal normal-case">
-              {activeIndex + 1} / {n}{" "}
-              <span className="hidden sm:inline">— top card</span>
+            <p className="text-center flex-1 min-w-0 text-xs sm:text-sm text-swiss-text-secondary font-sans tabular-nums">
+              {activeIndex + 1} / {n}
             </p>
 
             <button
@@ -72,14 +71,19 @@ export default function Projects() {
           </div>
 
           <div
-            className="relative mx-auto w-full max-w-[340px]"
-            style={{ perspective: "1100px", minHeight: "min(520px,calc(100vh - 11rem))" }}
+            className="relative mx-auto w-full max-w-[min(100%,420px)]"
+            style={{
+              perspective: "1100px",
+              minHeight: "min(500px,calc(100vh - 11rem))",
+            }}
           >
-            <div className="relative h-[460px] w-full pt-6">
+            <div className="relative h-[430px] w-full pt-6">
               {stackOrder.map((projectIndex, pilePosition) => {
                 const project = projectsData[projectIndex];
                 const isTop = pilePosition === 0;
                 const depth = pilePosition;
+                const alternatingTilt =
+                  depth % 2 === 0 ? -CARD_ROTATE_DEG : CARD_ROTATE_DEG;
 
                 return (
                   <motion.article
@@ -88,7 +92,7 @@ export default function Projects() {
                     animate={{
                       x: depth * 14,
                       y: depth * -20,
-                      rotate: CARD_ROTATE_DEG,
+                      rotate: alternatingTilt,
                       scale: 1 - depth * 0.038,
                       zIndex: n - depth,
                       opacity: Math.max(0.55, 1 - depth * 0.1),
@@ -107,8 +111,8 @@ export default function Projects() {
                       top: 0,
                       margin: "0 auto",
                       width: "100%",
-                      maxWidth: "340px",
-                      height: "420px",
+                      maxWidth: "400px",
+                      height: "348px",
                       transformOrigin: "center center",
                       pointerEvents: isTop ? "auto" : "none",
                       transformStyle: "preserve-3d",
@@ -123,7 +127,7 @@ export default function Projects() {
                         alt={isTop ? project.title : ""}
                         fill
                         className="object-cover object-top opacity-[0.42] dark:opacity-[0.28]"
-                        sizes="(max-width: 768px) 100vw, 340px"
+                        sizes="(max-width: 768px) 100vw, 400px"
                       />
                       <div className="absolute inset-0 bg-gradient-to-br from-swiss-card via-swiss-card/92 to-swiss-card/75 dark:via-swiss-card/95 dark:to-swiss-card/85" />
                     </div>
@@ -133,7 +137,7 @@ export default function Projects() {
                         <h3 className="swiss-heading text-xl sm:text-2xl mb-2 text-swiss-text">
                           {project.title}
                         </h3>
-                        <p className="swiss-body text-swiss-text-secondary text-sm leading-relaxed line-clamp-4">
+                        <p className="swiss-body text-swiss-text-secondary text-sm leading-relaxed line-clamp-3">
                           {project.description}
                         </p>
 
@@ -181,11 +185,11 @@ export default function Projects() {
           </div>
 
           <p className="mt-6 text-center text-xs text-swiss-text-secondary max-w-sm">
-            Arrows peel the pile—every card rests at{" "}
+            Each card kicks{" "}
             <span className="text-swiss-text font-medium">
-              {CARD_ROTATE_DEG}°
-            </span>
-            .
+              ±{CARD_ROTATE_DEG}°
+            </span>{" "}
+            from vertical—alternating directions down the pile.
           </p>
         </motion.div>
       </div>
