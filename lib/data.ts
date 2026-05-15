@@ -20,6 +20,8 @@ export const links = [
 export type ExperienceItem = {
   title: string;
   company: string;
+  /** Optional URL for the company/institution; renders the company line as a link. */
+  companyUrl?: string;
   date: string;
   description: string;
   type: "work" | "education";
@@ -29,7 +31,8 @@ export type ExperienceItem = {
 export const experiencesData: readonly ExperienceItem[] = [
   {
     title: "Independent Client Manager",
-    company: "Vino Louden Music · Chicago, IL · vinolouden.com",
+    company: "Vino Louden Music · Chicago, IL",
+    companyUrl: "https://vinolouden.com/",
     date: "Jan 2025 — Present",
     description:
       "Runs digital presence and outreach for a performing artist—content rhythm, Linktree and social channels, and lightweight CRM-style tracking so engagement turns into booked conversations.",
@@ -38,6 +41,7 @@ export const experiencesData: readonly ExperienceItem[] = [
   {
     title: "Founder",
     company: "Quincy Labs · Chicago, IL",
+    companyUrl: "https://www.quincylabs.org/",
     date: "May 2022 — Present",
     description:
       "Independent lab at the intersection of AI infrastructure, on-chain systems, and applied life sciences—shipping serious R&D (including TRACE, a sickle-cell–focused causal reasoning tool) while pushing multi-agent orchestration, edge inference, and protocol-level design.",
@@ -313,6 +317,7 @@ export const projectsData: readonly ProjectData[] = [
 ];
 
 export const skillsData = [
+  // Frontend
   "HTML",
   "CSS",
   "JavaScript",
@@ -321,11 +326,14 @@ export const skillsData = [
   "Next.js",
   "Tailwind",
   "Redux",
+  // Backend & languages
   "Node.js",
   "Express",
   "GraphQL",
   "PostgreSQL",
   "Django",
+  "Python",
+  // Web3
   "Solidity",
   "Ethereum",
   "Truffle",
@@ -333,18 +341,38 @@ export const skillsData = [
   "Foundry",
   "Thirdweb",
   "Blockchain Analysis",
+  // Applied AI
+  "AI Agents",
+  "LLMs",
+  "RAG",
   "Prompt Engineering",
+  "Natural Language Processing",
+  "Automation Workflows",
+  "n8n",
+  // Data & analysis
   "Data Analysis",
   "Business Process Analysis",
+  // DevOps & cloud
   "Git",
   "Docker",
   "AWS",
+  "AWS Bedrock",
+  "AWS Lambda",
+  "Amazon S3",
+  "DynamoDB",
+  "API Gateway",
+  // Work tooling
   "Workfront",
   "Jira",
   "MS Office Tools",
+  // Business & GTM
   "Business Model Strategy",
   "Business Operations Management",
+  "Stakeholder Management",
   "Client & Account Management",
-  "Technical Writing",
+  "Sales Development",
   "CRM Platforms",
+  // Delivery craft
+  "Technical Writing",
+  "Web Accessibility (WCAG)",
 ] as const;

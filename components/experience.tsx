@@ -121,7 +121,18 @@ function CarouselCard({ item }: { item: ExperienceType }) {
               {item.title}
             </h3>
             <p className="text-xs sm:text-sm text-swiss-text-secondary font-medium mt-0.5 line-clamp-2">
-              {item.company}
+              {item.companyUrl ? (
+                <a
+                  href={item.companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-swiss-border underline-offset-2 hover:decoration-swiss-accent hover:text-swiss-accent transition-colors"
+                >
+                  {item.company}
+                </a>
+              ) : (
+                item.company
+              )}
             </p>
           </div>
         </div>

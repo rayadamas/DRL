@@ -24,9 +24,9 @@ export default function About() {
         <p>
           I&rsquo;m at my best when I&rsquo;m{" "}
           <span className="text-swiss-text font-medium">
-            close to the problem
+            close to the problem,
           </span>
-          &nbsp;— in the room where the question is still half-formed, not three
+          &nbsp; in the room where the question is still half-formed, not three
           slides into the readout.
         </p>
 
@@ -49,7 +49,7 @@ export default function About() {
         </p>
 
         <p>
-          The breadth on the r&eacute;sum&eacute; isn&rsquo;t padding &mdash;
+          The breadth on the r&eacute;sum&eacute; isn&rsquo;t padding, 
           it&rsquo;s pattern-matching across rooms. Retail floors, Accenture
           engagements (Macy&rsquo;s taxonomy, Walgreens program design,
           accessibility scans), enterprise NLP training, and BDR outbound. That
@@ -62,7 +62,7 @@ export default function About() {
         </p>
 
         <p>
-          Also a certified audio engineer &amp; DJ &mdash; that thread stays in
+          I am also a certified audio engineer &amp; DJ, that thread stays in
           the margins on purpose.
         </p>
       </div>

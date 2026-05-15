@@ -58,12 +58,12 @@ export default function Intro() {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="swiss-body text-lg sm:text-xl text-swiss-text-secondary max-w-2xl mb-10 leading-relaxed"
         >
-          Multidisciplinary builder who turns ideas into systems that work.{" "}
-          <span className="text-swiss-text font-medium">11 years</span> of
-          experience across retail, healthcare, and tech — with strengths in{" "}
+          I turn ideas into systems that work.{" "}
+          <span className="text-swiss-text font-medium">11+ years</span> of
+          experience across retail, healthcare, and tech with strengths in{" "}
           <span className="text-swiss-text font-medium">React</span>,{" "}
           <span className="text-swiss-text font-medium">Next.js</span>, and{" "}
-          <span className="text-swiss-text font-medium">Web3</span>.
+          <span className="text-swiss-text font-medium">AI</span>.
         </motion.p>
 
         <motion.div
