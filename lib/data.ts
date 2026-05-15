@@ -6,8 +6,6 @@ import hyperlyzDemoImg from "../lib/sitepics/hyperlyz-demo.png";
 import clausuraImg from "../lib/sitepics/clausura.png";
 import solanaGameImg from "../lib/sitepics/Solana Gaming DeFi SDK.png";
 import zorbImg from "../lib/sitepics/zorb.png";
-import web3rsvpImg from "../lib/sitepics/web3rsvp.png";
-import sardaukarImg from "../lib/sitepics/sardaukar.png";
 import type { StaticImageData } from "next/image";
 
 export const links = [
@@ -299,22 +297,6 @@ export const projectsData: readonly ProjectData[] = [
     tags: ["p5.js", "JavaScript", "TypeScript", "web3"],
     imageUrl: zorbImg,
     link: "https://github.com/rayadamas/zorb-visualizer",
-  },
-  {
-    title: "web3rsvp",
-    description:
-      "A metaverse events platform where users can discover, join, and create virtual events with their web3 frens.",
-    tags: ["Next.js", "Solidity", "TypeScript", "The Graph", "web3"],
-    imageUrl: web3rsvpImg,
-    link: "https://github.com/rayadamas/web3RSVP-frontend",
-  },
-  {
-    title: "Sardaukar Bootcamp",
-    description:
-      "A decentralized Dune-inspired app where users chant to the Maker, with each chant stored on Ethereum via a smart contract.",
-    tags: ["Solidity", "Ethereum", "Smart Contracts", "Next.js"],
-    imageUrl: sardaukarImg,
-    link: "https://github.com/rayadamas/blockchain-developer-bootcamp-final-project_0",
   },
 ];
 
