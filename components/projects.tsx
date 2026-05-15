@@ -16,7 +16,7 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto px-4">
         <SectionHeading>Projects</SectionHeading>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 auto-rows-[280px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 auto-rows-[minmax(280px,auto)]">
           {projectsData.map((project, index) => (
             <BentoCard key={project.id ?? project.title} project={project} index={index} />
           ))}
@@ -126,7 +126,7 @@ function BentoCard({
             {project.title}
           </h3>
 
-          <p className="swiss-body text-swiss-text-secondary text-sm mb-4 line-clamp-2">
+          <p className="swiss-body text-swiss-text-secondary text-sm mb-4">
             {project.description}
           </p>
 

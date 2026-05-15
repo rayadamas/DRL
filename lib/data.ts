@@ -240,7 +240,7 @@ export const projectsData: readonly ProjectData[] = [
     title: "Cosmic Week Tracker and Mood Guide",
     description:
       "PartyRock app that blends astronomy, numerology, and mood with moon phase data, Personal Day numbers, and transit-style insights.",
-    tags: ["PartyRock", "Python", "numerology", "astronomy"],
+    tags: ["PartyRock", "Python", "Numerology", "Astronomy"],
     imageUrl: cosmicWeekTrackerImg,
     link: "https://partyrock.aws/u/diaraylouden/d7rzs7WNA/Cosmic-Week-Tracker-and-Mood-Guide",
     spanClass: "sm:col-span-2 lg:col-span-8",
@@ -261,7 +261,7 @@ export const projectsData: readonly ProjectData[] = [
     title: "Building an AI Workflow",
     description:
       "Automations that connect conversational triggers, an AI agent with tools, GPT-4o, and Google Calendar event creation.",
-    tags: ["n8n", "automation", "ChatGPT", "Google Calendar"],
+    tags: ["n8n", "Automation", "ChatGPT", "Google Calendar"],
     imageUrl: aiWorkflowN8nImg,
     imagePosition: "object-top",
   },
