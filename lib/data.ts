@@ -2,8 +2,6 @@ import hyperlyzDemoImg from "../lib/sitepics/hyperlyz-demo.png";
 import clausuraImg from "../lib/sitepics/clausura.png";
 import solanaGameImg from "../lib/sitepics/Solana Gaming DeFi SDK.png";
 import zorbImg from "../lib/sitepics/zorb.png";
-import brxImg from "../lib/sitepics/brx.png";
-import mintingMelodiesImg from "../lib/sitepics/minting-melodies.png";
 import web3rsvpImg from "../lib/sitepics/web3rsvp.png";
 import sardaukarImg from "../lib/sitepics/sardaukar.png";
 import type { StaticImageData } from "next/image";
@@ -104,20 +102,6 @@ export const projectsData: readonly ProjectData[] = [
       "An MVP data visualization tool using ZORB metadata and Zora's API to abstract blockchain data into visuals.",
     tags: ["p5.js", "JavaScript", "TypeScript", "web3"],
     imageUrl: zorbImg,
-  },
-  {
-    title: "BRX / Bricks",
-    description:
-      "A web3 platform for fractional real estate investing — own hassle-free shares of properties starting at $2,500.",
-    tags: ["Next.js", "Solidity", "TypeScript", "web3", "DeFi"],
-    imageUrl: brxImg,
-  },
-  {
-    title: "KM Collection — Pinball Spring",
-    description:
-      "An NFT minting site for the Pinball Spring collection, showcasing on-chain music and visual artwork.",
-    tags: ["Next.js", "Solidity", "JavaScript", "web3", "NFT"],
-    imageUrl: mintingMelodiesImg,
   },
   {
     title: "web3rsvp",
