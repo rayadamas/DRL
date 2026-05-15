@@ -51,6 +51,8 @@ function BentoCard({
 
   const gridSpan =
     project.spanClass ?? "sm:col-span-1 lg:col-span-4";
+  const imagePosition = project.imagePosition ?? "object-[center_40%]";
+  const isFeatured = !!project.spanClass;
 
   return (
     <div className={`min-w-0 h-full min-h-[280px] ${gridSpan}`}>
@@ -66,8 +68,12 @@ function BentoCard({
             src={project.imageUrl}
             alt={project.title}
             fill
-            className="object-cover object-[center_40%] opacity-50 dark:opacity-30 group-hover:opacity-60 dark:group-hover:opacity-40 group-hover:scale-105 transition-all duration-500"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 400px"
+            className={`object-cover ${imagePosition} opacity-50 dark:opacity-30 group-hover:opacity-60 dark:group-hover:opacity-40 group-hover:scale-105 transition-all duration-500`}
+            sizes={
+              isFeatured
+                ? "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 800px"
+                : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+            }
           />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-2/5 bg-gradient-to-b from-swiss-card from-10% via-swiss-card/70 to-transparent dark:from-swiss-card dark:via-swiss-card/75" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-swiss-card via-swiss-card/60 to-transparent dark:via-swiss-card/80" />

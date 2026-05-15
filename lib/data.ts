@@ -226,6 +226,12 @@ export type ProjectData = {
   liveLink?: string;
   /** Optional grid span for featured bento tiles (e.g. `sm:col-span-2 lg:col-span-8`) */
   spanClass?: string;
+  /**
+   * Optional Tailwind `object-position` utility for the tile background image
+   * (e.g. `object-top` for tall doc-cover style images, `object-center` for
+   * landscape screenshots). Defaults to `object-[center_40%]`.
+   */
+  imagePosition?: string;
 };
 
 export const projectsData: readonly ProjectData[] = [
@@ -238,6 +244,7 @@ export const projectsData: readonly ProjectData[] = [
     imageUrl: cosmicWeekTrackerImg,
     link: "https://partyrock.aws/u/diaraylouden/d7rzs7WNA/Cosmic-Week-Tracker-and-Mood-Guide",
     spanClass: "sm:col-span-2 lg:col-span-8",
+    imagePosition: "object-[center_30%]",
   },
   {
     id: "ai-security-scanner-python",
@@ -247,6 +254,7 @@ export const projectsData: readonly ProjectData[] = [
     tags: ["Python", "security", "AI"],
     imageUrl: aiSecurityScannerImg,
     link: "https://learn.nextwork.org/loving_cyan_zealous_bacuri/docs/ai-security-audit",
+    imagePosition: "object-center",
   },
   {
     id: "ai-workflow-n8n",
@@ -255,6 +263,7 @@ export const projectsData: readonly ProjectData[] = [
       "Automations that connect conversational triggers, an AI agent with tools, GPT-4o, and Google Calendar event creation.",
     tags: ["n8n", "automation", "ChatGPT", "Google Calendar"],
     imageUrl: aiWorkflowN8nImg,
+    imagePosition: "object-top",
   },
   {
     id: "rag-chatbot-bedrock",
@@ -263,6 +272,7 @@ export const projectsData: readonly ProjectData[] = [
       "Serverless retrieval-augmented chat on AWS Bedrock with cited answers, backed by document storage patterns on S3 and Lambda.",
     tags: ["AWS", "Bedrock", "RAG", "Lambda", "S3"],
     imageUrl: ragChatbotBedrockImg,
+    imagePosition: "object-top",
   },
   {
     title: "Hyperlyz Demo",

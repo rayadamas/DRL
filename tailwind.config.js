@@ -4,6 +4,24 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  safelist: [
+    // Span utilities used dynamically via the `spanClass` field in lib/data.ts.
+    // Listed explicitly so the JIT compiler always emits them, even if a future
+    // refactor moves the strings to a path the content scan does not cover.
+    "sm:col-span-2",
+    "lg:col-span-8",
+    "sm:col-span-1",
+    "lg:col-span-4",
+    "lg:col-span-6",
+    "lg:col-span-12",
+    // Image positions used dynamically via the `imagePosition` field.
+    "object-center",
+    "object-top",
+    "object-bottom",
+    "object-[center_30%]",
+    "object-[center_40%]",
   ],
   theme: {
     extend: {
