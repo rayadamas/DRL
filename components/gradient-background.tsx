@@ -72,18 +72,19 @@ const fragmentShader = `
   }
 `;
 
+// Palette: Egyptian Blue #1034a7 · Rosé Pink #ff66cc · Mantis #82d173
 const lightColors = {
   bg: new THREE.Color("#F5F0E8"),
-  color1: new THREE.Color("#ff70a6"),
-  color2: new THREE.Color("#70d6ff"),
-  particles: new THREE.Color("#14b8a6"),
+  color1: new THREE.Color("#1034a7"), // Egyptian Blue
+  color2: new THREE.Color("#ff66cc"), // Rosé Pink
+  particles: new THREE.Color("#82d173"), // Mantis
 };
 
 const darkColors = {
   bg: new THREE.Color("#121218"),
-  color1: new THREE.Color("#ff5d8f"),
-  color2: new THREE.Color("#7fc8f8"),
-  particles: new THREE.Color("#2dd4bf"),
+  color1: new THREE.Color("#1034a7"), // Egyptian Blue
+  color2: new THREE.Color("#ff66cc"), // Rosé Pink
+  particles: new THREE.Color("#82d173"), // Mantis
 };
 
 function createCircleTexture() {

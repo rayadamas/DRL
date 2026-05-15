@@ -255,7 +255,7 @@ export const projectsData: readonly ProjectData[] = [
     title: "AI Security Scanner for Python",
     description:
       "NextWork portfolio walkthrough documenting an AI-assisted security audit flow for Python codebases.",
-    tags: ["Python", "security", "AI"],
+    tags: ["Python", "Security", "AI"],
     imageUrl: aiSecurityScannerImg,
     link: "https://learn.nextwork.org/loving_cyan_zealous_bacuri/docs/ai-security-audit",
     imagePosition: "object-center",
