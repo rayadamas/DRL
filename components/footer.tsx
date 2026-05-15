@@ -97,7 +97,7 @@ export default function Footer() {
 
                   <div className="space-y-3 text-xs leading-relaxed text-swiss-text-secondary">
                     <p>
-                      I&rsquo;m a real person—this isn&rsquo;t a trap or a
+                      I&rsquo;m a real person, this isn&rsquo;t a trap or a
                       scraper impersonating someone. I&rsquo;m not here to take
                       your ideas, passwords, or personal data, and I
                       don&rsquo;t sell or rent visitor information.
@@ -109,12 +109,12 @@ export default function Footer() {
                       <code className="rounded bg-swiss-text/5 px-1 py-0.5 text-[0.7rem] text-swiss-text">
                         mailto:
                       </code>{" "}
-                      link—nothing on this site captures what you type there.
+                      link, nothing on this site captures what you type there.
                     </p>
                     <p>
                       If the site is hosted on Vercel, I may use their
                       privacy-focused Web Analytics for aggregate page views
-                      only—think “how many people showed up,” not
+                      only, think “how many people showed up,” not
                       fingerprinting or ad targeting.
                     </p>
                     <p>
