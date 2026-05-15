@@ -225,6 +225,7 @@ export default function GradientBackground() {
   const mouse = useRef({ x: 0, y: 0 });
   const [particleCount, setParticleCount] = useState(5000);
   const [isMobile, setIsMobile] = useState(false);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
@@ -248,7 +249,12 @@ export default function GradientBackground() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  if (isMobile) {
+  // The body has `position: relative`, which creates a stacking context.
+  // That means the fixed gradient at z-index -20 paints ABOVE body bg and
+  // UNDER content — saturated streaks behind text. In light mode the cream
+  // bg + dark Egyptian Blue mix kills text contrast, so swap to a static
+  // solid background for the light theme. Dark mode keeps the full shader.
+  if (isMobile || resolvedTheme === "light") {
     return <StaticBackground />;
   }
 
