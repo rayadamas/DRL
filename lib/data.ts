@@ -27,7 +27,7 @@ export type ExperienceItem = {
   type: "work" | "education";
 };
 
-/** Reverse chronological (newest first): current roles, then by end date. */
+/** Reverse chronological (newest first): current roles, then —by end date. */
 export const experiencesData: readonly ExperienceItem[] = [
   {
     title: "Independent Client Manager",
@@ -35,7 +35,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     companyUrl: "https://vinolouden.com/",
     date: "Jan 2025 — Present",
     description:
-      "Runs digital presence and outreach for a performing artist—content rhythm, Linktree and social channels, and lightweight CRM-style tracking so engagement turns into booked conversations.",
+      "Running digital presence and outreach for a performing artist, includingcontent rhythm, Linktree and social channels, and lightweight CRM-style tracking so engagement turns into booked conversations.",
     type: "work",
   },
   {
@@ -44,7 +44,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     companyUrl: "https://www.quincylabs.org/",
     date: "May 2022 — Present",
     description:
-      "Independent lab at the intersection of AI infrastructure, on-chain systems, and applied life sciences—shipping serious R&D (including TRACE, a sickle-cell–focused causal reasoning tool) while pushing multi-agent orchestration, edge inference, and protocol-level design.",
+      "An independent lab at the intersection of AI infrastructure, on-chain systems, and applied life sciences, shipping serious R&D (including TRACE, a sickle-cell–focused causal reasoning tool) while pushing multi-agent orchestration, edge inference, and protocol-level design.",
     type: "work",
   },
   {
@@ -52,7 +52,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Firstbase",
     date: "Feb 2026 — May 2026",
     description:
-      "Focused on global equipment-lifecycle and hybrid-workplace wins—account research, CISO/VP-level conversations, and outbound that highlights retrieval rates, day-one readiness, and fewer IT headaches.",
+      "Focused on global equipment-lifecycle and hybrid-workplace wins, including account research, CISO/VP-level conversations, and outbound that highlights retrieval rates, day-one readiness, and fewer IT headaches.",
     type: "work",
   },
   {
@@ -60,7 +60,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Udacity",
     date: "Mar 2026",
     description:
-      "Nanodegree-style path toward AWS AI Practitioner fluency—services, responsible use, and mapping cloud ML to how teams actually ship.",
+      "Nanodegree-style path toward AWS AI Practitioner fluency, including services, responsible use, and mapping cloud ML to how teams actually ship.",
     type: "education",
   },
   {
@@ -68,7 +68,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "SV Academy · Chicago, IL",
     date: "Dec 2025 — Jan 2026",
     description:
-      "Competitive SDR prep—250+ hours on conversational selling, disciplined prospecting, email craft, and EQ under rejection, coached by SVA methodology and alumni mentors.",
+      "Competitive SDR prep, 250+ hours on conversational selling, disciplined prospecting, email craft, and EQ under rejection, coached by SVA methodology and alumni mentors.",
     type: "work",
   },
   {
@@ -76,15 +76,15 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Outskill",
     date: "Nov 2025 — Dec 2025",
     description:
-      "Short, high-intensity AI certificate—core concepts, tooling literacy, and applied exercises rather than slide-deck theory.",
+      "Short, high-intensity AI certificate, including core concepts, tooling literacy, and applied exercises rather than slide-deck theory.",
     type: "education",
   },
   {
-    title: "Certificate · International Finance",
+    title: "Certificate · Mastering web3",
     company: "University of Nicosia",
     date: "Sep 2022 — Dec 2025",
     description:
-      "Long-form certificate across international markets and financial analysis—context that pairs well with cross-border and digital-asset themes.",
+      "Long-form certificate across international markets and financial analysis,context that pairs well with cross-border and digital-asset themes.",
     type: "education",
   },
   {
@@ -92,7 +92,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "RE:WORK TRAINING · Chicago, IL",
     date: "Jan 2025 — Nov 2025",
     description:
-      "Nonprofit BDR work through the Get This Work bootcamp—outbound and inbound for tech sales training, donors, and corporate partners; qualified pipeline, demos, CRM hygiene, and tight alignment with sales and marketing goals.",
+      "Nonprofit BDR work through the Get This Work bootcamp, outbound and inbound for tech sales training, donors, and corporate partners; qualified pipeline, demos, CRM hygiene, and tight alignment with sales and marketing goals.",
     type: "work",
   },
   {
@@ -100,7 +100,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Accenture · Chicago, IL",
     date: "Dec 2023 — Jan 2025",
     description:
-      "Supported end-to-end podcast operations for a global show—scheduling, host and editor coordination, quality bar, and clearer internal comms so episodes shipped on time with less rework.",
+      "Supported end-to-end podcast operations for a global show, scheduling, host and editor coordination, quality bar, and clearer internal comms so episodes shipped on time with less rework.",
     type: "work",
   },
   {
@@ -108,7 +108,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Accenture · Chicago, IL",
     date: "Jan 2022 — Jan 2025",
     description:
-      "Mapped processes and business models to modern tech, turned stakeholder needs into future-state designs, and partnered across teams on delivery—strong lens on e-commerce and digital marketplace strategy.",
+      "Mapped processes and business models to modern tech, turned stakeholder needs into future-state designs, and partnered across teams on delivery, strong lens on e-commerce and digital marketplace strategy.",
     type: "work",
   },
   {
@@ -132,7 +132,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Amazon · Project Neo (via Accenture) · Chicago, IL",
     date: "Mar 2023 — Jul 2024",
     description:
-      "Large-scale prompt/completion authoring for an enterprise language model—1,100+ pairs across nine task types, reusable templates, strict QA gates, and automation ideas that pushed team throughput toward ~40 prompts per FTE per day.",
+      "Large-scale prompt/completion authoring for an enterprise language model, 1,100+ pairs across nine task types, reusable templates, strict QA gates, and automation ideas that pushed team throughput toward ~40 prompts per FTE per day.",
     type: "work",
   },
   {
@@ -140,7 +140,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Accenture · Chicago, IL",
     date: "Jul 2023 — Sep 2023",
     description:
-      "Deque Axe–driven WCAG 2.1 AA scans across assigned brand sites—exported structured findings, flagged high-impact pages, and fed a growing accessibility data lane for remediation follow-up.",
+      "Deque Axe–driven WCAG 2.1 AA scans across assigned brand sites, exported structured findings, flagged high-impact pages, and fed a growing accessibility data lane for remediation follow-up.",
     type: "work",
   },
   {
@@ -148,7 +148,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Accenture · Chicago, IL",
     date: "Feb 2023 — Mar 2023",
     description:
-      "Account intel pass—validated existing Accenture relationships and whether client stacks still lived on-prem or had already moved cloudward.",
+      "Account intel pass, validated existing Accenture relationships and whether client stacks still lived on-prem or had already moved cloudward.",
     type: "work",
   },
   {
@@ -156,63 +156,63 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Walgreens Boots Alliance · via Accenture · Chicago, IL",
     date: "Sep 2022 — Jan 2023",
     description:
-      "Structured program design lens—current state, requirements, future-state options, synthesized research, status reporting, and clear handrails for stakeholder decisions.",
+      "Structured program design lens, current state, requirements, future-state options, synthesized research, status reporting, and clear handrails for stakeholder decisions.",
     type: "work",
   },
   {
     title: "Phonon Developer",
     company: "GridPlus · United States",
-    date: "Aug 2022 — Nov 2022",
+    date: "Aug 2022 - Nov 2022",
     description:
-      "Worked on Phonon’s off-chain asset movement model—hardware-secured flows and protocol concepts aimed at practical, privacy-aware peer value transfer.",
+      "Worked on Phonon’s off-chain asset movement model, hardware-secured flows and protocol concepts aimed at practical, privacy-aware peer value transfer.",
     type: "work",
   },
   {
     title: "Apprentice Program · North America",
     company: "Accenture · Chicago, IL",
-    date: "Jan 2022 — Aug 2022",
+    date: "Jan 2022 - Aug 2022",
     description:
-      "Foundational consulting apprenticeship—analyze organizations, stitch business models to tech, interviews and synthesis, and crisp definitions of customer requirements and target outcomes.",
+      "Foundational consulting apprenticeship-analyze organizations, stitch business models to tech, interviews and synthesis, and crisp definitions of customer requirements and target outcomes.",
     type: "work",
   },
   {
     title: "DeFi MOOC · Computer Science",
     company: "University of California, Berkeley",
-    date: "Sep 2021 — Dec 2021",
+    date: "Sep 2021 - Dec 2021",
     description:
-      "Berkeley MOOC coverage of DeFi mechanics—liquidity primitives, protocols, and how decentralized markets diverge from traditional settlement rails.",
+      "Berkeley MOOC coverage of DeFi mechanics-liquidity primitives, protocols, and how decentralized markets diverge from traditional settlement rails.",
     type: "education",
   },
   {
     title: "Billing Agent",
     company: "Luna Medical · Chicago, IL",
-    date: "Sep 2019 — Mar 2020",
+    date: "Sep 2019 - Mar 2020",
     description:
-      "Owned billing throughput for medical product orders—invoices, clean documentation, ERP-style data entry, and cross-team fixes when orders or payer questions stalled cash.",
+      "Owned billing throughput for medical product orders-invoices, clean documentation, ERP-style data entry, and cross-team fixes when orders or payer questions stalled cash.",
     type: "work",
   },
   {
     title: "Operations Lead",
     company: "Saks OFF 5TH · Chicago, IL",
-    date: "Mar 2016 — Jan 2019",
+    date: "Mar 2016 - Jan 2019",
     description:
-      "Rotating department leadership—inbound/outbound freight discipline, replenishment rhythms, forecasting with the team, and web-fulfillment coordination that materially lifted local ranking and online attach versus a same-parent competitor.",
+      "Rotating department leadership-inbound/outbound freight discipline, replenishment rhythms, forecasting with the team, and web-fulfillment coordination that materially lifted local ranking and online attach versus a same-parent competitor.",
     type: "work",
   },
   {
     title: "Operations Specialist",
     company: "Nordstrom Trunk Club · Chicago, IL",
-    date: "Feb 2015 — Mar 2016",
+    date: "Feb 2015 - Mar 2016",
     description:
-      "Digital-first fulfillment and refurbishment workflows—tablet KPI tracking, inbound processing, and using new metrics feeds to tighten repeat-sales strategy.",
+      "Digital-first fulfillment and refurbishment workflows-tablet KPI tracking, inbound processing, and using new metrics feeds to tighten repeat-sales strategy.",
     type: "work",
   },
   {
     title: "Advanced Certificate · Dental Assisting / Assistant",
     company: "City Colleges of Chicago · Wilbur Wright College",
-    date: "2013 — 2015",
+    date: "2013 - 2015",
     description:
-      "Credential-backed clinical and administrative training—precision, sterilization protocols, and professional patient interaction at the front line of care.",
+      "Credential-backed clinical and administrative training-precision, sterilization protocols, and professional patient interaction at the front line of care.",
     type: "education",
   },
 ];
