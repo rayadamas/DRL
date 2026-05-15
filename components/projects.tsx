@@ -8,8 +8,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { HiArrowUpRight, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 
-const CARD_W_PX = 560;
-const CARD_H_PX = 340;
+/** Wide landscape tile — matches “about 2×” prior card width within max-w-6xl */
+const CARD_W_PX = 920;
+const CARD_H_PX = 380;
 
 export default function Projects() {
   const { ref } = useSectionInView("Projects", 0.2);
@@ -71,10 +72,10 @@ export default function Projects() {
             </button>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[min(100%,576px)] min-h-[min(520px,calc(100vh-11rem))]">
+          <div className="relative mx-auto w-full max-w-[min(100%,956px)] min-h-[min(540px,calc(100vh-10rem))]">
             <div
               className="relative mx-auto pt-6"
-              style={{ height: CARD_H_PX + 48 }}
+              style={{ height: CARD_H_PX + 52 }}
             >
               {stackOrder.map((projectIndex, pilePosition) => {
                 const project = projectsData[projectIndex];
@@ -86,8 +87,8 @@ export default function Projects() {
                     key={project.title}
                     initial={false}
                     animate={{
-                      x: depth * 16,
-                      y: depth * -18,
+                      x: depth * 18,
+                      y: depth * -16,
                       rotate: 0,
                       scale: 1 - depth * 0.032,
                       zIndex: n - depth,
@@ -123,7 +124,7 @@ export default function Projects() {
                         alt={isTop ? `${project.title} screenshot` : ""}
                         fill
                         className="object-cover object-top"
-                        sizes="(max-width: 768px) 100vw, 560px"
+                        sizes="(max-width: 768px) 100vw, 920px"
                         priority={isTop}
                       />
                       <div
