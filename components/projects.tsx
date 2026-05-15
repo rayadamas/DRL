@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { HiArrowUpRight, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 
 /** Wide landscape tile — matches “about 2×” prior card width within max-w-6xl */
-const CARD_W_PX = 920;
+const CARD_W_PX = 1024;
 const CARD_H_PX = 380;
 
 export default function Projects() {
