@@ -10,8 +10,6 @@ const Chrono = dynamic(() => import("react-chrono").then((mod) => mod.Chrono), {
   ssr: false,
 });
 
-type Theme = "light" | "dark";
-
 export default function Experience() {
   const { ref } = useSectionInView("Experience");
 

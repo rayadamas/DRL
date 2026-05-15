@@ -1,18 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  BsArrowDown,
-  BsArrowRight,
-  BsCCircleFill,
-  BsDiamond,
-  BsDiamondFill,
-  BsGithub,
-  BsLinkedin,
-} from "react-icons/bs";
+import { BsDiamondFill, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useActiveSectionContext } from "@/context/active-section-context";
@@ -26,7 +18,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-28"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -77,7 +69,7 @@ export default function Intro() {
         <span className="font-bold"> 11 years</span> of experience, I enjoy
         <span className="font-bold">
           {" "}
-          continously learning, growing, and helping whatever environment I find
+          continuously learning, growing, and helping whatever environment I find
           myself in
         </span>
         . <br></br>
@@ -124,7 +116,7 @@ export default function Intro() {
         </Link>
         <a
           className="group bg-slate-50 text-black px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-slate-50/10 dark:text-slate-50"
-          href="/LoudenDiamond_resume_32026 copy.pdf"
+          href="/LoudenDiamond_resume-42026.pdf"
           download
         >
           Download My Resume{" "}
