@@ -72,19 +72,18 @@ const fragmentShader = `
   }
 `;
 
-// Palette: Egyptian Blue #1034a7 · Rosé Pink #ff66cc · Mantis #82d173
 const lightColors = {
   bg: new THREE.Color("#F5F0E8"),
-  color1: new THREE.Color("#1034a7"), // Egyptian Blue
-  color2: new THREE.Color("#ff66cc"), // Rosé Pink
-  particles: new THREE.Color("#82d173"), // Mantis
+  color1: new THREE.Color("#ff70a6"),
+  color2: new THREE.Color("#70d6ff"),
+  particles: new THREE.Color("#14b8a6"),
 };
 
 const darkColors = {
   bg: new THREE.Color("#121218"),
-  color1: new THREE.Color("#1034a7"), // Egyptian Blue
-  color2: new THREE.Color("#ff66cc"), // Rosé Pink
-  particles: new THREE.Color("#82d173"), // Mantis
+  color1: new THREE.Color("#ff5d8f"),
+  color2: new THREE.Color("#7fc8f8"),
+  particles: new THREE.Color("#2dd4bf"),
 };
 
 function createCircleTexture() {
@@ -225,7 +224,6 @@ export default function GradientBackground() {
   const mouse = useRef({ x: 0, y: 0 });
   const [particleCount, setParticleCount] = useState(5000);
   const [isMobile, setIsMobile] = useState(false);
-  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
@@ -249,12 +247,7 @@ export default function GradientBackground() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // The body has `position: relative`, which creates a stacking context.
-  // That means the fixed gradient at z-index -20 paints ABOVE body bg and
-  // UNDER content — saturated streaks behind text. In light mode the cream
-  // bg + dark Egyptian Blue mix kills text contrast, so swap to a static
-  // solid background for the light theme. Dark mode keeps the full shader.
-  if (isMobile || resolvedTheme === "light") {
+  if (isMobile) {
     return <StaticBackground />;
   }
 
