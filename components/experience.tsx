@@ -103,8 +103,7 @@ type ExperienceType = (typeof experiencesData)[number];
 
 function CarouselCard({ item }: { item: ExperienceType }) {
   const isEducation = item.type === "education";
-  const logoKey =
-    item.logo ?? resolveExperienceLogo(item.company, item.title);
+  const logoKey = item.logo ?? resolveExperienceLogo(item.company);
   const logoSrc = logoKey ? experienceLogoSrc(logoKey) : null;
 
   return (
