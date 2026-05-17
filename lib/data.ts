@@ -7,6 +7,7 @@ import clausuraImg from "../lib/sitepics/clausura.png";
 import solanaGameImg from "../lib/sitepics/Solana Gaming DeFi SDK.png";
 import zorbImg from "../lib/sitepics/zorb.png";
 import type { StaticImageData } from "next/image";
+import type { ExperienceLogoKey } from "./experience-logos";
 
 export const links = [
   { name: "Home", hash: "#home" },
@@ -22,6 +23,8 @@ export type ExperienceItem = {
   company: string;
   /** Optional URL for the company/institution; renders the company line as a link. */
   companyUrl?: string;
+  /** Optional logo override (otherwise inferred from company/title). */
+  logo?: ExperienceLogoKey;
   date: string;
   description: string;
   type: "work" | "education";

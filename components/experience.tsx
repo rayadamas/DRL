@@ -3,8 +3,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import SectionHeading from "./section-heading";
 import { experiencesData } from "@/lib/data";
+import {
+  experienceLogoSrc,
+  resolveExperienceLogo,
+} from "@/lib/experience-logos";
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { HiBriefcase, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 
 export default function Experience() {
@@ -98,6 +103,9 @@ type ExperienceType = (typeof experiencesData)[number];
 
 function CarouselCard({ item }: { item: ExperienceType }) {
   const isEducation = item.type === "education";
+  const logoKey =
+    item.logo ?? resolveExperienceLogo(item.company, item.title);
+  const logoSrc = logoKey ? experienceLogoSrc(logoKey) : null;
 
   return (
     <article
@@ -106,15 +114,35 @@ function CarouselCard({ item }: { item: ExperienceType }) {
     >
       <div className="group flex flex-col rounded-xl bg-swiss-card border border-swiss-border hover:border-swiss-accent transition-all duration-300 h-full overflow-hidden shadow-sm hover:shadow-md">
         <div className="flex items-start gap-3 p-5 pb-3 border-b border-swiss-border/60">
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-swiss-accent/12 text-lg leading-none border border-swiss-accent/25">
-            {isEducation ? (
-              <span role="img" aria-label="Education" className="text-[1.25rem]">
-                🎓
-              </span>
-            ) : (
-              <HiBriefcase className="w-5 h-5 text-swiss-accent" aria-hidden />
-            )}
-          </span>
+          {logoSrc ? (
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-swiss-border/50 bg-white p-1.5 shadow-sm dark:border-swiss-border/40">
+              <Image
+                src={logoSrc}
+                alt=""
+                width={32}
+                height={32}
+                className="h-7 w-7 object-contain opacity-[0.72] grayscale-[35%] transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                aria-hidden
+              />
+            </span>
+          ) : (
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-swiss-accent/12 text-lg leading-none border border-swiss-accent/25">
+              {isEducation ? (
+                <span
+                  role="img"
+                  aria-label="Education"
+                  className="text-[1.25rem]"
+                >
+                  🎓
+                </span>
+              ) : (
+                <HiBriefcase
+                  className="w-5 h-5 text-swiss-accent"
+                  aria-hidden
+                />
+              )}
+            </span>
+          )}
           <div className="min-w-0 flex-1">
             <p className="swiss-label text-swiss-accent truncate">{item.date}</p>
             <h3 className="swiss-heading text-sm sm:text-base mt-1.5 leading-snug group-hover:text-swiss-accent transition-colors">
