@@ -73,8 +73,8 @@ const fragmentShader = `
 
 const colors = {
   bg: new THREE.Color("#121218"),
-  color1: new THREE.Color("#82d173"),
-  color2: new THREE.Color("#ff66cc"),
+  color1: new THREE.Color("#93D3DF"),
+  color2: new THREE.Color("#3B65B3"),
   particles: new THREE.Color("#F6F4F1"),
 };
 
