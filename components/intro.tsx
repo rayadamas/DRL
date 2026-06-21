@@ -86,7 +86,7 @@ export default function Intro() {
 
           <a
             className="group flex items-center gap-2 px-7 py-3.5 bg-swiss-card border border-swiss-border rounded-full font-medium hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300 hover:scale-105"
-            href="/LoudenDiamond_resume-52026.pdf"
+            href="/LoudenD_CV_62026.pdf"
             download
           >
             Resume
