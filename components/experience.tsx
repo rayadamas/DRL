@@ -101,6 +101,19 @@ export default function Experience() {
 
 type ExperienceType = (typeof experiencesData)[number];
 
+function HighlightLine({ text }: { text: string }) {
+  const dot = text.indexOf(".");
+  const label = dot > 0 ? text.slice(0, dot + 1) : text;
+  const rest = dot > 0 ? text.slice(dot + 1).trim() : "";
+
+  return (
+    <>
+      <span className="font-medium text-swiss-text">{label}</span>
+      {rest ? ` ${rest}` : null}
+    </>
+  );
+}
+
 function CarouselCard({ item }: { item: ExperienceType }) {
   const isEducation = item.type === "education";
   const logoKey = item.logo ?? resolveExperienceLogo(item.company);
@@ -168,6 +181,15 @@ function CarouselCard({ item }: { item: ExperienceType }) {
           <p className="text-xs text-swiss-text-secondary leading-relaxed">
             {item.description}
           </p>
+          {item.highlights && item.highlights.length > 0 ? (
+            <ul className="mt-3 space-y-2 list-disc list-outside pl-4 text-xs text-swiss-text-secondary leading-relaxed">
+              {item.highlights.map((highlight) => (
+                <li key={highlight}>
+                  <HighlightLine text={highlight} />
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       </div>
     </article>
