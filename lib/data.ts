@@ -27,8 +27,6 @@ export type ExperienceItem = {
   logo?: ExperienceLogoKey;
   date: string;
   description: string;
-  /** Optional résumé-style bullets rendered below description. */
-  highlights?: readonly string[];
   type: "work" | "education";
 };
 
@@ -39,12 +37,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Diverse ICT",
     date: "Jan 2026 — Present",
     description:
-      "Pre-sales advisory role supporting managed IT, cybersecurity, cloud, automation, data management, DevOps, SecOps, helpdesk, licensing, and technical staffing engagements.",
-    highlights: [
-      "AI governance advisory. Advised clients on access controls, audit trails, incident documentation, and AI governance requirements, translating emerging AI risk into practical operating controls.",
-      "Identity and access risk review. Evaluated environments for identity governance readiness, surfacing shadow IT, access sprawl, and separation-of-duties gaps that could increase audit exposure and operational risk.",
-      "Managed IT solution shaping. Ran pre-sales discovery across client technology environments, converting undefined needs into scoped service requirements and billable project frameworks.",
-    ],
+      "Pre-sales advisory across managed IT, cybersecurity, cloud, automation, data management, DevOps, SecOps, helpdesk, licensing, and technical staffing. Advised on AI governance and access controls, evaluated identity and shadow-IT risk, and shaped scoped service requirements from pre-sales discovery.",
     type: "work",
   },
   {
