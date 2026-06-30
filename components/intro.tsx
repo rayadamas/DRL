@@ -5,7 +5,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
-import { HiDownload } from "react-icons/hi";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { useSectionInView } from "@/lib/hooks";
 
@@ -70,7 +69,7 @@ export default function Intro() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3"
+          className="flex items-center justify-center"
         >
           <Link
             href="#contact"
@@ -83,15 +82,6 @@ export default function Intro() {
             Contact Me
             <BsArrowRight className="group-hover:translate-x-1 transition-transform" />
           </Link>
-
-          <a
-            className="group flex items-center gap-2 px-7 py-3.5 bg-swiss-card border border-swiss-border rounded-full font-medium hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300 hover:scale-105"
-            href="/LoudenD_CV_62026.pdf"
-            download
-          >
-            Resume
-            <HiDownload className="group-hover:translate-y-0.5 transition-transform" />
-          </a>
         </motion.div>
 
         <motion.div
