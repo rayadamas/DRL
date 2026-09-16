@@ -1,0 +1,36 @@
+# Diamond Ray Louden — https://drl.bio
+
+> Personal portfolio for Diamond Ray Louden: multidisciplinary builder focused on applied AI, Next.js/React systems, and pre-sales / sales engineering across IT and cybersecurity.
+
+## Summary
+Diamond Ray Louden (Chicago) ships applied AI agents, automations, and retrieval systems (including AWS Bedrock RAG), alongside full-stack web work in React and Next.js. Background spans Accenture (commerce, NLP training for Amazon Project Neo, accessibility), sales engineering, and independent R&D at Quincy Labs.
+
+## Site map
+- Home: https://drl.bio/#home
+- About: https://drl.bio/#about
+- Projects: https://drl.bio/#projects
+- Skills: https://drl.bio/#skills
+- Experience: https://drl.bio/#experience
+- Contact: https://drl.bio/#contact
+
+## Selected projects
+- Cosmic Week Tracker and Mood Guide (PartyRock)
+- AI Security Scanner for Python
+- Building an AI Workflow (n8n)
+- Set Up a RAG Chatbot in Bedrock
+- Hyperlyz Demo, Clausura, Solana Flutter DeFi SDK, Zorbz Data Visualizer
+
+## Current roles (examples)
+- Sales Engineer — Diverse ICT (Jan 2026 — Present)
+- Founder — Quincy Labs
+- Independent Client Manager — Vino Louden Music
+
+## Contact
+- Email: diamondlouden@gmail.com
+- LinkedIn: https://www.linkedin.com/in/diamond-ray/
+- GitHub: https://github.com/rayadamas
+- Site: https://drl.bio
+
+## Optional
+- Sitemap: https://drl.bio/sitemap.xml
+- Robots: https://drl.bio/robots.txt

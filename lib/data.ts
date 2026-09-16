@@ -53,7 +53,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     title: "Founder",
     company: "Quincy Labs · Chicago, IL",
     companyUrl: "https://www.quincylabs.org/",
-    date: "May 2022 — Present",
+    date: "May 2018 — Present",
     description:
       "An independent lab at the intersection of AI infrastructure, on-chain systems, and applied life sciences, shipping serious R&D (including TRACE, a sickle-cell–focused causal reasoning tool) while pushing multi-agent orchestration, edge inference, and protocol-level design.",
     type: "work",
