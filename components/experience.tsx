@@ -48,13 +48,16 @@ export default function Experience() {
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   }, []);
 
+  const arrowBtn =
+    "hidden sm:flex absolute top-1/2 -translate-y-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-swiss-accent text-white border-2 border-swiss-accent shadow-lg hover:bg-swiss-accent-hover hover:scale-105 transition-all disabled:opacity-35 disabled:pointer-events-none disabled:hover:scale-100";
+
   return (
     <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
       <div className="max-w-6xl mx-auto px-4">
         <SectionHeading>Experience & Education</SectionHeading>
 
         <motion.div
-          className="relative sm:px-12"
+          className="relative sm:px-14"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -65,9 +68,9 @@ export default function Experience() {
             aria-label="Scroll experience carousel backward"
             onClick={() => scrollByCards(-1)}
             disabled={!canPrev}
-            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-1 sm:-translate-x-4 w-10 h-10 items-center justify-center rounded-full bg-swiss-card border border-swiss-border text-swiss-text shadow-sm hover:border-swiss-accent hover:text-swiss-accent transition-colors disabled:opacity-30 disabled:pointer-events-none"
+            className={`${arrowBtn} left-0 -translate-x-1 sm:-translate-x-2`}
           >
-            <HiChevronLeft className="w-5 h-5" aria-hidden />
+            <HiChevronLeft className="w-6 h-6" aria-hidden />
           </button>
 
           <button
@@ -75,9 +78,9 @@ export default function Experience() {
             aria-label="Scroll experience carousel forward"
             onClick={() => scrollByCards(1)}
             disabled={!canNext}
-            className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-1 sm:translate-x-4 w-10 h-10 items-center justify-center rounded-full bg-swiss-card border border-swiss-border text-swiss-text shadow-sm hover:border-swiss-accent hover:text-swiss-accent transition-colors disabled:opacity-30 disabled:pointer-events-none"
+            className={`${arrowBtn} right-0 translate-x-1 sm:translate-x-2`}
           >
-            <HiChevronRight className="w-5 h-5" aria-hidden />
+            <HiChevronRight className="w-6 h-6" aria-hidden />
           </button>
 
           <div
@@ -92,6 +95,9 @@ export default function Experience() {
 
           <p className="text-center mt-2 text-[11px] text-swiss-text-secondary/90 sm:hidden">
             Swipe horizontally to see more
+          </p>
+          <p className="hidden sm:block text-center mt-3 text-[11px] text-swiss-text-secondary/80">
+            Use the arrows to browse roles
           </p>
         </motion.div>
       </div>
@@ -164,10 +170,22 @@ function CarouselCard({ item }: { item: ExperienceType }) {
           </div>
         </div>
 
-        <div className="px-5 py-4 flex-1">
+        <div className="px-5 py-4 flex-1 flex flex-col gap-3">
           <p className="text-xs text-swiss-text-secondary leading-relaxed">
             {item.description}
           </p>
+          {item.industries && item.industries.length > 0 ? (
+            <div className="flex flex-wrap gap-1.5 mt-auto">
+              {item.industries.map((industry) => (
+                <span
+                  key={industry}
+                  className="px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide rounded-full border border-swiss-border/80 text-swiss-text-secondary"
+                >
+                  {industry}
+                </span>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </article>

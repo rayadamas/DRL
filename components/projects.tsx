@@ -122,6 +122,18 @@ function BentoCard({
             </div>
           ) : null}
 
+          <div className="mb-2 flex flex-wrap items-center gap-2">
+            <span
+              className={`px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full border ${
+                project.role === "creator"
+                  ? "border-swiss-accent/40 bg-swiss-accent/10 text-swiss-accent"
+                  : "border-swiss-border bg-swiss-text/5 text-swiss-text-secondary"
+              }`}
+            >
+              {project.role === "creator" ? "Creator" : "Collaborator"}
+            </span>
+          </div>
+
           <h3 className="swiss-heading text-xl md:text-2xl mb-2 group-hover:text-swiss-accent transition-colors">
             {project.title}
           </h3>
@@ -131,6 +143,14 @@ function BentoCard({
           </p>
 
           <div className="flex flex-wrap gap-2">
+            {project.industries.map((industry) => (
+              <span
+                key={industry}
+                className="px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide rounded-full border border-swiss-border/70 text-swiss-text-secondary"
+              >
+                {industry}
+              </span>
+            ))}
             {project.tags.map((tag, tagIndex) => (
               <span
                 key={tagIndex}
