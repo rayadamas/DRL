@@ -12,8 +12,10 @@ import type { ExperienceLogoKey } from "./experience-logos";
 export const links = [
   { name: "Home", hash: "#home" },
   { name: "About", hash: "#about" },
+  { name: "Portfolio", hash: "#portfolio" },
   { name: "Projects", hash: "#projects" },
   { name: "Skills", hash: "#skills" },
+  { name: "Engage", hash: "#engage" },
   { name: "Experience", hash: "#experience" },
   { name: "Contact", hash: "#contact" },
 ] as const;
@@ -28,6 +30,8 @@ export type ExperienceItem = {
   date: string;
   description: string;
   type: "work" | "education";
+  /** Industry tags for orientation (Gina / CV alignment). */
+  industries?: readonly string[];
 };
 
 /** Reverse chronological (newest first): current roles, then —by end date. */
@@ -39,6 +43,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Pre-sales advisory across managed IT, cybersecurity, cloud, automation, data management, DevOps, SecOps, helpdesk, licensing, and technical staffing. Advised on AI governance and access controls, evaluated identity and shadow-IT risk, and shaped scoped service requirements from pre-sales discovery.",
     type: "work",
+    industries: ["Enterprise IT / IAM", "Cybersecurity"],
   },
   {
     title: "Independent Client Manager",
@@ -48,6 +53,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Running digital presence and outreach for a performing artist, including: content rhythm, Linktree and social channels, and lightweight CRM-style tracking so engagement turns into booked conversations.",
     type: "work",
+    industries: ["Creative / Music"],
   },
   {
     title: "Founder",
@@ -57,6 +63,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "An independent lab at the intersection of AI infrastructure, on-chain systems, and applied life sciences, shipping serious R&D (including TRACE, a sickle-cell–focused causal reasoning tool) while pushing multi-agent orchestration, edge inference, and protocol-level design.",
     type: "work",
+    industries: ["AI, Data & Automation", "Healthcare", "Web3 / FinTech"],
   },
   {
     title: "Business Development Specialist",
@@ -65,6 +72,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Focused on global equipment-lifecycle and hybrid-workplace wins, including account research, CISO/VP-level conversations, and outbound that highlights retrieval rates, day-one readiness, and fewer IT headaches.",
     type: "work",
+    industries: ["Enterprise IT / IAM", "SaaS"],
   },
   {
     title: "AWS AI Practitioner · Artificial Intelligence",
@@ -73,6 +81,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Nanodegree-style path toward AWS AI Practitioner fluency, including services, responsible use, and mapping cloud ML to how teams actually ship.",
     type: "education",
+    industries: ["AI, Data & Automation"],
   },
   {
     title: "Sales Development Fellowship",
@@ -81,6 +90,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Competitive SDR prep, 250+ hours on conversational selling, disciplined prospecting, email craft, and EQ under rejection, coached by SVA methodology and alumni mentors.",
     type: "work",
+    industries: ["Sales / GTM"],
   },
   {
     title: "Certificate of Completion · Artificial Intelligence",
@@ -89,6 +99,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Short, high-intensity AI certificate, including core concepts, tooling literacy, and applied exercises rather than slide-deck theory.",
     type: "education",
+    industries: ["AI, Data & Automation"],
   },
   {
     title: "Certificate · Mastering web3",
@@ -97,6 +108,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Long-form certificate across international markets and financial analysis,context that pairs well with cross-border and digital-asset themes.",
     type: "education",
+    industries: ["Web3 / FinTech"],
   },
   {
     title: "Business Development Representative",
@@ -105,6 +117,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Nonprofit BDR work through the 'Get This Work' bootcamp, outbound and inbound for tech sales training, donors, and corporate partners; qualified pipeline, demos, CRM hygiene, and tight alignment with sales and marketing goals.",
     type: "work",
+    industries: ["Sales / GTM", "Nonprofit"],
   },
   {
     title: "Production Team Member · ADPodcast",
@@ -113,6 +126,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Supported end-to-end podcast operations for a global show, scheduling, host and editor coordination, quality bar, and clearer internal comms so episodes shipped on time with less rework.",
     type: "work",
+    industries: ["Technology", "Media"],
   },
   {
     title: "Business Analyst",
@@ -121,6 +135,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Mapped processes and business models to modern tech, turned stakeholder needs into future-state designs, and partnered across teams on delivery, strong lens on e-commerce and digital marketplace strategy.",
     type: "work",
+    industries: ["Technology", "Retail & eCommerce"],
   },
   {
     title: "Commerce Analyst · QA Tester",
@@ -129,6 +144,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Manual storefront testing (flows, search, checkout, basic security signals) across Magento staging tiers; logged defects, verified fixes, and coordinated with offshore QA peers across CST/CET.",
     type: "work",
+    industries: ["Retail & eCommerce", "Technology"],
   },
   {
     title: "Commerce Strategy Analyst",
@@ -137,6 +153,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Taxonomy and facet work ahead of a major go-live -attribute reconciliation, L3/L4 mapping, Google Console sequencing sheets, and QC on AI-generated tags with bulk overrides when merchandising needed cleaner shopper language.",
     type: "work",
+    industries: ["Retail & eCommerce"],
   },
   {
     title: "NLP Training Contributor",
@@ -145,6 +162,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Large-scale prompt/completion authoring for an enterprise language model, 1,100+ pairs across nine task types, reusable templates, strict QA gates, and automation ideas that pushed team throughput toward ~40 prompts per FTE per day.",
     type: "work",
+    industries: ["AI, Data & Automation", "Technology"],
   },
   {
     title: "Accessibility Analyst",
@@ -153,6 +171,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Deque Axe–driven WCAG 2.1 AA scans across assigned brand sites, exported structured findings, flagged high-impact pages, and fed a growing accessibility data lane for remediation follow-up.",
     type: "work",
+    industries: ["Technology"],
   },
   {
     title: "Sales Support Practitioner",
@@ -161,6 +180,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Account intel pass, validated existing Accenture relationships and whether client stacks still lived on-prem or had already moved cloudward.",
     type: "work",
+    industries: ["Technology", "Sales / GTM"],
   },
   {
     title: "Customer Preference Management (CPM)",
@@ -169,6 +189,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Structured program design lens, current state, requirements, future-state options, synthesized research, status reporting, and clear handrails for stakeholder decisions.",
     type: "work",
+    industries: ["Healthcare", "Retail & eCommerce"],
   },
   {
     title: "Phonon Developer",
@@ -177,6 +198,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Worked on Phonon’s off-chain asset movement model, hardware-secured flows and protocol concepts aimed at practical, privacy-aware peer value transfer.",
     type: "work",
+    industries: ["Web3 / FinTech"],
   },
   {
     title: "Apprentice Program · North America",
@@ -185,6 +207,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Foundational consulting apprenticeship -analyze organizations, stitch business models to tech, interviews and synthesis, and crisp definitions of customer requirements and target outcomes.",
     type: "work",
+    industries: ["Technology", "Automotive & Luxury CRM"],
   },
   {
     title: "DeFi MOOC · Computer Science",
@@ -193,6 +216,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Berkeley MOOC coverage of DeFi mechanics -liquidity primitives, protocols, and how decentralized markets diverge from traditional settlement rails.",
     type: "education",
+    industries: ["Web3 / FinTech"],
   },
   {
     title: "Billing Agent",
@@ -201,6 +225,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Owned billing throughput for medical product orders-invoices, clean documentation, ERP-style data entry, and cross-team fixes when orders or payer questions stalled cash.",
     type: "work",
+    industries: ["Healthcare"],
   },
   {
     title: "Operations Lead",
@@ -209,6 +234,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Rotating department leadership -inbound/outbound freight discipline, replenishment rhythms, forecasting with the team, and web-fulfillment coordination that materially lifted local ranking and online attach versus a same-parent competitor.",
     type: "work",
+    industries: ["Retail & eCommerce"],
   },
   {
     title: "Operations Specialist",
@@ -217,6 +243,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Digital-first fulfillment and refurbishment workflows-tablet KPI tracking, inbound processing, and using new metrics feeds to tighten repeat-sales strategy.",
     type: "work",
+    industries: ["Retail & eCommerce"],
   },
   {
     title: "Advanced Certificate · Dental Assisting / Assistant",
@@ -225,8 +252,11 @@ export const experiencesData: readonly ExperienceItem[] = [
     description:
       "Credential-backed clinical and administrative training-precision, sterilization protocols, and professional patient interaction at the front line of care.",
     type: "education",
+    industries: ["Healthcare"],
   },
 ];
+
+export type ProjectRole = "creator" | "collaborator";
 
 export type ProjectData = {
   /** Stable key when titles might repeat later */
@@ -247,9 +277,25 @@ export type ProjectData = {
    * landscape screenshots). Defaults to `object-[center_40%]`.
    */
   imagePosition?: string;
+  /** Creator of the work vs collaborator / co-founder contribution */
+  role: ProjectRole;
+  /** Industry tags for orientation */
+  industries: readonly string[];
 };
 
 export const projectsData: readonly ProjectData[] = [
+  {
+    id: "codename-astra",
+    title: "Codename Astra",
+    description:
+      "AI-native, chat-first astrology companion with social loops and prediction markets. Co-founder role focused on Web3 innovation, community, and go-to-market framing.",
+    tags: ["AI", "Consumer", "Web3"],
+    imageUrl: cosmicWeekTrackerImg,
+    role: "collaborator",
+    industries: ["AI, Data & Automation", "Web3 / FinTech", "Consumer"],
+    spanClass: "sm:col-span-2 lg:col-span-8",
+    imagePosition: "object-[center_30%]",
+  },
   {
     id: "cosmic-week-tracker",
     title: "Cosmic Week Tracker and Mood Guide",
@@ -258,8 +304,10 @@ export const projectsData: readonly ProjectData[] = [
     tags: ["PartyRock", "Python", "Numerology", "Astronomy"],
     imageUrl: cosmicWeekTrackerImg,
     link: "https://partyrock.aws/u/diaraylouden/d7rzs7WNA/Cosmic-Week-Tracker-and-Mood-Guide",
-    spanClass: "sm:col-span-2 lg:col-span-8",
+    spanClass: "sm:col-span-1 lg:col-span-4",
     imagePosition: "object-[center_30%]",
+    role: "creator",
+    industries: ["AI, Data & Automation", "Consumer"],
   },
   {
     id: "ai-security-scanner-python",
@@ -270,6 +318,8 @@ export const projectsData: readonly ProjectData[] = [
     imageUrl: aiSecurityScannerImg,
     link: "https://learn.nextwork.org/loving_cyan_zealous_bacuri/docs/ai-security-audit",
     imagePosition: "object-center",
+    role: "creator",
+    industries: ["Enterprise IT / IAM", "AI, Data & Automation"],
   },
   {
     id: "ai-workflow-n8n",
@@ -280,6 +330,8 @@ export const projectsData: readonly ProjectData[] = [
     imageUrl: aiWorkflowN8nImg,
     link: "https://www.linkedin.com/in/diamond-ray/overlay/Project/1598639861/treasury/?profileId=ACoAACisl5MBN-KAGXvghmVe7bc9SFbeu8a7d8c&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_projects_details%3BqKzRXSnJRyu%2FPUM2wv4Z9Q%3D%3D",
     imagePosition: "object-top",
+    role: "creator",
+    industries: ["AI, Data & Automation"],
   },
   {
     id: "rag-chatbot-bedrock",
@@ -290,6 +342,8 @@ export const projectsData: readonly ProjectData[] = [
     imageUrl: ragChatbotBedrockImg,
     link: "https://www.linkedin.com/in/diamond-ray/overlay/Project/1598919489/treasury/?profileId=ACoAACisl5MBN-KAGXvghmVe7bc9SFbeu8a7d8c&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_projects_details%3B21Bun5bCSYWT9QBkcutcJA%3D%3D",
     imagePosition: "object-top",
+    role: "creator",
+    industries: ["AI, Data & Automation"],
   },
   {
     title: "Hyperlyz Demo",
@@ -299,6 +353,8 @@ export const projectsData: readonly ProjectData[] = [
     imageUrl: hyperlyzDemoImg,
     link: "https://github.com/rayadamas/hyperlyz_demo",
     liveLink: "https://hyperlyz.vercel.app",
+    role: "creator",
+    industries: ["Web3 / FinTech", "Creative / Music"],
   },
   {
     title: "Clausura",
@@ -308,6 +364,8 @@ export const projectsData: readonly ProjectData[] = [
     imageUrl: clausuraImg,
     link: "https://github.com/rayadamas/Clausura",
     liveLink: "https://clausura.vercel.app/about",
+    role: "creator",
+    industries: ["Web3 / FinTech", "Creative / Music"],
   },
   {
     title: "Solana Flutter DeFi SDK",
@@ -316,6 +374,8 @@ export const projectsData: readonly ProjectData[] = [
     tags: ["Dart", "Kotlin", "Java", "Python", "CSS"],
     imageUrl: solanaGameImg,
     link: "https://github.com/rayadamas/Solana-Flutter-DeFi-SDK",
+    role: "collaborator",
+    industries: ["Web3 / FinTech"],
   },
   {
     title: "Zorbz Data Visualizer",
@@ -324,78 +384,7 @@ export const projectsData: readonly ProjectData[] = [
     tags: ["p5.js", "JavaScript", "TypeScript", "web3"],
     imageUrl: zorbImg,
     link: "https://github.com/rayadamas/zorb-visualizer",
+    role: "creator",
+    industries: ["Web3 / FinTech"],
   },
 ];
-
-export const skillsData = [
-  // Frontend
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Tailwind",
-  "Redux",
-  // Backend & languages
-  "Node.js",
-  "Express",
-  "GraphQL",
-  "PostgreSQL",
-  "Django",
-  "Python",
-  // Web3
-  "Solidity",
-  "Ethereum",
-  "Truffle",
-  "Hardhat",
-  "Foundry",
-  "Thirdweb",
-  "Blockchain Analysis",
-  // Applied AI
-  "AI Agents",
-  "MCPs",
-  "RAG",
-  "Prompt Engineering",
-  "Automation Workflows",
-  "n8n",
-  // Data & analysis
-  "Tableau",
-  "Power BI",
-  // DevOps & cloud
-  "Git",
-  "Docker",
-  "AWS",
-  "AWS Bedrock",
-  "AWS Lambda",
-  "Amazon S3",
-  "DynamoDB",
-  "API Gateway",
-  // Work tooling
-  "Workfront",
-  "Jira",
-  "MS Office Tools",
-  "Slack",
-  "Miro",
-  "Figma",
-  "Canva",
-  // Business & GTM
-  "Apollo",
-  "Salesloft",
-  "LinkedIn Sales Navigator",
-  "Hubspot",
-  // Delivery craft
-  "Technical Writing",
-  "Web Accessibility (WCAG)",
-  "Obsidian (PKM)",
-  "Notion",
-  "Substack",
-  // Music
-  "Audio Engineering",
-  "Serato DJ Pro",
-  "rekordbox",
-  "FL Studio",
-  "Pro Tools",
-  "Adobe Audition",
-  "Adobe Photoshop",
-] as const;
