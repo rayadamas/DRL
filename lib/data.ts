@@ -1,3 +1,4 @@
+import codenameAstraImg from "../lib/sitepics/codename-astra.png";
 import cosmicWeekTrackerImg from "../lib/sitepics/cosmic-week-tracker.png";
 import aiSecurityScannerImg from "../lib/sitepics/ai-security-scanner-python.png";
 import aiWorkflowN8nImg from "../lib/sitepics/ai-workflow-n8n.png";
@@ -6,6 +7,11 @@ import hyperlyzDemoImg from "../lib/sitepics/hyperlyz-demo.png";
 import clausuraImg from "../lib/sitepics/clausura.png";
 import solanaGameImg from "../lib/sitepics/Solana Gaming DeFi SDK.png";
 import zorbImg from "../lib/sitepics/zorb.png";
+import prismEchoImg from "../lib/sitepics/prism-echo.png";
+import drlBioImg from "../lib/sitepics/drl-bio.png";
+import fancyProjImg from "../lib/sitepics/fancy-proj.png";
+import loudenDeskImg from "../lib/sitepics/louden-desk.png";
+import granolaObsImg from "../lib/sitepics/granola-obs.png";
 import type { StaticImageData } from "next/image";
 import type { ExperienceLogoKey } from "./experience-logos";
 
@@ -34,14 +40,14 @@ export type ExperienceItem = {
   industries?: readonly string[];
 };
 
-/** Reverse chronological (newest first): current roles, then —by end date. */
+/** Reverse chronological (newest first): current roles, then by end date. */
 export const experiencesData: readonly ExperienceItem[] = [
   {
     title: "Sales Engineer",
     company: "Diverse ICT",
-    date: "Jan 2026 — Present",
+    date: "Jan 2026 - Present",
     description:
-      "Pre-sales advisory across managed IT, cybersecurity, cloud, automation, data management, DevOps, SecOps, helpdesk, licensing, and technical staffing. Advised on AI governance and access controls, evaluated identity and shadow-IT risk, and shaped scoped service requirements from pre-sales discovery.",
+      "Turns vague client IT (information technology) pain into scoped, sellable work. Maps identity and access risk (shadow IT, over-permissioned accounts, policy drift) into clear recommendations a managed service provider (MSP) can staff, price, and defend at audit.",
     type: "work",
     industries: ["Enterprise IT / IAM", "Cybersecurity"],
   },
@@ -49,28 +55,28 @@ export const experiencesData: readonly ExperienceItem[] = [
     title: "Independent Client Manager",
     company: "Vino Louden Music · Chicago, IL",
     companyUrl: "https://vinolouden.com/",
-    date: "Jan 2025 — Present",
+    date: "Jan 2025 - Present",
     description:
-      "Running digital presence and outreach for a performing artist, including: content rhythm, Linktree and social channels, and lightweight CRM-style tracking so engagement turns into booked conversations.",
+      "Gives a performing artist a business backbone: a steady content calendar, one link hub, and lightweight customer relationship management (CRM) tracking, so fan attention turns into booked shows instead of just likes.",
     type: "work",
     industries: ["Creative / Music"],
   },
   {
-    title: "Founder",
+    title: "Co-Founder · Applied AI (Artificial Intelligence) & Web3 Innovation",
     company: "Quincy Labs · Chicago, IL",
     companyUrl: "https://www.quincylabs.org/",
-    date: "May 2018 — Present",
+    date: "May 2018 - Present",
     description:
-      "An independent lab at the intersection of AI infrastructure, on-chain systems, and applied life sciences, shipping serious R&D (including TRACE, a sickle-cell–focused causal reasoning tool) while pushing multi-agent orchestration, edge inference, and protocol-level design.",
+      "Builds the agent-driven products the lab ships, including a 10-agent outreach system that verifies every send before it goes out and an emergency-care app that gives first responders patient context in under 60 seconds. Bridges research, product framing, and go-to-market (GTM).",
     type: "work",
     industries: ["AI, Data & Automation", "Healthcare", "Web3 / FinTech"],
   },
   {
     title: "Business Development Specialist",
     company: "Firstbase",
-    date: "Feb 2026 — May 2026",
+    date: "Feb 2026 - May 2026",
     description:
-      "Focused on global equipment-lifecycle and hybrid-workplace wins, including account research, CISO/VP-level conversations, and outbound that highlights retrieval rates, day-one readiness, and fewer IT headaches.",
+      "Opened conversations with IT (information technology) and operations leaders by reading hiring signals that meant a device-provisioning crunch was coming, and handled single sign-on (SSO) and security objections early, so most pipeline reached a solutions engineer already qualified.",
     type: "work",
     industries: ["Enterprise IT / IAM", "SaaS"],
   },
@@ -79,61 +85,61 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Udacity",
     date: "Mar 2026",
     description:
-      "Nanodegree-style path toward AWS AI Practitioner fluency, including services, responsible use, and mapping cloud ML to how teams actually ship.",
+      "Hands-on fluency in Amazon Web Services (AWS) artificial intelligence (AI) services and responsible-use guardrails, so cloud machine learning (ML) recommendations come from real understanding, not vendor slides.",
     type: "education",
     industries: ["AI, Data & Automation"],
   },
   {
     title: "Sales Development Fellowship",
     company: "SV Academy · Chicago, IL",
-    date: "Dec 2025 — Jan 2026",
+    date: "Dec 2025 - May 2026",
     description:
-      "Competitive SDR prep, 250+ hours on conversational selling, disciplined prospecting, email craft, and EQ under rejection, coached by SVA methodology and alumni mentors.",
+      "A selective 250+ hour bootcamp covering discovery calls, disciplined prospecting, outbound email, and staying steady under rejection. These are the reps that make technical selling sound human.",
     type: "work",
     industries: ["Sales / GTM"],
   },
   {
     title: "Certificate of Completion · Artificial Intelligence",
     company: "Outskill",
-    date: "Nov 2025 — Dec 2025",
+    date: "Nov 2025 - Dec 2025",
     description:
-      "Short, high-intensity AI certificate, including core concepts, tooling literacy, and applied exercises rather than slide-deck theory.",
+      "A compressed, hands-on artificial intelligence (AI) program covering core concepts and current tooling. It's the foundation under the agent and retrieval work in the Projects section.",
     type: "education",
     industries: ["AI, Data & Automation"],
   },
   {
     title: "Certificate · Mastering web3",
-    company: "University of Nicosia",
-    date: "Sep 2022 — Dec 2025",
+    company: "The University of Nicosia · Digital Currency/Blockchain and Digital Assets MOOC",
+    date: "Sep 2022 - Present",
     description:
-      "Long-form certificate across international markets and financial analysis,context that pairs well with cross-border and digital-asset themes.",
+      "Rigorous grounding in blockchain, digital currency, and digital assets through a massive open online course (MOOC). It's the background used to separate real Web3 utility from hype.",
     type: "education",
     industries: ["Web3 / FinTech"],
   },
   {
     title: "Business Development Representative",
-    company: "RE:WORK TRAINING · Chicago, IL",
-    date: "Jan 2025 — Nov 2025",
+    company: "re:WORK Training · Chicago, IL",
+    date: "Jan 2025 - Nov 2025",
     description:
-      "Nonprofit BDR work through the 'Get This Work' bootcamp, outbound and inbound for tech sales training, donors, and corporate partners; qualified pipeline, demos, CRM hygiene, and tight alignment with sales and marketing goals.",
+      "Grew qualified discovery calls for a nonprofit tech-sales accelerator from about 10 to 15 a month by prioritizing hiring signals over stated interest. Also moved partner tracking into HubSpot so the pipeline no longer lived in one person's head.",
     type: "work",
     industries: ["Sales / GTM", "Nonprofit"],
   },
   {
     title: "Production Team Member · ADPodcast",
     company: "Accenture · Chicago, IL",
-    date: "Dec 2023 — Jan 2025",
+    date: "Dec 2023 - Jan 2025",
     description:
-      "Supported end-to-end podcast operations for a global show, scheduling, host and editor coordination, quality bar, and clearer internal comms so episodes shipped on time with less rework.",
+      "Kept a global internal podcast shipping on schedule by owning coordination between hosts, editors, and stakeholders. The result was fewer last-minute scrambles and cleaner episodes.",
     type: "work",
     industries: ["Technology", "Media"],
   },
   {
     title: "Business Analyst",
     company: "Accenture · Chicago, IL",
-    date: "Jan 2022 — Jan 2025",
+    date: "Jan 2022 - Jan 2025",
     description:
-      "Mapped processes and business models to modern tech, turned stakeholder needs into future-state designs, and partnered across teams on delivery, strong lens on e-commerce and digital marketplace strategy.",
+      "Turned stakeholder needs into future-state designs across retail and e-commerce work, including consolidating 10 regional report formats into one leadership dashboard for Mondelez that saved about 8 hours a week.",
     type: "work",
     industries: ["Technology", "Retail & eCommerce"],
   },
@@ -142,52 +148,52 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Accenture · Kent (Canada) e-commerce program",
     date: "Aug 2024 - Sep 2024",
     description:
-      "Manual storefront testing (flows, search, checkout, basic security signals) across Magento staging tiers; logged defects, verified fixes, and coordinated with offshore QA peers across CST/CET.",
+      "Protected a storefront launch by testing search, checkout, and core shopping flows across staging environments, logging defects and confirming fixes with an offshore quality assurance (QA) team.",
     type: "work",
     industries: ["Retail & eCommerce", "Technology"],
   },
   {
     title: "Commerce Strategy Analyst",
     company: "Accenture · Macy’s transformation",
-    date: "Jul 2024 — Sep 2024",
+    date: "Jul 2024 - Sep 2024",
     description:
-      "Taxonomy and facet work ahead of a major go-live -attribute reconciliation, L3/L4 mapping, Google Console sequencing sheets, and QC on AI-generated tags with bulk overrides when merchandising needed cleaner shopper language.",
+      "Cleaned up Macy's product taxonomy ahead of a major go-live by reconciling attributes and correcting AI-generated (artificial intelligence) tags, so shoppers could find products through search and filters.",
     type: "work",
     industries: ["Retail & eCommerce"],
   },
   {
-    title: "NLP Training Contributor",
-    company: "Amazon · Project Neo (via Accenture) · Chicago, IL",
-    date: "Mar 2023 — Jul 2024",
+    title: "NLP (Natural Language Processing) Training Contributor",
+    company: "Amazon · Project Neo · via Accenture · Chicago, IL",
+    date: "Mar 2023 - Jul 2024",
     description:
-      "Large-scale prompt/completion authoring for an enterprise language model, 1,100+ pairs across nine task types, reusable templates, strict QA gates, and automation ideas that pushed team throughput toward ~40 prompts per FTE per day.",
+      "Authored 1,100+ prompt and response pairs for an enterprise large language model (LLM) and helped standardize the quality rubric, so reviews from different annotators could be compared.",
     type: "work",
     industries: ["AI, Data & Automation", "Technology"],
   },
   {
     title: "Accessibility Analyst",
     company: "Accenture · Chicago, IL",
-    date: "Jul 2023 — Sep 2023",
+    date: "Jul 2023 - Sep 2023",
     description:
-      "Deque Axe–driven WCAG 2.1 AA scans across assigned brand sites, exported structured findings, flagged high-impact pages, and fed a growing accessibility data lane for remediation follow-up.",
+      "Ran Web Content Accessibility Guidelines (WCAG) scans across client brand sites and turned the results into prioritized fix lists, pointing teams at the pages where gaps affected the most users.",
     type: "work",
     industries: ["Technology"],
   },
   {
     title: "Sales Support Practitioner",
     company: "Accenture · Chicago, IL",
-    date: "Feb 2023 — Mar 2023",
+    date: "Feb 2023 - Mar 2023",
     description:
-      "Account intel pass, validated existing Accenture relationships and whether client stacks still lived on-prem or had already moved cloudward.",
+      "Gave account teams a cleaner starting point by verifying existing client relationships and whether each client's systems were still on-premises or already in the cloud.",
     type: "work",
     industries: ["Technology", "Sales / GTM"],
   },
   {
     title: "Customer Preference Management (CPM)",
     company: "Walgreens Boots Alliance · via Accenture · Chicago, IL",
-    date: "Sep 2022 — Jan 2023",
+    date: "Sep 2022 - Jan 2023",
     description:
-      "Structured program design lens, current state, requirements, future-state options, synthesized research, status reporting, and clear handrails for stakeholder decisions.",
+      "Protected customer consent data at a regulated pharmacy retailer by checking vendor onboarding against communication preferences and reconciling records where systems disagreed. Mistakes here mean regulatory exposure, not typos.",
     type: "work",
     industries: ["Healthcare", "Retail & eCommerce"],
   },
@@ -196,16 +202,16 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "GridPlus · United States",
     date: "Aug 2022 - Nov 2022",
     description:
-      "Worked on Phonon’s off-chain asset movement model, hardware-secured flows and protocol concepts aimed at practical, privacy-aware peer value transfer.",
+      "Contributed to Phonon, a hardware-secured way to move digital assets peer to peer without on-chain fees, focused on practical, privacy-aware transfer flows.",
     type: "work",
     industries: ["Web3 / FinTech"],
   },
   {
-    title: "Apprentice Program · North America",
-    company: "Accenture · Chicago, IL",
+    title: "CRM (Customer Relationship Management) Analyst",
+    company: "Maserati · via Accenture · Chicago, IL",
     date: "Jan 2022 - Aug 2022",
     description:
-      "Foundational consulting apprenticeship -analyze organizations, stitch business models to tech, interviews and synthesis, and crisp definitions of customer requirements and target outcomes.",
+      "Refocused Maserati's customer follow-up on buyers nearing lease end, after segmentation showed lease timing predicted response better than demographics, and aligned teams on one shared reporting view.",
     type: "work",
     industries: ["Technology", "Automotive & Luxury CRM"],
   },
@@ -214,7 +220,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "University of California, Berkeley",
     date: "Sep 2021 - Dec 2021",
     description:
-      "Berkeley MOOC coverage of DeFi mechanics -liquidity primitives, protocols, and how decentralized markets diverge from traditional settlement rails.",
+      "A massive open online course (MOOC) on how decentralized finance (DeFi) works under the hood: liquidity, lending protocols, and where it diverges from traditional settlement.",
     type: "education",
     industries: ["Web3 / FinTech"],
   },
@@ -223,7 +229,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Luna Medical · Chicago, IL",
     date: "Sep 2019 - Mar 2020",
     description:
-      "Owned billing throughput for medical product orders-invoices, clean documentation, ERP-style data entry, and cross-team fixes when orders or payer questions stalled cash.",
+      "Kept cash moving on medical product orders by owning billing accuracy end to end and clearing order or payer issues before they stalled payment.",
     type: "work",
     industries: ["Healthcare"],
   },
@@ -232,7 +238,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Saks OFF 5TH · Chicago, IL",
     date: "Mar 2016 - Jan 2019",
     description:
-      "Rotating department leadership -inbound/outbound freight discipline, replenishment rhythms, forecasting with the team, and web-fulfillment coordination that materially lifted local ranking and online attach versus a same-parent competitor.",
+      "Led rotating departments through freight, replenishment, and online-order fulfillment, helping lift the store's local ranking and online sales against a sister store.",
     type: "work",
     industries: ["Retail & eCommerce"],
   },
@@ -241,7 +247,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "Nordstrom Trunk Club · Chicago, IL",
     date: "Feb 2015 - Mar 2016",
     description:
-      "Digital-first fulfillment and refurbishment workflows-tablet KPI tracking, inbound processing, and using new metrics feeds to tighten repeat-sales strategy.",
+      "Put new fulfillment metrics to work in a digital-first operation, tracking key performance indicators (KPIs) on the floor to sharpen repeat-sales strategy.",
     type: "work",
     industries: ["Retail & eCommerce"],
   },
@@ -250,7 +256,7 @@ export const experiencesData: readonly ExperienceItem[] = [
     company: "City Colleges of Chicago · Wilbur Wright College",
     date: "2013 - 2015",
     description:
-      "Credential-backed clinical and administrative training-precision, sterilization protocols, and professional patient interaction at the front line of care.",
+      "Clinical training in precision, sterilization, and patient care. It was early proof of doing well where details carry real consequences.",
     type: "education",
     industries: ["Healthcare"],
   },
@@ -288,13 +294,14 @@ export const projectsData: readonly ProjectData[] = [
     id: "codename-astra",
     title: "Codename Astra",
     description:
-      "AI-native, chat-first astrology companion with social loops and prediction markets. Co-founder role focused on Web3 innovation, community, and go-to-market framing.",
+      "Astrology that remembers you: a chat-first AI (artificial intelligence) companion with live sky context, a journal, and social loops. Co-founder role focused on Web3 innovation, community, and go-to-market framing.",
     tags: ["AI", "Consumer", "Web3"],
-    imageUrl: cosmicWeekTrackerImg,
+    imageUrl: codenameAstraImg,
+    liveLink: "https://project-astra-web.vercel.app/",
     role: "collaborator",
     industries: ["AI, Data & Automation", "Web3 / FinTech", "Consumer"],
     spanClass: "sm:col-span-2 lg:col-span-8",
-    imagePosition: "object-[center_30%]",
+    imagePosition: "object-right",
   },
   {
     id: "cosmic-week-tracker",
@@ -310,10 +317,74 @@ export const projectsData: readonly ProjectData[] = [
     industries: ["AI, Data & Automation", "Consumer"],
   },
   {
+    id: "prism-echo",
+    title: "Prism Echo",
+    description:
+      "Browser-local portrait studio that grows color-separated after-images from one photo. Uploads stay on-device: no remote processing, no analytics.",
+    tags: ["JavaScript", "Canvas", "Creative"],
+    imageUrl: prismEchoImg,
+    liveLink: "https://rayadamas.github.io/prism-echo/",
+    imagePosition: "object-top",
+    role: "creator",
+    industries: ["Creative / Music", "Consumer"],
+    spanClass: "sm:col-span-1 lg:col-span-4",
+  },
+  {
+    id: "drl-bio",
+    title: "drl.bio",
+    description:
+      "Personal portfolio in React, Next.js, and TypeScript: applied AI (artificial intelligence) work, experience, and how I engage.",
+    tags: ["React", "Next.js", "TypeScript"],
+    imageUrl: drlBioImg,
+    link: "https://github.com/rayadamas/DRL",
+    imagePosition: "object-top",
+    role: "creator",
+    industries: ["Technology"],
+    spanClass: "sm:col-span-1 lg:col-span-4",
+  },
+  {
+    id: "fancy-proj",
+    title: "fancy_proj",
+    description:
+      "Self-rescheduling commit bot. Increments a counter, commits, pushes, then picks a random time to run itself again tomorrow. Running since 2025-01-17.",
+    tags: ["Python", "Automation", "Git"],
+    imageUrl: fancyProjImg,
+    imagePosition: "object-left-top",
+    role: "creator",
+    industries: ["AI, Data & Automation"],
+    spanClass: "sm:col-span-1 lg:col-span-4",
+  },
+  {
+    id: "louden-desk",
+    title: "Louden Desk",
+    description:
+      "Mission-control dashboard built from an Obsidian vault. Frozen snapshot, no backend: meetings, notes, and outreach as one glance plus deeper panels.",
+    tags: ["JavaScript", "Obsidian", "Visualization"],
+    imageUrl: loudenDeskImg,
+    liveLink: "https://rayadamas.github.io/louden-desk",
+    imagePosition: "object-left-top",
+    role: "creator",
+    industries: ["AI, Data & Automation"],
+    spanClass: "sm:col-span-1 lg:col-span-4",
+  },
+  {
+    id: "granola-obs",
+    title: "GranolaOBS",
+    description:
+      "Syncs Granola meeting notes into Obsidian: official API (application programming interface) plus a local sync script, so transcripts land in the vault without a dashboard.",
+    tags: ["Python", "Obsidian", "Automation"],
+    imageUrl: granolaObsImg,
+    link: "https://github.com/rayadamas/GranolaOBS",
+    imagePosition: "object-top",
+    role: "creator",
+    industries: ["AI, Data & Automation"],
+    spanClass: "sm:col-span-1 lg:col-span-4",
+  },
+  {
     id: "ai-security-scanner-python",
     title: "AI Security Scanner for Python",
     description:
-      "NextWork portfolio walkthrough documenting an AI-assisted security audit flow for Python codebases.",
+      "NextWork portfolio walkthrough documenting an AI-assisted (artificial intelligence) security audit flow for Python codebases.",
     tags: ["Python", "Security", "AI"],
     imageUrl: aiSecurityScannerImg,
     link: "https://learn.nextwork.org/loving_cyan_zealous_bacuri/docs/ai-security-audit",
@@ -325,7 +396,7 @@ export const projectsData: readonly ProjectData[] = [
     id: "ai-workflow-n8n",
     title: "Building an AI Workflow",
     description:
-      "Automations that connect conversational triggers, an AI agent with tools, GPT-4o, and Google Calendar event creation.",
+      "Automations that connect conversational triggers, an AI (artificial intelligence) agent with tools, GPT-4o, and Google Calendar event creation.",
     tags: ["n8n", "Automation", "ChatGPT", "Google Calendar"],
     imageUrl: aiWorkflowN8nImg,
     link: "https://www.linkedin.com/in/diamond-ray/overlay/Project/1598639861/treasury/?profileId=ACoAACisl5MBN-KAGXvghmVe7bc9SFbeu8a7d8c&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_projects_details%3BqKzRXSnJRyu%2FPUM2wv4Z9Q%3D%3D",
@@ -337,7 +408,7 @@ export const projectsData: readonly ProjectData[] = [
     id: "rag-chatbot-bedrock",
     title: "Set Up a RAG Chatbot in Bedrock",
     description:
-      "Serverless retrieval-augmented chat on AWS Bedrock with cited answers, backed by document storage patterns on S3 and Lambda.",
+      "Serverless retrieval-augmented generation (RAG) chat on Amazon Web Services (AWS) Bedrock with cited answers, backed by document storage on Amazon S3 (Simple Storage Service) and Lambda.",
     tags: ["AWS", "Bedrock", "RAG", "Lambda", "S3"],
     imageUrl: ragChatbotBedrockImg,
     link: "https://www.linkedin.com/in/diamond-ray/overlay/Project/1598919489/treasury/?profileId=ACoAACisl5MBN-KAGXvghmVe7bc9SFbeu8a7d8c&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_projects_details%3B21Bun5bCSYWT9QBkcutcJA%3D%3D",
@@ -348,7 +419,7 @@ export const projectsData: readonly ProjectData[] = [
   {
     title: "Hyperlyz Demo",
     description:
-      "A demo showcasing Music NFTs via the ZORA API, allowing users to mint their own audio files.",
+      "A demo showcasing music NFTs (non-fungible tokens) via the ZORA API (application programming interface), allowing users to mint their own audio files.",
     tags: ["JavaScript", "HTML", "CSS", "web3"],
     imageUrl: hyperlyzDemoImg,
     link: "https://github.com/rayadamas/hyperlyz_demo",
@@ -370,7 +441,7 @@ export const projectsData: readonly ProjectData[] = [
   {
     title: "Solana Flutter DeFi SDK",
     description:
-      "Wormhole bridge integrated into an NFT Dating mobile App, powered by the open-source Canoe-Flutter-DeFi SDK.",
+      "Wormhole bridge integrated into an NFT (non-fungible token) dating mobile app, powered by the open-source Canoe-Flutter decentralized finance (DeFi) software development kit (SDK).",
     tags: ["Dart", "Kotlin", "Java", "Python", "CSS"],
     imageUrl: solanaGameImg,
     link: "https://github.com/rayadamas/Solana-Flutter-DeFi-SDK",
@@ -380,7 +451,7 @@ export const projectsData: readonly ProjectData[] = [
   {
     title: "Zorbz Data Visualizer",
     description:
-      "An MVP data visualization tool using ZORB metadata and Zora's API to abstract blockchain data into visuals.",
+      "A minimum viable product (MVP) data visualization tool using ZORB metadata and Zora's API (application programming interface) to abstract blockchain data into visuals.",
     tags: ["p5.js", "JavaScript", "TypeScript", "web3"],
     imageUrl: zorbImg,
     link: "https://github.com/rayadamas/zorb-visualizer",

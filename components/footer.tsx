@@ -134,7 +134,7 @@ export default function Footer() {
                   </div>
 
                   <p className="mt-4 text-[10px] uppercase tracking-wider text-swiss-text-secondary/70">
-                    &mdash; Diamond, {year}
+                    - Diamond, {year}
                   </p>
 
                   <div

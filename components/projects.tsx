@@ -4,6 +4,7 @@ import React from "react";
 import SectionHeading from "./section-heading";
 import { projectsData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
+import { acronymTooltip } from "@/lib/acronyms";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { HiArrowUpRight, HiGlobeAlt } from "react-icons/hi2";
@@ -146,6 +147,7 @@ function BentoCard({
             {project.industries.map((industry) => (
               <span
                 key={industry}
+                title={acronymTooltip(industry)}
                 className="px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide rounded-full border border-swiss-border/70 text-swiss-text-secondary"
               >
                 {industry}
@@ -154,6 +156,7 @@ function BentoCard({
             {project.tags.map((tag, tagIndex) => (
               <span
                 key={tagIndex}
+                title={acronymTooltip(tag)}
                 className="px-3 py-1 text-xs font-medium bg-swiss-text/5 rounded-full text-swiss-text-secondary"
               >
                 {tag}

@@ -8,6 +8,7 @@ import {
   resolveExperienceLogo,
 } from "@/lib/experience-logos";
 import { useSectionInView } from "@/lib/hooks";
+import { acronymTooltip } from "@/lib/acronyms";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { HiBriefcase, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
@@ -52,7 +53,7 @@ export default function Experience() {
     "hidden sm:flex absolute top-1/2 -translate-y-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-swiss-accent text-white border-2 border-swiss-accent shadow-lg hover:bg-swiss-accent-hover hover:scale-105 transition-all disabled:opacity-35 disabled:pointer-events-none disabled:hover:scale-100";
 
   return (
-    <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
+    <section id="experience" ref={ref} className="w-full scroll-mt-28 mb-28 sm:mb-40">
       <div className="max-w-6xl mx-auto px-4">
         <SectionHeading>Experience & Education</SectionHeading>
 
@@ -95,9 +96,6 @@ export default function Experience() {
 
           <p className="text-center mt-2 text-[11px] text-swiss-text-secondary/90 sm:hidden">
             Swipe horizontally to see more
-          </p>
-          <p className="hidden sm:block text-center mt-3 text-[11px] text-swiss-text-secondary/80">
-            Use the arrows to browse roles
           </p>
         </motion.div>
       </div>
@@ -179,6 +177,7 @@ function CarouselCard({ item }: { item: ExperienceType }) {
               {item.industries.map((industry) => (
                 <span
                   key={industry}
+                  title={acronymTooltip(industry)}
                   className="px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide rounded-full border border-swiss-border/80 text-swiss-text-secondary"
                 >
                   {industry}

@@ -2,6 +2,7 @@ import About from "@/components/about";
 import Contact from "@/components/contact";
 import Experience from "@/components/experience";
 import Intro from "@/components/intro";
+import LogoBadges from "@/components/logo-badges";
 import PortfolioValue from "@/components/portfolio-value";
 import Projects from "@/components/projects";
 import Raci from "@/components/raci";
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center">
       <Intro />
+      <LogoBadges />
       <About />
       <PortfolioValue />
       <Projects />

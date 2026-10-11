@@ -31,10 +31,15 @@ export default function Skills() {
             <ul className="flex flex-wrap justify-center sm:justify-start gap-2.5">
               {group.skills.map((skill) => (
                 <li
-                  key={skill}
+                  key={skill.label}
                   className="px-3.5 py-2 bg-swiss-card border border-swiss-border rounded-lg text-sm font-medium hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300"
                 >
-                  {skill}
+                  {skill.label}
+                  {skill.expansion ? (
+                    <span className="ml-1 text-xs font-normal text-swiss-text-secondary">
+                      ({skill.expansion})
+                    </span>
+                  ) : null}
                 </li>
               ))}
             </ul>

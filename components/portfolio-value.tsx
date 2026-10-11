@@ -20,7 +20,7 @@ export default function PortfolioValue() {
     >
       <SectionHeading>Portfolio influenced</SectionHeading>
       <p className="text-center text-swiss-text-secondary swiss-body text-sm mb-8 max-w-xl mx-auto">
-        Modeled lifetime value influenced by industry — how engagement spans
+        Modeled lifetime value influenced by industry - how engagement spans
         sectors over time, not a claim of cash booked.
       </p>
 

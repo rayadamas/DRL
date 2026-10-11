@@ -20,6 +20,8 @@ module.exports = {
     "object-center",
     "object-top",
     "object-bottom",
+    "object-right",
+    "object-left-top",
     "object-[center_30%]",
     "object-[center_40%]",
   ],

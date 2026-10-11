@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | Diamond Ray Louden",
   },
   description:
-    "Personal portfolio of Diamond Ray Louden — applied AI, React, Next.js, and systems that ship. Chicago-based multidisciplinary builder.",
+    "Personal portfolio of Diamond Ray Louden - applied AI, React, Next.js, and systems that ship. Chicago-based multidisciplinary builder.",
   alternates: {
     canonical: "/",
   },
