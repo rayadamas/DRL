@@ -12,6 +12,7 @@ import drlBioImg from "../lib/sitepics/drl-bio.png";
 import fancyProjImg from "../lib/sitepics/fancy-proj.png";
 import loudenDeskImg from "../lib/sitepics/louden-desk.png";
 import granolaObsImg from "../lib/sitepics/granola-obs.png";
+import pathfinderImg from "../lib/sitepics/pathfinder.png";
 import type { StaticImageData } from "next/image";
 import type { ExperienceLogoKey } from "./experience-logos";
 
@@ -315,6 +316,19 @@ export const projectsData: readonly ProjectData[] = [
     imagePosition: "object-[center_30%]",
     role: "creator",
     industries: ["AI, Data & Automation", "Consumer"],
+  },
+  {
+    id: "pathfinder",
+    title: "Pathfinder",
+    description:
+      "Conversational intake that learns what someone wants before anyone pitches. Handles hesitation with the P.U.S.H. framework, and every recommendation traces back to something the person said. No build step, no dependencies.",
+    tags: ["JavaScript", "Conversational UX", "Sales Enablement"],
+    imageUrl: pathfinderImg,
+    liveLink: "https://rayadamas.github.io/pathfinder-intake/",
+    imagePosition: "object-left-top",
+    role: "creator",
+    industries: ["AI, Data & Automation", "Sales / GTM"],
+    spanClass: "sm:col-span-1 lg:col-span-4",
   },
   {
     id: "prism-echo",

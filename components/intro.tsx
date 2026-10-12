@@ -16,7 +16,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-4xl mx-auto px-4 sm:mb-40 scroll-mt-28"
+      className="mb-14 max-w-4xl mx-auto px-4 sm:mb-16 scroll-mt-28"
     >
       <div className="flex flex-col items-center text-center">
         <motion.div
@@ -93,7 +93,7 @@ export default function Intro() {
           className="flex items-center gap-3 mt-6"
         >
           <a
-            className="w-11 h-11 flex items-center justify-center rounded-full bg-swiss-card border border-swiss-border text-swiss-text-secondary hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300 hover:scale-110"
+            className="w-11 h-11 flex items-center justify-center rounded-full bg-swiss-card border border-[#0A66C2]/60 text-white shadow-[0_0_14px_rgba(10,102,194,0.45)] hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:shadow-[0_0_26px_rgba(10,102,194,0.85)] transition-all duration-300 hover:scale-110"
             href="https://www.linkedin.com/in/diamond-ray/"
             target="_blank"
             rel="noopener noreferrer"
@@ -102,7 +102,7 @@ export default function Intro() {
             <BsLinkedin className="w-5 h-5" />
           </a>
           <a
-            className="w-11 h-11 flex items-center justify-center rounded-full bg-swiss-card border border-swiss-border text-swiss-text-secondary hover:border-swiss-accent hover:text-swiss-accent transition-all duration-300 hover:scale-110"
+            className="w-11 h-11 flex items-center justify-center rounded-full bg-swiss-card border border-white/30 text-white shadow-[0_0_14px_rgba(255,255,255,0.18)] hover:bg-[#181717] hover:border-white/70 hover:shadow-[0_0_26px_rgba(255,255,255,0.45)] transition-all duration-300 hover:scale-110"
             href="https://github.com/rayadamas"
             target="_blank"
             rel="noopener noreferrer"

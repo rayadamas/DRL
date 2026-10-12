@@ -17,6 +17,7 @@ Diamond Ray Louden (Chicago) ships applied AI agents, automations, and retrieval
 
 ## Selected projects
 - Codename Astra (collaborator) - AI astrology companion: https://project-astra-web.vercel.app/
+- Pathfinder (creator) - conversational intake with P.U.S.H. objection handling: https://github.com/rayadamas/pathfinder-intake · https://rayadamas.github.io/pathfinder-intake/
 - Prism Echo (creator): https://github.com/rayadamas/prism-echo · https://rayadamas.github.io/prism-echo/
 - drl.bio (creator): https://github.com/rayadamas/DRL · https://drl.bio
 - Louden Desk (creator): https://github.com/rayadamas/louden-desk · https://rayadamas.github.io/louden-desk

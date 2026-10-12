@@ -6,12 +6,14 @@ import LogoBadges from "@/components/logo-badges";
 import PortfolioValue from "@/components/portfolio-value";
 import Projects from "@/components/projects";
 import Raci from "@/components/raci";
+import Showreel from "@/components/showreel";
 import Skills from "@/components/skills";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center">
       <Intro />
+      <Showreel />
       <LogoBadges />
       <About />
       <PortfolioValue />
