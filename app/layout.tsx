@@ -44,9 +44,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark !scroll-smooth" suppressHydrationWarning>
+    <html
+      lang="en"
+      className="dark !scroll-smooth overflow-x-clip"
+      suppressHydrationWarning
+    >
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} font-sans text-swiss-text relative pt-28 sm:pt-36`}
+        className={`${GeistSans.variable} ${GeistMono.variable} font-sans text-swiss-text relative overflow-x-clip pt-28 sm:pt-36`}
       >
         <LayoutClient>{children}</LayoutClient>
         <Analytics />

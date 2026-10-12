@@ -13,12 +13,12 @@ export default function Header() {
   return (
     <header className="z-[999] fixed top-0 left-0 right-0 flex justify-center pt-4 sm:pt-6 px-2">
       <motion.nav
-        className="px-1.5 sm:px-3 py-1.5 sm:py-2 bg-swiss-bg/70 backdrop-blur-md border border-swiss-border/50 rounded-full max-w-full overflow-x-auto"
+        className="px-1.5 sm:px-3 py-1.5 sm:py-2 bg-swiss-bg/70 backdrop-blur-md border border-swiss-border/50 rounded-2xl sm:rounded-full max-w-full"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        <ul className="flex items-center gap-0 sm:gap-0.5 text-[0.7rem] sm:text-[0.85rem] font-medium text-swiss-text-secondary">
+        <ul className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-0 sm:gap-0.5 text-[0.7rem] sm:text-[0.85rem] font-medium text-swiss-text-secondary">
           {links.map((link, index) => (
             <motion.li
               key={link.hash}
