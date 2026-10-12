@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
@@ -49,6 +49,7 @@ export default function Intro() {
             Diamond Ray Louden
           </h1>
           <RoleLabel />
+          <AvailabilityLine />
         </motion.div>
 
         <motion.p
@@ -62,7 +63,8 @@ export default function Intro() {
           experience across retail, healthcare, and tech with strengths in{" "}
           <span className="text-swiss-text font-medium">React</span>,{" "}
           <span className="text-swiss-text font-medium">Next.js</span>, and{" "}
-          <span className="text-swiss-text font-medium">AI</span>.
+          <span className="text-swiss-text font-medium">AI</span> (artificial
+          intelligence).
         </motion.p>
 
         <motion.div
@@ -114,11 +116,46 @@ export default function Intro() {
   );
 }
 
+const chicagoTime = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Chicago",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hourCycle: "h23",
+});
+
+function AvailabilityLine() {
+  const [time, setTime] = useState<string | null>(null);
+
+  useEffect(() => {
+    const tick = () => setTime(chicagoTime.format(new Date()));
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <p className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 font-mono text-xs sm:text-sm uppercase tracking-[0.12em] text-swiss-text-secondary">
+      <span className="flex items-center gap-2">
+        <span className="h-2 w-2 rounded-full bg-green-500" aria-hidden />
+        Available for work
+      </span>
+      <span className="h-3 w-px bg-swiss-border" aria-hidden />
+      <span>
+        Chicago{" "}
+        <span className="tabular-nums text-swiss-text">
+          {time ?? "--:--:--"}
+        </span>
+      </span>
+    </p>
+  );
+}
+
 function RoleLabel() {
   return (
     <div className="flex items-center justify-center gap-3">
       <span className="h-px w-8 bg-swiss-accent" />
-      <span className="swiss-label text-swiss-accent">
+      <span className="text-sm sm:text-base font-medium uppercase tracking-[0.12em] text-swiss-accent">
         Multidisciplinary Builder
       </span>
       <span className="h-px w-8 bg-swiss-accent" />

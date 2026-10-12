@@ -24,8 +24,9 @@ export default function Raci() {
     >
       <SectionHeading>How I engage</SectionHeading>
       <p className="text-center text-swiss-text-secondary swiss-body text-sm mb-8 max-w-2xl mx-auto">
-        Bring me in where discovery, identity risk, applied AI, or GTM
-        automation needs an owner — not a spectator.
+        Bring me in where discovery, identity risk, applied AI (artificial
+        intelligence), or GTM (go-to-market) automation needs an owner - not a
+        spectator.
       </p>
 
       {/* Desktop table */}

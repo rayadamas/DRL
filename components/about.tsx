@@ -32,9 +32,11 @@ export default function About() {
 
         <p>
           Right now that means{" "}
-          <span className="text-swiss-text font-medium">applied AI</span>:
-          shipping agents and automations, retrieval systems on{" "}
-          <span className="text-swiss-text font-medium">AWS Bedrock</span>, n8n
+          <span className="text-swiss-text font-medium">applied AI</span>{" "}
+          (artificial intelligence): shipping agents and automations, retrieval
+          systems on{" "}
+          <span className="text-swiss-text font-medium">AWS Bedrock</span>{" "}
+          (Amazon Web Services), n8n
           workflows that survive contact with reality, and the prompt-engineering
           rigor I picked up authoring{" "}
           <span className="text-swiss-text font-medium">
@@ -52,8 +54,10 @@ export default function About() {
           The breadth on the r&eacute;sum&eacute; isn&rsquo;t padding, 
           it&rsquo;s pattern-matching across rooms. Retail floors, Accenture
           engagements (Macy&rsquo;s taxonomy, Walgreens program design,
-          accessibility scans), enterprise NLP training, and BDR outbound. That
-          mix is why I can sit with engineers, operators, and a CISO in the same
+          accessibility scans), enterprise NLP (natural language processing)
+          training, and BDR (business development representative) outbound. That
+          mix is why I can sit with engineers, operators, and a CISO (chief
+          information security officer) in the same
           week{" "}
           <span className="text-swiss-text font-medium">
             without translation tax

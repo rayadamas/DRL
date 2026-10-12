@@ -40,7 +40,7 @@ export default function Contact() {
       <SectionHeading>Contact</SectionHeading>
 
       <p className="text-center text-swiss-text-secondary mb-8 swiss-body text-sm">
-        Pick a topic and book 30 minutes — or email{" "}
+        Pick a topic and book 30 minutes - or email{" "}
         <a
           className="text-swiss-accent hover:underline font-medium"
           href="mailto:diamondlouden@gmail.com"
