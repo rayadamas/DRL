@@ -22,7 +22,7 @@ Diamond Ray Louden (Chicago) ships applied AI agents, automations, and retrieval
 - drl.bio (creator): https://github.com/rayadamas/DRL · https://drl.bio
 - Louden Desk (creator): https://github.com/rayadamas/louden-desk · https://rayadamas.github.io/louden-desk
 - GranolaOBS (creator): https://github.com/rayadamas/GranolaOBS
-- Cosmic Week Tracker and Mood Guide (creator)
+- Cosmic Week Tracker and Mood Guide (creator): https://github.com/rayadamas/cosmic-week-tracker · https://rayadamas.github.io/cosmic-week-tracker/
 - AI Security Scanner for Python; Building an AI Workflow; RAG Chatbot in Bedrock
 - Hyperlyz Demo, Clausura, Solana Flutter DeFi SDK, Zorbz Data Visualizer
 
