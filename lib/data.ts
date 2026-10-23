@@ -324,7 +324,6 @@ export const projectsData: readonly ProjectData[] = [
       "Conversational intake that learns what someone wants before anyone pitches. Handles hesitation with the P.U.S.H. framework, and every recommendation traces back to something the person said. No build step, no dependencies.",
     tags: ["JavaScript", "Conversational UX", "Sales Enablement"],
     imageUrl: pathfinderImg,
-    liveLink: "https://rayadamas.github.io/pathfinder-intake/",
     imagePosition: "object-left-top",
     role: "creator",
     industries: ["AI, Data & Automation", "Sales / GTM"],
