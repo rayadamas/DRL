@@ -104,12 +104,14 @@ export default function Footer() {
                     </p>
                     <p>
                       This portfolio is mostly static. There&rsquo;s no account
-                      system, no contact form that POSTs to my server, and no
-                      sketchy embeds. The contact block is a plain{" "}
-                      <code className="rounded bg-swiss-text/5 px-1 py-0.5 text-[0.7rem] text-swiss-text">
-                        mailto:
-                      </code>{" "}
-                      link, nothing on this site captures what you type there.
+                      system and no form that POSTs to my server. Booking runs
+                      through a Calendly popup: what you type in the contact
+                      block is handed to Calendly only when you choose to book,
+                      and Calendly&rsquo;s own privacy terms apply there.
+                    </p>
+                    <p>
+                      The only thing this site stores in your browser is
+                      whether you turned the ambient sound on.
                     </p>
                     <p>
                       If the site is hosted on Vercel, I may use their
@@ -148,7 +150,7 @@ export default function Footer() {
         </div>
 
         <p className="order-3 text-center text-xs text-swiss-text-secondary sm:order-none sm:flex-1 sm:text-right">
-          Built with Next.js, TypeScript, Tailwind &amp; Framer Motion
+          Built with Next.js, TypeScript, Tailwind, Framer Motion &amp; Three.js
         </p>
       </div>
     </footer>

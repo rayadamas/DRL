@@ -30,7 +30,7 @@ const CALENDLY_THEME_PARAMS = new URLSearchParams({
   hide_gdpr_banner: "1",
   background_color: "171717",
   text_color: "fafafa",
-  primary_color: "ff4d42",
+  primary_color: "ff8a3d",
 }).toString();
 
 export default function Contact() {
@@ -110,7 +110,7 @@ export default function Contact() {
         strategy="lazyOnload"
       />
 
-      <SectionHeading>Contact</SectionHeading>
+      <SectionHeading index={7}>Contact</SectionHeading>
 
       <p className="text-center text-swiss-text-secondary mb-8 swiss-body text-sm">
         Pick a topic and book 30 minutes - or email{" "}

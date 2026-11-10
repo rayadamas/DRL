@@ -53,9 +53,9 @@ export default function Experience() {
     "hidden sm:flex absolute top-1/2 -translate-y-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-swiss-accent text-white border-2 border-swiss-accent shadow-lg hover:bg-swiss-accent-hover hover:scale-105 transition-all disabled:opacity-35 disabled:pointer-events-none disabled:hover:scale-100";
 
   return (
-    <section id="experience" ref={ref} className="w-full scroll-mt-28 mb-28 sm:mb-40">
+    <section id="experience" ref={ref} className="w-full scroll-mt-28 mb-24 sm:mb-32">
       <div className="max-w-6xl mx-auto px-4">
-        <SectionHeading>Experience & Education</SectionHeading>
+        <SectionHeading index={6}>Experience & Education</SectionHeading>
 
         <motion.div
           className="relative sm:px-14"

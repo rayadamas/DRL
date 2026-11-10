@@ -62,3 +62,62 @@ export function usePresence(idleMs = 30_000) {
 
   return active;
 }
+
+function scrollProgress() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  return max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+}
+
+/**
+ * Page "night" from 0 (top, dusk) to 1 (bottom, night), eased toward the
+ * scroll position. Returned as a ref so per-frame readers never re-render.
+ */
+export function useScrollNight() {
+  const night = useRef(0);
+
+  useEffect(() => {
+    let target = scrollProgress();
+    night.current = target;
+    let frame = 0;
+
+    const step = () => {
+      const delta = target - night.current;
+      if (Math.abs(delta) < 0.0005) {
+        night.current = target;
+        frame = 0;
+        return;
+      }
+      night.current += delta * 0.08;
+      frame = requestAnimationFrame(step);
+    };
+
+    const handleScroll = () => {
+      target = scrollProgress();
+      if (!frame) frame = requestAnimationFrame(step);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  return night;
+}
+
+export function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduced(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  return reduced;
+}

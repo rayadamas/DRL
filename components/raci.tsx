@@ -20,9 +20,9 @@ export default function Raci() {
     <section
       id="engage"
       ref={ref}
-      className="mb-28 max-w-6xl mx-auto px-4 scroll-mt-28 sm:mb-40"
+      className="mb-24 max-w-6xl mx-auto px-4 scroll-mt-28 sm:mb-32"
     >
-      <SectionHeading>How I engage</SectionHeading>
+      <SectionHeading index={5}>How I engage</SectionHeading>
       <p className="text-center text-swiss-text-secondary swiss-body text-sm mb-8 max-w-2xl mx-auto">
         Bring me in where discovery, identity risk, applied AI (artificial
         intelligence), or GTM (go-to-market) automation needs an owner - not a

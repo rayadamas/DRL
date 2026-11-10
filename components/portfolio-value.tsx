@@ -16,9 +16,9 @@ export default function PortfolioValue() {
     <section
       id="portfolio"
       ref={ref}
-      className="mb-28 max-w-5xl mx-auto px-4 scroll-mt-28 sm:mb-40"
+      className="mb-24 max-w-5xl mx-auto px-4 scroll-mt-28 sm:mb-32"
     >
-      <SectionHeading>Portfolio influenced</SectionHeading>
+      <SectionHeading index={2}>Portfolio influenced</SectionHeading>
       <p className="text-center text-swiss-text-secondary swiss-body text-sm mb-8 max-w-xl mx-auto">
         Modeled lifetime value influenced by industry - how engagement spans
         sectors over time, not a claim of cash booked.
