@@ -265,6 +265,12 @@ export const experiencesData: readonly ExperienceItem[] = [
 
 export type ProjectRole = "creator" | "collaborator";
 
+export type CaseStudy = {
+  problem: string;
+  approach: string;
+  outcome?: string;
+};
+
 export type ProjectData = {
   /** Stable key when titles might repeat later */
   id?: string;
@@ -288,6 +294,8 @@ export type ProjectData = {
   role: ProjectRole;
   /** Industry tags for orientation */
   industries: readonly string[];
+  /** Longer story shown in the project panel */
+  caseStudy?: CaseStudy;
 };
 
 export const projectsData: readonly ProjectData[] = [
@@ -296,6 +304,12 @@ export const projectsData: readonly ProjectData[] = [
     title: "Codename Astra",
     description:
       "Astrology that remembers you: a chat-first AI (artificial intelligence) companion with live sky context, a journal, and social loops. Co-founder role focused on Web3 innovation, community, and go-to-market framing.",
+    caseStudy: {
+      problem:
+        "Astrology apps tend to forget you between sessions and read like generic horoscopes.",
+      approach:
+        "A chat-first companion that pairs live sky context with a personal journal and social loops, so each reading builds on what you've shared. As co-founder I focused on Web3 innovation, community, and go-to-market framing.",
+    },
     tags: ["AI", "Consumer", "Web3"],
     imageUrl: codenameAstraImg,
     liveLink: "https://project-astra-web.vercel.app/",
@@ -309,6 +323,12 @@ export const projectsData: readonly ProjectData[] = [
     title: "Cosmic Week Tracker and Mood Guide",
     description:
       "PartyRock app that blends astronomy, numerology, and mood with moon phase data, Personal Day numbers, and transit-style insights.",
+    caseStudy: {
+      problem:
+        "Moon phases, numerology, and mood tracking usually live in separate apps.",
+      approach:
+        "A PartyRock app that combines moon phase data, Personal Day numbers, and transit-style insights into one weekly guide.",
+    },
     tags: ["PartyRock", "Python", "Numerology", "Astronomy"],
     imageUrl: cosmicWeekTrackerImg,
     link: "https://partyrock.aws/u/diaraylouden/d7rzs7WNA/Cosmic-Week-Tracker-and-Mood-Guide",
@@ -322,6 +342,12 @@ export const projectsData: readonly ProjectData[] = [
     title: "Pathfinder",
     description:
       "Conversational intake that learns what someone wants before anyone pitches. Handles hesitation with the P.U.S.H. framework, and every recommendation traces back to something the person said. No build step, no dependencies.",
+    caseStudy: {
+      problem:
+        "Intake forms and early sales calls often pitch before they understand what someone actually wants.",
+      approach:
+        "A conversational intake that asks first, handles hesitation with the P.U.S.H. framework, and ties every recommendation back to something the person said. Plain JavaScript, no build step or dependencies.",
+    },
     tags: ["JavaScript", "Conversational UX", "Sales Enablement"],
     imageUrl: pathfinderImg,
     imagePosition: "object-left-top",
@@ -334,6 +360,12 @@ export const projectsData: readonly ProjectData[] = [
     title: "Prism Echo",
     description:
       "Browser-local portrait studio that grows color-separated after-images from one photo. Uploads stay on-device: no remote processing, no analytics.",
+    caseStudy: {
+      problem:
+        "Photo effect tools usually upload your images to someone else's server.",
+      approach:
+        "A portrait studio that runs entirely in the browser on Canvas, growing color-separated after-images from a single photo. Nothing leaves the device and there are no analytics.",
+    },
     tags: ["JavaScript", "Canvas", "Creative"],
     imageUrl: prismEchoImg,
     liveLink: "https://rayadamas.github.io/prism-echo/",
@@ -347,6 +379,11 @@ export const projectsData: readonly ProjectData[] = [
     title: "drl.bio",
     description:
       "Personal portfolio in React, Next.js, and TypeScript: applied AI (artificial intelligence) work, experience, and how I engage.",
+    caseStudy: {
+      problem: "A résumé can't show how I think, build, and engage.",
+      approach:
+        "This site: Next.js, TypeScript, and Tailwind, with a WebGL dune sky that turns from dusk to night as you scroll, project deep-dives, and booking built in.",
+    },
     tags: ["React", "Next.js", "TypeScript"],
     imageUrl: drlBioImg,
     link: "https://github.com/rayadamas/DRL",
@@ -360,6 +397,12 @@ export const projectsData: readonly ProjectData[] = [
     title: "fancy_proj",
     description:
       "Self-rescheduling commit bot. Increments a counter, commits, pushes, then picks a random time to run itself again tomorrow. Running since 2025-01-17.",
+    caseStudy: {
+      problem:
+        "A tiny, always-on automation is the easiest way to prove a scheduling loop holds up over time.",
+      approach:
+        "A Python bot that increments a counter, commits, pushes, then schedules its own next run at a random time the following day. Running since 2025-01-17.",
+    },
     tags: ["Python", "Automation", "Git"],
     imageUrl: fancyProjImg,
     imagePosition: "object-left-top",
@@ -372,6 +415,12 @@ export const projectsData: readonly ProjectData[] = [
     title: "Louden Desk",
     description:
       "Mission-control dashboard built from an Obsidian vault. Frozen snapshot, no backend: meetings, notes, and outreach as one glance plus deeper panels.",
+    caseStudy: {
+      problem:
+        "Meetings, notes, and outreach were scattered across an Obsidian vault with no single view.",
+      approach:
+        "A mission-control dashboard generated from the vault as a frozen snapshot with no backend: one glance up front, deeper panels behind it.",
+    },
     tags: ["JavaScript", "Obsidian", "Visualization"],
     imageUrl: loudenDeskImg,
     liveLink: "https://rayadamas.github.io/louden-desk",
@@ -385,6 +434,12 @@ export const projectsData: readonly ProjectData[] = [
     title: "GranolaOBS",
     description:
       "Syncs Granola meeting notes into Obsidian: official API (application programming interface) plus a local sync script, so transcripts land in the vault without a dashboard.",
+    caseStudy: {
+      problem:
+        "Meeting transcripts in Granola didn't reach the Obsidian vault without manual copying.",
+      approach:
+        "Granola's official API plus a local sync script, so notes and transcripts land in the vault automatically without another dashboard.",
+    },
     tags: ["Python", "Obsidian", "Automation"],
     imageUrl: granolaObsImg,
     link: "https://github.com/rayadamas/GranolaOBS",
@@ -398,6 +453,12 @@ export const projectsData: readonly ProjectData[] = [
     title: "AI Security Scanner for Python",
     description:
       "NextWork portfolio walkthrough documenting an AI-assisted (artificial intelligence) security audit flow for Python codebases.",
+    caseStudy: {
+      problem:
+        "Security reviews of Python codebases are slow to start and easy to skip.",
+      approach:
+        "A documented NextWork walkthrough of an AI-assisted audit flow that surfaces likely issues in Python code for a human to review.",
+    },
     tags: ["Python", "Security", "AI"],
     imageUrl: aiSecurityScannerImg,
     link: "https://learn.nextwork.org/loving_cyan_zealous_bacuri/docs/ai-security-audit",
@@ -410,6 +471,12 @@ export const projectsData: readonly ProjectData[] = [
     title: "Building an AI Workflow",
     description:
       "Automations that connect conversational triggers, an AI (artificial intelligence) agent with tools, GPT-4o, and Google Calendar event creation.",
+    caseStudy: {
+      problem:
+        "Turning a conversational request into a real calendar event usually takes manual steps.",
+      approach:
+        "An n8n workflow where a conversational trigger hands off to an AI agent with tools on GPT-4o, which creates the Google Calendar event.",
+    },
     tags: ["n8n", "Automation", "ChatGPT", "Google Calendar"],
     imageUrl: aiWorkflowN8nImg,
     link: "https://www.linkedin.com/in/diamond-ray/overlay/Project/1598639861/treasury/?profileId=ACoAACisl5MBN-KAGXvghmVe7bc9SFbeu8a7d8c&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_projects_details%3BqKzRXSnJRyu%2FPUM2wv4Z9Q%3D%3D",
@@ -422,6 +489,12 @@ export const projectsData: readonly ProjectData[] = [
     title: "Set Up a RAG Chatbot in Bedrock",
     description:
       "Serverless retrieval-augmented generation (RAG) chat on Amazon Web Services (AWS) Bedrock with cited answers, backed by document storage on Amazon S3 (Simple Storage Service) and Lambda.",
+    caseStudy: {
+      problem:
+        "Chatbots that answer from documents need to show where their answers come from.",
+      approach:
+        "A serverless RAG chat on AWS Bedrock with documents stored in S3, Lambda in between, and cited answers.",
+    },
     tags: ["AWS", "Bedrock", "RAG", "Lambda", "S3"],
     imageUrl: ragChatbotBedrockImg,
     link: "https://www.linkedin.com/in/diamond-ray/overlay/Project/1598919489/treasury/?profileId=ACoAACisl5MBN-KAGXvghmVe7bc9SFbeu8a7d8c&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_projects_details%3B21Bun5bCSYWT9QBkcutcJA%3D%3D",
@@ -430,7 +503,14 @@ export const projectsData: readonly ProjectData[] = [
     industries: ["AI, Data & Automation"],
   },
   {
+    id: "hyperlyz-demo",
     title: "Hyperlyz Demo",
+    caseStudy: {
+      problem:
+        "Musicians had no simple way to try minting their own audio as NFTs.",
+      approach:
+        "A demo on the ZORA API that lets users upload and mint their own audio files as music NFTs.",
+    },
     description:
       "A demo showcasing music NFTs (non-fungible tokens) via the ZORA API (application programming interface), allowing users to mint their own audio files.",
     tags: ["JavaScript", "HTML", "CSS", "web3"],
@@ -441,7 +521,14 @@ export const projectsData: readonly ProjectData[] = [
     industries: ["Web3 / FinTech", "Creative / Music"],
   },
   {
+    id: "clausura",
     title: "Clausura",
+    caseStudy: {
+      problem:
+        "Creators lack open tools to share, publish, and remix music together.",
+      approach:
+        "A modular, open-source music platform in TypeScript and JavaScript built around sharing, publishing, and remixing.",
+    },
     description:
       "A modular, open-source music platform designed to help creators share, publish, and remix content.",
     tags: ["web3", "TypeScript", "JavaScript", "Shell", "CSS"],
@@ -452,7 +539,14 @@ export const projectsData: readonly ProjectData[] = [
     industries: ["Web3 / FinTech", "Creative / Music"],
   },
   {
+    id: "solana-flutter-defi-sdk",
     title: "Solana Flutter DeFi SDK",
+    caseStudy: {
+      problem:
+        "Moving assets across chains inside a consumer mobile app is hard to make seamless.",
+      approach:
+        "Integrated the Wormhole bridge into an NFT dating mobile app using the open-source Canoe-Flutter DeFi SDK.",
+    },
     description:
       "Wormhole bridge integrated into an NFT (non-fungible token) dating mobile app, powered by the open-source Canoe-Flutter decentralized finance (DeFi) software development kit (SDK).",
     tags: ["Dart", "Kotlin", "Java", "Python", "CSS"],
@@ -462,7 +556,13 @@ export const projectsData: readonly ProjectData[] = [
     industries: ["Web3 / FinTech"],
   },
   {
+    id: "zorbz-data-visualizer",
     title: "Zorbz Data Visualizer",
+    caseStudy: {
+      problem: "Raw blockchain metadata is hard to read at a glance.",
+      approach:
+        "An MVP in p5.js that pulls ZORB metadata from Zora's API and turns it into visuals.",
+    },
     description:
       "A minimum viable product (MVP) data visualization tool using ZORB metadata and Zora's API (application programming interface) to abstract blockchain data into visuals.",
     tags: ["p5.js", "JavaScript", "TypeScript", "web3"],

@@ -11,14 +11,14 @@ export default function About() {
   return (
     <motion.section
       ref={ref}
-      className="mb-28 max-w-3xl mx-auto px-4 scroll-mt-28 sm:mb-40"
+      className="mb-24 max-w-3xl mx-auto px-4 scroll-mt-28 sm:mb-32"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
       id="about"
     >
-      <SectionHeading>About</SectionHeading>
+      <SectionHeading index={1}>About</SectionHeading>
 
       <div className="space-y-6 swiss-body text-swiss-text-secondary leading-relaxed text-center">
         <p>

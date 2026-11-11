@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import AmbientSound from "@/components/ambient-sound";
 import { Toaster } from "react-hot-toast";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 
@@ -24,6 +25,7 @@ export default function LayoutClient({
         <Header />
         {children}
         <Footer />
+        <AmbientSound />
         <Toaster
           position="bottom-right"
           toastOptions={{

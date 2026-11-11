@@ -3,23 +3,44 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
+import { usePrefersReducedMotion, useScrollNight } from "@/lib/hooks";
 
 const SPHERE_RADIUS = 2.5;
 
-const vertexShader = `
-  varying vec2 vUv;
+type NightRef = React.MutableRefObject<number>;
+
+const palette = {
+  duskBg: new THREE.Color("#1A0F0A"),
+  nightBg: new THREE.Color("#07060B"),
+  // Back (far, palest) to front (near, deepest) dune.
+  dusk: ["#F2C894", "#E0A15E", "#C8693A", "#8E3B22"].map(
+    (hex) => new THREE.Color(hex),
+  ),
+  night: ["#5A2E1A", "#4A2618", "#3A1E14", "#2A150E"].map(
+    (hex) => new THREE.Color(hex),
+  ),
+};
+
+const STAR_TINTS = [
+  { weight: 0.75, color: new THREE.Color(1.0, 0.96, 0.9) },
+  { weight: 0.15, color: new THREE.Color(0.8, 0.88, 1.0) },
+  { weight: 0.1, color: new THREE.Color(1.0, 0.82, 0.6) },
+];
+
+const duneVertexShader = `
   void main() {
-    vUv = uv;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
   }
 `;
 
-const fragmentShader = `
+const duneFragmentShader = `
   uniform float uTime;
-  uniform vec3 uColor1;
-  uniform vec3 uColor2;
-  uniform vec3 uBgColor;
-  varying vec2 vUv;
+  uniform float uNight;
+  uniform vec2 uResolution;
+  uniform vec3 uDuskBg;
+  uniform vec3 uNightBg;
+  uniform vec3 uDusk[4];
+  uniform vec3 uNightCol[4];
 
   float hash(vec2 p) {
     return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
@@ -29,129 +50,213 @@ const fragmentShader = `
     vec2 i = floor(p);
     vec2 f = fract(p);
     f = f * f * (3.0 - 2.0 * f);
-
     float a = hash(i);
     float b = hash(i + vec2(1.0, 0.0));
     float c = hash(i + vec2(0.0, 1.0));
     float d = hash(i + vec2(1.0, 1.0));
-
     return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
   }
 
   void main() {
-    vec2 uv = vUv;
-    float time = uTime * 0.4;
+    vec2 s = gl_FragCoord.xy / uResolution;
+    float t = uTime;
 
-    vec3 color = uBgColor;
+    vec3 bg = mix(uDuskBg, uNightBg, uNight);
 
-    for (float i = 0.0; i < 6.0; i++) {
-      float offset = i * 0.17;
-      float speed = 0.8 + i * 0.15;
+    float glow = exp(-pow((s.y - 0.4) * 3.0, 2.0));
+    vec3 glowCol = mix(uDusk[0] * 0.55, uNightCol[0] * 0.5, uNight);
+    vec3 color = bg + glowCol * glow * mix(0.32, 0.1, uNight);
 
-      float diagonal = uv.x + uv.y * 1.5 - time * speed + offset * 5.0;
+    for (int i = 0; i < 4; i++) {
+      float fi = float(i);
+      float x = s.x * (1.4 + fi * 0.45);
+      float crest = 0.44 - fi * 0.11
+        + 0.05 * sin(x * 2.3 + fi * 1.9 + t * 0.05 * (1.0 + fi * 0.3))
+        + 0.022 * sin(x * 5.1 - t * 0.08 + fi * 2.7)
+        + (noise(vec2(x * 3.0 + t * 0.03, fi * 4.0)) - 0.5) * 0.03;
 
-      float streak = sin(diagonal * 3.0 + offset * 10.0) * 0.5 + 0.5;
-      streak = pow(streak, 3.0);
+      float below = smoothstep(crest + 0.004, crest - 0.004, s.y);
+      float lit = 1.0 - clamp((crest - s.y) / 0.2, 0.0, 1.0);
 
-      float n = noise(vec2(diagonal * 2.0, uv.y * 3.0 + time * 0.5));
-      streak *= 0.5 + n * 0.5;
+      vec3 duneCol = mix(uDusk[i], uNightCol[i], uNight);
+      vec3 body = mix(bg, duneCol, 0.2 + 0.6 * lit * lit);
 
-      float fade = sin(uv.y * 3.14159) * sin(uv.x * 3.14159);
-      streak *= fade * 0.4;
+      float wind = sin(s.x * 9.0 + s.y * 22.0 - t * 0.35 + fi * 3.0
+        + noise(s * 6.0 + t * 0.08) * 2.0);
+      body += duneCol * pow(0.5 + 0.5 * wind, 6.0) * 0.12 * lit;
 
-      vec3 streakColor = mod(i, 2.0) < 1.0 ? uColor1 : uColor2;
-
-      color = mix(color, streakColor, streak * 0.35);
+      color = mix(color, body, below * 0.32);
     }
 
-    float gradientMix = noise(uv * 2.0 + time * 0.1) * 0.1;
-    color = mix(color, mix(uColor1, uColor2, uv.x), gradientMix);
+    // Keep the centered content column readable over the warmest areas.
+    float column = exp(-pow((s.x - 0.5) * 2.4, 2.0));
+    color *= 1.0 - 0.3 * column;
 
     gl_FragColor = vec4(color, 1.0);
   }
 `;
 
-const colors = {
-  bg: new THREE.Color("#121218"),
-  color1: new THREE.Color("#93D3DF"),
-  color2: new THREE.Color("#3B65B3"),
-  particles: new THREE.Color("#F6F4F1"),
-};
+const starVertexShader = `
+  attribute float aSize;
+  attribute float aPhase;
+  attribute float aRate;
+  attribute vec3 aTint;
 
-function createCircleTexture() {
-  const canvas = document.createElement("canvas");
-  canvas.width = 32;
-  canvas.height = 32;
-  const ctx = canvas.getContext("2d")!;
+  uniform float uTime;
+  uniform float uNight;
+  uniform float uPixelRatio;
+  uniform float uBaseSize;
+  uniform float uTwinkle;
 
-  const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
-  gradient.addColorStop(0, "rgba(255,255,255,1)");
-  gradient.addColorStop(0.3, "rgba(255,255,255,0.8)");
-  gradient.addColorStop(1, "rgba(255,255,255,0)");
+  varying float vAlpha;
+  varying vec3 vTint;
 
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, 32, 32);
+  void main() {
+    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+    float depth = -mvPosition.z;
 
-  return new THREE.CanvasTexture(canvas);
+    float t = uTime * aRate + aPhase;
+    float twinkle = 0.6 + 0.25 * sin(t) + 0.15 * sin(t * 2.7 + aPhase * 3.0);
+    float glint = pow(max(0.0, sin(uTime * 0.35 * aRate + aPhase * 7.0)), 60.0);
+    float flicker = mix(1.0, twinkle, uTwinkle) + glint * uTwinkle * 1.2;
+
+    float farSide = clamp((depth - 2.5) / 5.0, 0.0, 1.0);
+    vAlpha = flicker * mix(0.5, 1.0, uNight) * mix(1.0, 0.45, farSide);
+    vTint = aTint;
+
+    gl_PointSize = uBaseSize * aSize * uPixelRatio
+      * (1.0 + 0.3 * (flicker - 1.0)) * (5.0 / depth);
+    gl_Position = projectionMatrix * mvPosition;
+  }
+`;
+
+const starFragmentShader = `
+  varying float vAlpha;
+  varying vec3 vTint;
+
+  void main() {
+    float d = length(gl_PointCoord - 0.5) * 2.0;
+    float core = smoothstep(0.35, 0.0, d);
+    float halo = exp(-d * d * 6.0) * 0.6;
+    float alpha = (core + halo) * vAlpha;
+    if (alpha < 0.01) discard;
+    gl_FragColor = vec4(vTint * (core * 1.2 + halo), alpha);
+  }
+`;
+
+function pickTint() {
+  let roll = Math.random();
+  for (const tint of STAR_TINTS) {
+    if (roll < tint.weight) return tint.color;
+    roll -= tint.weight;
+  }
+  return STAR_TINTS[0].color;
 }
 
-function ParticleSphere({
+function StarGlobe({
   mouse,
-  particleCount,
+  night,
+  starCount,
+  drift,
+  reducedMotion,
 }: {
   mouse: React.RefObject<{ x: number; y: number }>;
-  particleCount: number;
+  night: NightRef;
+  starCount: number;
+  drift: boolean;
+  reducedMotion: boolean;
 }) {
   const pointsRef = useRef<THREE.Points>(null);
 
-  const positions = useMemo(() => {
-    const pos = new Float32Array(particleCount * 3);
+  const attributes = useMemo(() => {
+    const position = new Float32Array(starCount * 3);
+    const size = new Float32Array(starCount);
+    const phase = new Float32Array(starCount);
+    const rate = new Float32Array(starCount);
+    const tint = new Float32Array(starCount * 3);
 
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < starCount; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
       const r = SPHERE_RADIUS * (0.95 + Math.random() * 0.1);
 
-      pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-      pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      pos[i * 3 + 2] = r * Math.cos(phi);
+      position[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+      position[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+      position[i * 3 + 2] = r * Math.cos(phi);
+
+      // Mostly fine points with a small tail of clearly bright stars.
+      size[i] = 0.8 + Math.pow(Math.random(), 6) * 3.5;
+      phase[i] = Math.random() * Math.PI * 2;
+      rate[i] = 0.6 + Math.random() * 1.8;
+
+      const color = pickTint();
+      tint[i * 3] = color.r;
+      tint[i * 3 + 1] = color.g;
+      tint[i * 3 + 2] = color.b;
     }
 
-    return pos;
-  }, [particleCount]);
+    return { position, size, phase, rate, tint };
+  }, [starCount]);
 
-  const circleTexture = useMemo(() => createCircleTexture(), []);
-
-  const particleColor = colors.particles;
+  const uniforms = useMemo(
+    () => ({
+      uTime: { value: 0 },
+      uNight: { value: 0 },
+      uPixelRatio: { value: 1 },
+      uBaseSize: { value: 2.8 },
+      uTwinkle: { value: 1 },
+    }),
+    [],
+  );
 
   const targetRotation = useRef({ x: 0, y: 0 });
 
-  useFrame(() => {
-    if (!pointsRef.current || !mouse.current) return;
+  useFrame((state) => {
+    const points = pointsRef.current;
+    if (!points) return;
 
-    targetRotation.current.x = mouse.current.y * 0.3;
-    targetRotation.current.y = mouse.current.x * 0.3;
+    const material = points.material as THREE.ShaderMaterial;
+    material.uniforms.uTime.value = state.clock.elapsedTime;
+    material.uniforms.uNight.value = night.current;
+    material.uniforms.uPixelRatio.value = state.viewport.dpr;
+    material.uniforms.uTwinkle.value = reducedMotion ? 0 : 1;
 
-    pointsRef.current.rotation.x +=
-      (targetRotation.current.x - pointsRef.current.rotation.x) * 0.02;
-    pointsRef.current.rotation.y +=
-      (targetRotation.current.y - pointsRef.current.rotation.y) * 0.02;
+    if (drift) {
+      const t = state.clock.elapsedTime * 0.15;
+      targetRotation.current.x = Math.sin(t) * 0.12;
+      targetRotation.current.y = Math.cos(t * 0.8) * 0.18;
+    } else if (mouse.current) {
+      targetRotation.current.x = mouse.current.y * 0.3;
+      targetRotation.current.y = mouse.current.x * 0.3;
+    }
 
-    pointsRef.current.rotation.y += 0.001;
+    points.rotation.x +=
+      (targetRotation.current.x - points.rotation.x) * 0.02;
+    points.rotation.y +=
+      (targetRotation.current.y - points.rotation.y) * 0.02;
+    points.rotation.y += reducedMotion ? 0.0003 : 0.001;
   });
 
   return (
-    <points ref={pointsRef} position={[0, 0, 0]}>
+    <points ref={pointsRef}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+        <bufferAttribute
+          attach="attributes-position"
+          args={[attributes.position, 3]}
+        />
+        <bufferAttribute attach="attributes-aSize" args={[attributes.size, 1]} />
+        <bufferAttribute
+          attach="attributes-aPhase"
+          args={[attributes.phase, 1]}
+        />
+        <bufferAttribute attach="attributes-aRate" args={[attributes.rate, 1]} />
+        <bufferAttribute attach="attributes-aTint" args={[attributes.tint, 3]} />
       </bufferGeometry>
-      <pointsMaterial
-        size={0.015}
-        color={particleColor}
-        map={circleTexture}
+      <shaderMaterial
+        vertexShader={starVertexShader}
+        fragmentShader={starFragmentShader}
+        uniforms={uniforms}
         transparent
-        opacity={0.9}
-        sizeAttenuation
         depthWrite={false}
         blending={THREE.AdditiveBlending}
       />
@@ -159,67 +264,87 @@ function ParticleSphere({
   );
 }
 
-function GradientMesh() {
+function DuneSky({
+  night,
+  reducedMotion,
+}: {
+  night: NightRef;
+  reducedMotion: boolean;
+}) {
   const meshRef = useRef<THREE.Mesh>(null);
 
-  const uniforms = useMemo(() => {
-    return {
+  const uniforms = useMemo(
+    () => ({
       uTime: { value: 0 },
-      uBgColor: { value: colors.bg.clone() },
-      uColor1: { value: colors.color1.clone() },
-      uColor2: { value: colors.color2.clone() },
-    };
-  }, []);
+      uNight: { value: 0 },
+      uResolution: { value: new THREE.Vector2(1, 1) },
+      uDuskBg: { value: palette.duskBg.clone() },
+      uNightBg: { value: palette.nightBg.clone() },
+      uDusk: { value: palette.dusk.map((c) => c.clone()) },
+      uNightCol: { value: palette.night.map((c) => c.clone()) },
+    }),
+    [],
+  );
 
   useFrame((state) => {
-    if (meshRef.current) {
-      const material = meshRef.current.material as THREE.ShaderMaterial;
-      material.uniforms.uTime.value = state.clock.elapsedTime;
-    }
+    const mesh = meshRef.current;
+    if (!mesh) return;
+    const material = mesh.material as THREE.ShaderMaterial;
+    material.uniforms.uTime.value = reducedMotion
+      ? 0
+      : state.clock.elapsedTime;
+    material.uniforms.uNight.value = night.current;
+    material.uniforms.uResolution.value.set(
+      state.size.width * state.viewport.dpr,
+      state.size.height * state.viewport.dpr,
+    );
   });
 
   return (
-    <mesh ref={meshRef} scale={[1, 1, 1]}>
-      <planeGeometry args={[12, 12, 1, 1]} />
+    <mesh ref={meshRef}>
+      <planeGeometry args={[24, 12, 1, 1]} />
       <shaderMaterial
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
+        vertexShader={duneVertexShader}
+        fragmentShader={duneFragmentShader}
         uniforms={uniforms}
+        depthWrite={false}
       />
     </mesh>
   );
 }
 
-function Scene({
-  mouse,
-  particleCount,
-}: {
-  mouse: React.RefObject<{ x: number; y: number }>;
-  particleCount: number;
-}) {
-  return (
-    <>
-      <GradientMesh />
-      <ParticleSphere mouse={mouse} particleCount={particleCount} />
-    </>
-  );
+function supportsWebGL() {
+  try {
+    const canvas = document.createElement("canvas");
+    return !!(canvas.getContext("webgl2") || canvas.getContext("webgl"));
+  } catch {
+    return false;
+  }
 }
 
 export default function GradientBackground() {
   const mouse = useRef({ x: 0, y: 0 });
-  const [particleCount, setParticleCount] = useState(5000);
-  const [isMobile, setIsMobile] = useState(false);
+  const night = useScrollNight();
+  const reducedMotion = usePrefersReducedMotion();
+  const [isLite, setIsLite] = useState(false);
+  const [webgl, setWebgl] = useState(true);
+  const [visible, setVisible] = useState(true);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 768px)");
-    const update = () => {
-      const mobile = mq.matches;
-      setIsMobile(mobile);
-      setParticleCount(mobile ? 1500 : 5000);
-    };
+    setWebgl(supportsWebGL());
+    const mq = window.matchMedia("(max-width: 768px), (pointer: coarse)");
+    const update = () => setIsLite(mq.matches);
     update();
     mq.addEventListener("change", update);
     return () => mq.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    const handleVisibility = () => setVisible(!document.hidden);
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () =>
+      document.removeEventListener("visibilitychange", handleVisibility);
   }, []);
 
   useEffect(() => {
@@ -227,30 +352,36 @@ export default function GradientBackground() {
       mouse.current.x = (e.clientX / window.innerWidth) * 2 - 1;
       mouse.current.y = -(e.clientY / window.innerHeight) * 2 + 1;
     };
-
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  if (isMobile) {
-    return <StaticBackground />;
-  }
-
   return (
-    <div className="fixed inset-0 -z-20">
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 50 }}
-        style={{ width: "100%", height: "100%" }}
-        gl={{ antialias: true, alpha: false }}
-      >
-        <Scene mouse={mouse} particleCount={particleCount} />
-      </Canvas>
+    <div className="fixed inset-0 -z-20" aria-hidden>
+      <div className="dune-fallback absolute inset-0" />
+      {webgl ? (
+        <Canvas
+          key={isLite ? "lite" : "full"}
+          camera={{ position: [0, 0, 5], fov: 50 }}
+          dpr={isLite ? [1, 1.25] : [1, 1.75]}
+          frameloop={visible ? "always" : "never"}
+          gl={{ antialias: !isLite, alpha: false }}
+          onCreated={() => setReady(true)}
+          className={`transition-opacity duration-700 ${
+            ready ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ position: "absolute", inset: 0 }}
+        >
+          <DuneSky night={night} reducedMotion={reducedMotion} />
+          <StarGlobe
+            mouse={mouse}
+            night={night}
+            starCount={isLite ? 1200 : 5000}
+            drift={isLite}
+            reducedMotion={reducedMotion}
+          />
+        </Canvas>
+      ) : null}
     </div>
-  );
-}
-
-function StaticBackground() {
-  return (
-    <div className="fixed inset-0 -z-20 bg-swiss-bg" aria-hidden />
   );
 }
