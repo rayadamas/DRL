@@ -28,7 +28,7 @@ export default function Intro() {
         >
           <div className="relative">
             <Image
-              src="/IMG_2543.JPG"
+              src="/Corporate headshot with cinematic amber gradient.png"
               alt="Diamond Ray Louden"
               width={120}
               height={120}
