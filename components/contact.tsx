@@ -1,37 +1,17 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Script from "next/script";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { track } from "@vercel/analytics";
 import { useSectionInView } from "@/lib/hooks";
-import { CALENDLY_URL, contactTopics } from "@/lib/product-data";
+import { contactTopics } from "@/lib/product-data";
+import {
+  CALENDLY_ORIGIN,
+  CalendlyAssets,
+  openCalendlyPopup,
+} from "./calendly";
 import { BsArrowRight, BsCheckCircleFill } from "react-icons/bs";
-
-type CalendlyPrefill = {
-  name?: string;
-  email?: string;
-  customAnswers?: Record<string, string>;
-};
-
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget(options: { url: string; prefill?: CalendlyPrefill }): void;
-    };
-  }
-}
-
-const CALENDLY_ORIGIN = "https://calendly.com";
-
-/** Colors only apply on paid Calendly plans; harmless otherwise. */
-const CALENDLY_THEME_PARAMS = new URLSearchParams({
-  hide_gdpr_banner: "1",
-  background_color: "171717",
-  text_color: "fafafa",
-  primary_color: "ff8a3d",
-}).toString();
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
@@ -55,37 +35,14 @@ export default function Contact() {
 
   function openCalendly(e: React.FormEvent) {
     e.preventDefault();
-    const trimmedName = name.trim();
-    const trimmedEmail = email.trim();
     const trimmedMessage = message.trim();
-    // a1 answers the event's first custom question, which Calendly includes in the invite.
+    // a1 answers the event's first custom question, which Calendly includes in
+    // the invite.
     const prepNote = trimmedMessage
       ? `Topic: ${topic}\n\n${trimmedMessage}`
       : `Topic: ${topic}`;
 
-    // Calendly's widget re-encodes the URL, so spaces must be %20 rather than URLSearchParams' "+".
-    const prefillParams = Object.entries({ name: trimmedName, email: trimmedEmail, a1: prepNote })
-      .filter(([, value]) => value)
-      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
-      .join("&");
-
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({
-        url: `${CALENDLY_URL}?${CALENDLY_THEME_PARAMS}&${prefillParams}`,
-        prefill: {
-          ...(trimmedName && { name: trimmedName }),
-          ...(trimmedEmail && { email: trimmedEmail }),
-          customAnswers: { a1: prepNote },
-        },
-      });
-      return;
-    }
-
-    window.open(
-      `${CALENDLY_URL}?${prefillParams}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
+    openCalendlyPopup({ name, email, note: prepNote });
   }
 
   const fieldClass =
@@ -101,18 +58,11 @@ export default function Contact() {
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <link
-        rel="stylesheet"
-        href="https://assets.calendly.com/assets/external/widget.css"
-      />
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="lazyOnload"
-      />
+      <CalendlyAssets />
 
       <SectionHeading index={7}>Contact</SectionHeading>
 
-      <p className="text-center text-swiss-text-secondary mb-8 swiss-body text-sm">
+      <p className="glass-panel text-center text-swiss-text-secondary mb-8 swiss-body text-sm">
         Pick a topic and book 30 minutes - or email{" "}
         <a
           className="text-swiss-accent hover:underline font-medium"
@@ -123,7 +73,7 @@ export default function Contact() {
         .
       </p>
 
-      <form onSubmit={openCalendly} className="space-y-4">
+      <form onSubmit={openCalendly} className="glass-panel space-y-4">
         <div>
           <label htmlFor="contact-topic" className="swiss-label text-swiss-text-secondary block mb-1.5">
             Topic

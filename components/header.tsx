@@ -4,11 +4,16 @@ import { motion } from "framer-motion";
 import { links } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
+import { usePathname } from "next/navigation";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
+  const pathname = usePathname();
+  // Hash-only links resolve against the current route, so on any page other
+  // than the home page they have to be prefixed to point back home.
+  const isHome = pathname === "/";
 
   return (
     <header className="z-[999] fixed top-0 left-0 right-0 flex justify-center pt-4 sm:pt-6 px-2">
@@ -30,17 +35,17 @@ export default function Header() {
                 className={clsx(
                   "relative px-2 sm:px-3 py-1 sm:py-1.5 rounded-full block transition-all duration-200 whitespace-nowrap",
                   {
-                    "text-swiss-text": activeSection === link.name,
-                    "hover:text-swiss-text": activeSection !== link.name,
+                    "text-swiss-text": isHome && activeSection === link.name,
+                    "hover:text-swiss-text": !isHome || activeSection !== link.name,
                   }
                 )}
-                href={link.hash}
+                href={isHome ? link.hash : `/${link.hash}`}
                 onClick={() => {
                   setActiveSection(link.name);
                   setTimeOfLastClick(Date.now());
                 }}
               >
-                {link.name === activeSection && (
+                {isHome && link.name === activeSection && (
                   <motion.span
                     className="absolute inset-0 bg-swiss-accent/25 rounded-full -z-10"
                     layoutId="activeSection"

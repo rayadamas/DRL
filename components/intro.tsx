@@ -61,7 +61,7 @@ export default function Intro() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="swiss-body text-lg sm:text-xl text-swiss-text-secondary max-w-2xl mb-10 leading-relaxed"
+          className="glass-panel swiss-body text-lg sm:text-xl text-swiss-text-secondary max-w-2xl mb-10 leading-relaxed"
         >
           I turn ideas into systems that work.{" "}
           <span className="text-swiss-text font-medium">11+ years</span> of
