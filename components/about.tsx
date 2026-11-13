@@ -20,7 +20,7 @@ export default function About() {
     >
       <SectionHeading index={1}>About</SectionHeading>
 
-      <div className="space-y-6 swiss-body text-swiss-text-secondary leading-relaxed text-center">
+      <div className="glass-panel space-y-6 swiss-body text-swiss-text-secondary leading-relaxed text-center">
         <p>
           I&rsquo;m at my best when I&rsquo;m{" "}
           <span className="text-swiss-text font-medium">

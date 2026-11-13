@@ -7,7 +7,7 @@
   --color-bg: #0A0A0A;
   --color-bg-secondary: #141414;
   --color-text: #FAFAFA;
-  --color-text-secondary: #A3A3A3;
+  --color-text-secondary: #C9C9C9;
   --color-accent: #FF8A3D;
   --color-accent-hover: #FFA866;
   --color-border: #262626;
@@ -54,8 +54,15 @@ body {
 }
 
 .swiss-body {
-  @apply font-normal leading-relaxed;
-  letter-spacing: 0.01em;
+  @apply leading-relaxed;
+  font-weight: 450;
+  letter-spacing: 0.015em;
+}
+
+/* Separates text from the stars drawn behind it */
+.swiss-body,
+.text-swiss-text-secondary {
+  text-shadow: 0 0 1px rgb(0 0 0 / 0.9), 0 0 8px rgb(0 0 0 / 0.75);
 }
 
 .swiss-label {
@@ -100,6 +107,35 @@ body {
 .swiss-card:hover {
   background: var(--color-card-hover);
   border-color: var(--color-accent);
+}
+
+/* Frosted backing for text that sits directly on the starfield; matches the header nav */
+.glass-panel {
+  background: rgb(10 10 10 / 0.7);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(38 38 38 / 0.5);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .glass-panel {
+    padding: 1.5rem 2rem;
+  }
+}
+
+.glass-panel--tight,
+.glass-panel.glass-panel--tight {
+  padding: 0.625rem 1.25rem;
+  border-radius: 1rem;
+}
+
+@media (min-width: 640px) {
+  .glass-panel--tight,
+  .glass-panel.glass-panel--tight {
+    border-radius: 9999px;
+  }
 }
 
 /* Custom Scrollbar */

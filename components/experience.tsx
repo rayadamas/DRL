@@ -94,8 +94,10 @@ export default function Experience() {
             ))}
           </div>
 
-          <p className="text-center mt-2 text-[11px] text-swiss-text-secondary/90 sm:hidden">
-            Swipe horizontally to see more
+          <p className="text-center mt-2 sm:hidden">
+            <span className="glass-panel glass-panel--tight inline-block text-[11px] text-swiss-text-secondary/90">
+              Swipe horizontally to see more
+            </span>
           </p>
         </motion.div>
       </div>

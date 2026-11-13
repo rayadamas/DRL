@@ -19,7 +19,7 @@ export default function PortfolioValue() {
       className="mb-24 max-w-5xl mx-auto px-4 scroll-mt-28 sm:mb-32"
     >
       <SectionHeading index={2}>Portfolio influenced</SectionHeading>
-      <p className="text-center text-swiss-text-secondary swiss-body text-sm mb-8 max-w-xl mx-auto">
+      <p className="glass-panel text-center text-swiss-text-secondary swiss-body text-sm mb-8 max-w-xl mx-auto">
         Modeled lifetime value influenced by industry - how engagement spans
         sectors over time, not a claim of cash booked.
       </p>
@@ -49,10 +49,12 @@ export default function PortfolioValue() {
         ))}
       </ul>
 
-      <p className="mt-8 text-center text-sm text-swiss-text-secondary">
-        Total modeled portfolio value influenced across industries{" "}
-        <span className="text-swiss-text font-semibold">{industryValueTotal}</span>
-      </p>
+      <div className="mt-8 text-center">
+        <p className="glass-panel glass-panel--tight inline-block text-sm text-swiss-text-secondary">
+          Total modeled portfolio value influenced across industries{" "}
+          <span className="text-swiss-text font-semibold">{industryValueTotal}</span>
+        </p>
+      </div>
     </section>
   );
 }

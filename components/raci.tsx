@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import { track } from "@vercel/analytics";
 import SectionHeading from "./section-heading";
 import { useSectionInView } from "@/lib/hooks";
 import { raciData } from "@/lib/product-data";
@@ -23,7 +25,7 @@ export default function Raci() {
       className="mb-24 max-w-6xl mx-auto px-4 scroll-mt-28 sm:mb-32"
     >
       <SectionHeading index={5}>How I engage</SectionHeading>
-      <p className="text-center text-swiss-text-secondary swiss-body text-sm mb-8 max-w-2xl mx-auto">
+      <p className="glass-panel text-center text-swiss-text-secondary swiss-body text-sm mb-8 max-w-2xl mx-auto">
         Bring me in where discovery, identity risk, applied AI (artificial
         intelligence), or GTM (go-to-market) automation needs an owner - not a
         spectator.
@@ -97,6 +99,20 @@ export default function Raci() {
           </motion.li>
         ))}
       </ul>
+
+      <div className="glass-panel mx-auto mt-10 max-w-2xl text-center">
+        <p className="swiss-body text-sm text-swiss-text-secondary">
+          Most of what stalls inside these rows is not a technical problem. It
+          is a decision nobody was assigned to make.
+        </p>
+        <Link
+          href="/not-technical"
+          onClick={() => track("not_technical_entry", { from: "engage" })}
+          className="mt-3 inline-block font-mono text-[11px] uppercase tracking-[0.2em] text-swiss-accent transition-colors hover:text-swiss-accent-hover"
+        >
+          Read the argument &rarr;
+        </Link>
+      </div>
     </section>
   );
 }

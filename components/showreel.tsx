@@ -24,18 +24,20 @@ export default function Showreel() {
       <div className="overflow-hidden rounded-xl border border-swiss-border bg-swiss-card shadow-lg aspect-video">
         <video
           ref={videoRef}
-          src="/LoudenDia_Showreel_16x9.mp4"
+          src="/visionreel_drl.mp4"
           muted
           loop
           playsInline
           controls
           preload="metadata"
-          aria-label="Diamond Ray Louden showreel"
+          aria-label="Diamond Ray Louden vision reel"
           className="h-full w-full object-cover"
         />
       </div>
-      <figcaption className="mt-3 text-center text-xs sm:text-sm text-swiss-text-secondary">
-        (Showreel v1. Designed and edited by me. More cuts to come.)
+      <figcaption className="mt-3 text-center">
+        <span className="glass-panel glass-panel--tight inline-block text-xs sm:text-sm text-swiss-text-secondary">
+          (Showreel v2. Designed and edited by me.)
+        </span>
       </figcaption>
     </motion.figure>
   );
